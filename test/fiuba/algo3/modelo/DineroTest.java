@@ -3,6 +3,8 @@ package fiuba.algo3.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.modelo.Dinero;
+
 public class DineroTest {
 	private static final double DELTA = 1e-15;
 	
