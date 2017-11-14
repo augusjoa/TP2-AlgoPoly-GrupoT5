@@ -19,6 +19,7 @@ public class Jugador {
 	}
 	
 	public void sustraerDinero(double valor) {
+		//agregar exp para que no quede valor negativo
 		this.dinero.sustraerDinero(valor);
 	}
 
@@ -32,8 +33,8 @@ public class Jugador {
 	
 	public void moverse(int numeroDelDado){
 		if(this.puedeMoverse()){
-			posicion+=numeroDelDado;
 			//tablero.moverPersonaje(numeroDelDado);
+			posicion+=numeroDelDado;
 			accionDeMovimiento=false;
 		}
 		else{

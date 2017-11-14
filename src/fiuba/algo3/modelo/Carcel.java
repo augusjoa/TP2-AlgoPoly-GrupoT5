@@ -6,6 +6,7 @@ import fiuba.algo3.modelo.Jugador;
 
 public class Carcel {
 	public Hashtable<Jugador, Integer> jugadoresEnCarcel = new Hashtable<Jugador, Integer>();
+	double valorDeLaFianza= 45000;
 	
 	public void retenerJugador(Jugador jugador){
 		if(this.jugadoresEnCarcel.containsKey(jugador)) {
@@ -18,15 +19,20 @@ public class Carcel {
 			jugador.setAccionDeMovimiento(false);
 			
 		}
-		else if(jugadoresEnCarcel.get(jugador) == 2 && jugadoresEnCarcel.get(jugador) == 3){
-			//paga si tiene plata
-			jugadoresEnCarcel.remove(jugador);
-			
-		}
+		//else if(jugadoresEnCarcel.get(jugador) == 2 && jugadoresEnCarcel.get(jugador) == 3){
+		//	this.pagarFianza(jugador);
+		//}
 		else if(jugadoresEnCarcel.get(jugador) == 4){
 			jugador.setAccionDeMovimiento(true);
 			jugadoresEnCarcel.remove(jugador);
 		}
-		//jugador.pasarTurno();
+	}
+	
+	public void pagarFianza(Jugador jugador){
+		if(jugador.getDinero()>valorDeLaFianza){
+			jugador.sustraerDinero(valorDeLaFianza);
+			jugadoresEnCarcel.remove(jugador);
+			jugador.setAccionDeMovimiento(true);
+		}
 	}
 }
