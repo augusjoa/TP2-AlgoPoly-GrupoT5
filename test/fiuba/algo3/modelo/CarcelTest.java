@@ -5,7 +5,6 @@ import org.junit.Assert;
 
 public class CarcelTest {
 	
-	//private static final double DELTA = 1e-15;
 	@Test
 	public void testJugadorRetenidoNoPuedeMoverse(){
 		Jugador jugador = new Jugador(100000);

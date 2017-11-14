@@ -3,10 +3,17 @@ package fiuba.algo3.modelo;
 import java.util.Hashtable;
 
 import fiuba.algo3.modelo.Jugador;
+import fiuba.algo3.modelo.Posicion;
 
 public class Carcel {
 	public Hashtable<Jugador, Integer> jugadoresEnCarcel = new Hashtable<Jugador, Integer>();
 	double valorDeLaFianza= 45000;
+	Posicion posicion = new Posicion(5);
+	
+	//public bool jugadorEstaEnCarcel(Jugador jugador){
+		//return this.jugadoresEnCarcel.containsKey(jugador)
+		//}
+	//}
 	
 	public void retenerJugador(Jugador jugador){
 		if(this.jugadoresEnCarcel.containsKey(jugador)) {
