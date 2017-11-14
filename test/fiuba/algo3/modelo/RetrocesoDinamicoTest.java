@@ -10,7 +10,7 @@ public class RetrocesoDinamicoTest {
 	public void testCaerEnLaCasillaCon7Hasta10(){
 		Jugador unJugador = new Jugador(9*25+8);		
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
-		int posicionInicial = unJugador.posicion;
+		int posicionInicial = unJugador.posicion.getPosX();
 		
 		unRetrocesoDinamico.avanzar(unJugador, 9);
 		
@@ -21,7 +21,7 @@ public class RetrocesoDinamicoTest {
 	public void testCaerEnLaCasillaCon11oMas(){
 		Jugador unJugador = new Jugador(100000);		
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
-		int posicionInicial = unJugador.posicion;
+		int posicionInicial = unJugador.posicion.getPosX();
 		
 		unRetrocesoDinamico.avanzar(unJugador, 11);
 		
