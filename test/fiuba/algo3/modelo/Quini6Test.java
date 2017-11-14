@@ -2,6 +2,8 @@ package fiuba.algo3.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import casillas.Quini6;
+
 
 public class Quini6Test {
 	private static final double DELTA = 1e-15;

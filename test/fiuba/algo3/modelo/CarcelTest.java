@@ -1,6 +1,9 @@
 package fiuba.algo3.modelo;
 
 import org.junit.Test;
+
+import casillas.Carcel;
+
 import org.junit.Assert;
 
 public class CarcelTest {

@@ -3,6 +3,8 @@ package fiuba.algo3.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import casillas.RetrocesoDinamico;
+
 public class RetrocesoDinamicoTest {
 	@Test
 	public void testCaerEnLaCasillaCon7Hasta10(){
