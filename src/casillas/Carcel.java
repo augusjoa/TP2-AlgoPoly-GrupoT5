@@ -1,4 +1,4 @@
-package fiuba.algo3.modelo;
+package casillas;
 
 import java.util.Hashtable;
 

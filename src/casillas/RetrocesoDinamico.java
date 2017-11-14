@@ -1,4 +1,6 @@
-package fiuba.algo3.modelo;
+package casillas;
+
+import fiuba.algo3.modelo.Jugador;
 
 public class RetrocesoDinamico {
 
