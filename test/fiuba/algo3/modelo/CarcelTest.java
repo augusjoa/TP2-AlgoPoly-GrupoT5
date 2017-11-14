@@ -7,7 +7,7 @@ public class CarcelTest {
 	
 	//private static final double DELTA = 1e-15;
 	@Test
-	public void jugadorRetenidoNoPuedeMoverse(){
+	public void testJugadorRetenidoNoPuedeMoverse(){
 		Jugador jugador = new Jugador(100000);
 		
 		Carcel carcel = new Carcel();
@@ -19,7 +19,7 @@ public class CarcelTest {
 	
 	
 	@Test
-	public void jugadorRetenidoPorCuatroTurnosPuedeMoverse(){
+	public void testJugadorRetenidoPorCuatroTurnosPuedeMoverse(){
 		Jugador jugador = new Jugador(100000);
 		
 		Carcel carcel = new Carcel();
@@ -34,7 +34,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void jugadorRetenidoPorDosTurnosYPagaFianza(){
+	public void testJugadorRetenidoPorDosTurnosYPagaFianza(){
 		Jugador jugador = new Jugador(100000);
 		
 		Carcel carcel = new Carcel();
@@ -48,7 +48,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void jugadorRetenidoPorTresTurnosYPagaFianza(){
+	public void testJugadorRetenidoPorTresTurnosYPagaFianza(){
 		Jugador jugador = new Jugador(100000);
 		
 		Carcel carcel = new Carcel();
@@ -63,7 +63,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void jugadorRetenidoPorDosTurnosConFondosInsuficientesNoPuedeMoverse(){
+	public void testJugadorRetenidoPorDosTurnosConFondosInsuficientesNoPuedeMoverse(){
 		Jugador jugador = new Jugador(23999);
 		
 		Carcel carcel = new Carcel();
@@ -76,7 +76,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void jugadorRetenidoPorTresTurnosConFondosInsuficientesNoPuedeMoverse(){
+	public void testJugadorRetenidoPorTresTurnosConFondosInsuficientesNoPuedeMoverse(){
 		Jugador jugador = new Jugador(23999);
 		
 		Carcel carcel = new Carcel();

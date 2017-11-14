@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BarrioTest {
-private static final double DELTA = 1e-15;
+	//private static final double DELTA = 1e-15;
 	
 	@Test
 	public void testAlComprarElBarrioElJugadorEsPropietario() {
