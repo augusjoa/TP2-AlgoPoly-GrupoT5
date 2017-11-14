@@ -3,7 +3,7 @@ package fiuba.algo3.modelo;
 public class Jugador {
 	
 	private Dinero dinero;
-	public int posicion=0;
+	public Posicion posicion = new Posicion(0);
 	public boolean accionDeMovimiento=true;
 	
 	public Jugador(double dineroinicial) {
@@ -34,11 +34,17 @@ public class Jugador {
 	public void moverse(int numeroDelDado){
 		if(this.puedeMoverse()){
 			//tablero.moverPersonaje(numeroDelDado);
-			posicion+=numeroDelDado;
+			int posAnterior= this.posicion.getPosX();
+			this.posicion.setPosX(posAnterior+numeroDelDado);
 			accionDeMovimiento=false;
 		}
-		else{
-			System.out.println("No puede moverse");
-		}
+	}
+
+	public Posicion getPosicion() {
+		return posicion;
+	}
+	
+	public void setPosicion(int x,int y){
+		
 	}
 }
