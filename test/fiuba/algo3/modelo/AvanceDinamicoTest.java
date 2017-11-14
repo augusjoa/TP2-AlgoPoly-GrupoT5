@@ -15,4 +15,17 @@ public class AvanceDinamicoTest {
 		
 		Assert.assertEquals(posicionInicial + 3, unJugador.posicion);
 	}
+	
+	@Test
+	public void testCaerEnLaCasillaCon7Hasta10(){
+		Jugador unJugador = new Jugador(9*25+8);		
+		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
+		int posicionInicial = unJugador.posicion;
+		
+		unAvanceDinamico.avanzar(unJugador, 9);
+		
+		Assert.assertEquals(posicionInicial + 25, unJugador.posicion);
+	}
+	
+
 }
