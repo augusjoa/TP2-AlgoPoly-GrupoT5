@@ -15,7 +15,7 @@ public class RetrocesoDinamicoTest {
 		
 		unRetrocesoDinamico.avanzar(unJugador, 9);
 		
-		Assert.assertEquals(posicionInicial + 25, unJugador.posicion);
+		Assert.assertEquals(posicionInicial + 25, unJugador.posicion.getPosX());
 	}
 	
 	@Test
@@ -26,7 +26,7 @@ public class RetrocesoDinamicoTest {
 		
 		unRetrocesoDinamico.avanzar(unJugador, 11);
 		
-		Assert.assertEquals(posicionInicial + 9, unJugador.posicion);
+		Assert.assertEquals(posicionInicial + 9, unJugador.posicion.getPosX());
 	}
 	
 	//Codigo duplicado en AvanceDinamico
