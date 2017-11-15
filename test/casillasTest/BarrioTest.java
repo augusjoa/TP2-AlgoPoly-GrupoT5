@@ -1,9 +1,10 @@
-package fiuba.algo3.modelo;
+package casillasTest;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import casillas.Barrio;
+import fiuba.algo3.modelo.Jugador;
 
 public class BarrioTest {
 	//private static final double DELTA = 1e-15;

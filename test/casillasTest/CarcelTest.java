@@ -1,8 +1,9 @@
-package fiuba.algo3.modelo;
+package casillasTest;
 
 import org.junit.Test;
 
 import casillas.Carcel;
+import fiuba.algo3.modelo.Jugador;
 
 import org.junit.Assert;
 
@@ -30,6 +31,7 @@ public class CarcelTest {
 		carcel.retenerJugador(jugador);
 		carcel.retenerJugador(jugador);
 		carcel.retenerJugador(jugador);
+		carcel.liberarJugador(jugador);
 		
 		Assert.assertEquals(true, jugador.puedeMoverse());
 		
