@@ -1,6 +1,8 @@
-package fiuba.algo3.modelo;
+package modelo;
 import org.junit.Assert;
 import org.junit.Test;
+
+import modelo.Jugador;
 
 public class JugadorTest {
 	private static final double DELTA = 1e-15;

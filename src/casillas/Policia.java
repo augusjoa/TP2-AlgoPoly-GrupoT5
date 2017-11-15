@@ -1,7 +1,7 @@
-package fiuba.algo3.modelo.casillas;
+package casillas;
 
-import fiuba.algo3.modelo.Jugador;
-import fiuba.algo3.modelo.Posicion;
+import modelo.Jugador;
+import modelo.Posicion;
 
 public class Policia {
 	

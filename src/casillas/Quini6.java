@@ -1,8 +1,8 @@
-package fiuba.algo3.modelo.casillas;
+package casillas;
 
 import java.util.Hashtable;
 
-import fiuba.algo3.modelo.Jugador;
+import modelo.Jugador;
 
 public class Quini6 {
 	private Hashtable<Jugador, Integer> jugadores = new Hashtable<Jugador, Integer>();

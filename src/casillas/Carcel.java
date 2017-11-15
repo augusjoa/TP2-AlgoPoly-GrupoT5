@@ -1,9 +1,9 @@
-package fiuba.algo3.modelo.casillas;
+package casillas;
 
 import java.util.Hashtable;
 
-import fiuba.algo3.modelo.Jugador;
-import fiuba.algo3.modelo.Posicion;
+import modelo.Jugador;
+import modelo.Posicion;
 
 public class Carcel {
 	public Hashtable<Jugador, Integer> jugadoresEnCarcel = new Hashtable<Jugador, Integer>();

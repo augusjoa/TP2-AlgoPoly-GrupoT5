@@ -1,8 +1,9 @@
-package fiuba.algo3.modelo.casillas;
+package casillas;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.modelo.Jugador;
+import casillas.Quini6;
+import modelo.Jugador;
 
 
 public class Quini6Test {

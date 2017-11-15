@@ -1,10 +1,11 @@
-package casillasTest;
+package casillas;
 
 import org.junit.Test;
 
 import casillas.Carcel;
 import casillas.Policia;
-import fiuba.algo3.modelo.Jugador;
+import modelo.Jugador;
+
 import org.junit.Assert;
 
 public class PoliciaTest {

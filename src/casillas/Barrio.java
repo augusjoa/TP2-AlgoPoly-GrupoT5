@@ -1,6 +1,6 @@
-package fiuba.algo3.modelo.casillas;
+package casillas;
 
-import fiuba.algo3.modelo.Jugador;
+import modelo.Jugador;
 
 public class Barrio {
 

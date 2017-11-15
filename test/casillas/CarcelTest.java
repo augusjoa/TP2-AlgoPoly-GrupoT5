@@ -1,8 +1,9 @@
-package fiuba.algo3.modelo.casillas;
+package casillas;
 
 import org.junit.Test;
 
-import fiuba.algo3.modelo.Jugador;
+import casillas.Carcel;
+import modelo.Jugador;
 
 import org.junit.Assert;
 

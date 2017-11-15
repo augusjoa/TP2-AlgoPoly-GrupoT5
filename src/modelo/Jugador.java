@@ -1,4 +1,4 @@
-package fiuba.algo3.modelo;
+package modelo;
 
 public class Jugador {
 	

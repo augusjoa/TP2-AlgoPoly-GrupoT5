@@ -1,9 +1,9 @@
-package fiuba.algo3.modelo;
+package modelo;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.modelo.Dinero;
+import modelo.Dinero;
 
 public class DineroTest {
 	private static final double DELTA = 1e-15;
