@@ -1,8 +1,7 @@
-package casillasTest;
+package fiuba.algo3.modelo.casillas;
 
 import org.junit.Test;
 
-import casillas.Carcel;
 import fiuba.algo3.modelo.Jugador;
 
 import org.junit.Assert;
@@ -92,6 +91,6 @@ public class CarcelTest {
 		
 		Assert.assertEquals(false, jugador.puedeMoverse());
 	}
-	
-	
 }
+	
+	

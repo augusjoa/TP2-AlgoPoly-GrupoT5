@@ -1,9 +1,8 @@
-package casillasTest;
+package fiuba.algo3.modelo.casillas;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import casillas.RetrocesoDinamico;
 import fiuba.algo3.modelo.Jugador;
 
 public class RetrocesoDinamicoTest {

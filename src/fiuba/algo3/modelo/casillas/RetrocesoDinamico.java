@@ -1,12 +1,12 @@
-package casillas;
+package fiuba.algo3.modelo.casillas;
 
 import fiuba.algo3.modelo.Jugador;
 
-public class AvanceDinamico {
+public class RetrocesoDinamico {
 
 	public Jugador avanzar(Jugador unJugador, int numeroDelDado) {
 		
-		if(numeroDelDado > 6) {
+		if(numeroDelDado < 11) {
 			unJugador.moverse((int) (unJugador.getDinero() / numeroDelDado));
 			return unJugador;
 		}
