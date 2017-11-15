@@ -1,4 +1,4 @@
-package casillas;
+package fiuba.algo3.modelo.casillas;
 
 import fiuba.algo3.modelo.Jugador;
 import fiuba.algo3.modelo.Posicion;

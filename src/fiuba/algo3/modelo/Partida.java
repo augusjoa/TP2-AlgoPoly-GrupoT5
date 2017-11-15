@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-import casillas.Carcel;
+import fiuba.algo3.modelo.casillas.Carcel;
 
 public class Partida {
 	
