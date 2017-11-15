@@ -4,7 +4,7 @@ public class Jugador {
 	
 	private Dinero dinero;
 	public Posicion posicion = new Posicion(0);
-	public boolean accionDeMovimiento=true;
+	public boolean jugadorPuedeMover=true;
 	
 	public Jugador(double dineroinicial) {
 		this.dinero = new Dinero(dineroinicial);
@@ -24,27 +24,26 @@ public class Jugador {
 	}
 
 	public boolean puedeMoverse(){
-		return accionDeMovimiento;
+		return jugadorPuedeMover;
 	}
 	
-	public void setAccionDeMovimiento(boolean accion) {
-		accionDeMovimiento=accion;		
+	public void jugadorDetenido() {
+		jugadorPuedeMover=false;		
 	}
 	
 	public void moverse(int numeroDelDado){
-		if(this.puedeMoverse()){
-			//tablero.moverPersonaje(numeroDelDado);
-			int posAnterior= this.posicion.getPosX();
-			this.posicion.setPosX(posAnterior+numeroDelDado);
-			accionDeMovimiento=false;
-		}
+		int posAnterior= this.posicion.getPosX();
+		this.posicion.setPosX(posAnterior+numeroDelDado);
+		this.jugadorPuedeMover=false;
+	}
+	
+	public void pasarTurno(){
+		jugadorPuedeMover=true;
 	}
 
 	public Posicion getPosicion() {
 		return posicion;
 	}
 	
-	public void setPosicion(int x,int y){
-		
-	}
+
 }

@@ -10,10 +10,9 @@ public class Carcel {
 	double valorDeLaFianza= 45000;
 	Posicion posicion = new Posicion(5);
 	
-	//public bool jugadorEstaEnCarcel(Jugador jugador){
-		//return this.jugadoresEnCarcel.containsKey(jugador)
-		//}
-	//}
+	public boolean jugadorEstaEnCarcel(Jugador jugador){
+		return this.jugadoresEnCarcel.containsKey(jugador);
+	}
 	
 	public void retenerJugador(Jugador jugador){
 		if(this.jugadoresEnCarcel.containsKey(jugador)) {
@@ -23,23 +22,28 @@ public class Carcel {
 		}
 		if(!this.jugadoresEnCarcel.containsKey(jugador)){
 			this.jugadoresEnCarcel.put(jugador, 1);
-			jugador.setAccionDeMovimiento(false);
-			
-		}
-		//else if(jugadoresEnCarcel.get(jugador) == 2 && jugadoresEnCarcel.get(jugador) == 3){
-		//	this.pagarFianza(jugador);
-		//}
-		else if(jugadoresEnCarcel.get(jugador) == 4){
-			jugador.setAccionDeMovimiento(true);
-			jugadoresEnCarcel.remove(jugador);
+			jugador.jugadorDetenido();	
 		}
 	}
 	
 	public void pagarFianza(Jugador jugador){
-		if(jugador.getDinero()>valorDeLaFianza){
-			jugador.sustraerDinero(valorDeLaFianza);
-			jugadoresEnCarcel.remove(jugador);
-			jugador.setAccionDeMovimiento(true);
+		if(jugadoresEnCarcel.get(jugador) == 2 || jugadoresEnCarcel.get(jugador) == 3){
+			if(jugador.getDinero()>valorDeLaFianza){
+				jugador.sustraerDinero(valorDeLaFianza);
+				liberarJugador(jugador);
+			}	
 		}
+	}
+	
+	public void quedarLibre(Jugador jugador){
+		if(jugadoresEnCarcel.get(jugador) == 4){
+			liberarJugador(jugador);
+		}
+	}
+	
+	public void liberarJugador(Jugador jugador){
+		jugadoresEnCarcel.remove(jugador);
+		jugador.jugadorDetenido();
+
 	}
 }
