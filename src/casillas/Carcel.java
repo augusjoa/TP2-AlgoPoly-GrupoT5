@@ -43,7 +43,7 @@ public class Carcel {
 	
 	public void liberarJugador(Jugador jugador){
 		jugadoresEnCarcel.remove(jugador);
-		jugador.jugadorDetenido();
+		jugador.pasarTurno();
 
 	}
 }

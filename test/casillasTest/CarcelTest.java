@@ -31,7 +31,7 @@ public class CarcelTest {
 		carcel.retenerJugador(jugador);
 		carcel.retenerJugador(jugador);
 		carcel.retenerJugador(jugador);
-		carcel.liberarJugador(jugador);
+		carcel.quedarLibre(jugador);
 		
 		Assert.assertEquals(true, jugador.puedeMoverse());
 		
