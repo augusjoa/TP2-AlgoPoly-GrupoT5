@@ -5,6 +5,7 @@ public class Jugador {
 	private Dinero dinero;
 	public Posicion posicion = new Posicion(0);
 	public boolean jugadorPuedeMover=true;
+	//public boolean estaEnCarcel=false;
 	
 	public Jugador(double dineroinicial) {
 		this.dinero = new Dinero(dineroinicial);
@@ -41,8 +42,8 @@ public class Jugador {
 		jugadorPuedeMover=true;
 	}
 
-	public Posicion getPosicion() {
-		return posicion;
+	public int getPosicion() {
+		return posicion.getPosX();
 	}
 	
 
