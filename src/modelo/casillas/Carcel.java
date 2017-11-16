@@ -2,12 +2,13 @@ package modelo.casillas;
 
 import java.util.Hashtable;
 
+import modelo.Dinero;
 import modelo.Jugador;
 import modelo.Posicion;
 
 public class Carcel {
 	public Hashtable<Jugador, Integer> jugadoresEnCarcel = new Hashtable<Jugador, Integer>();
-	double valorDeLaFianza= 45000;
+	Dinero valorDeLaFianza = new Dinero(45000);
 	Posicion posicion = new Posicion(5);
 	
 	public boolean jugadorEstaEnCarcel(Jugador jugador){
@@ -29,8 +30,8 @@ public class Carcel {
 	
 	public void pagarFianza(Jugador jugador){
 		if(jugadoresEnCarcel.get(jugador) == 2 || jugadoresEnCarcel.get(jugador) == 3){
-			if(jugador.getDinero()>valorDeLaFianza){
-				jugador.sustraerDinero(valorDeLaFianza);
+			if(jugador.getDinero()>valorDeLaFianza.getDinero()){
+				jugador.sustraerDinero(valorDeLaFianza.getDinero());
 				liberarJugador(jugador);
 			}	
 		}
