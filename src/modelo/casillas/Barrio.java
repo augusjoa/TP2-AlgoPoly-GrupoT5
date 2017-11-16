@@ -2,7 +2,7 @@ package modelo.casillas;
 
 public class Barrio {
 
-	private boolean tieneDueño = false;
+	private boolean tieneDueno = false;
 	private double valorDeBarrio;
 
 	public Barrio(double valor) {
@@ -10,11 +10,11 @@ public class Barrio {
 	}
 
 	public void comprado() {
-		this.tieneDueño = true;
+		this.tieneDueno = true;
 	}
 	
 	public boolean estaComprado() {
-		return this.tieneDueño;
+		return this.tieneDueno;
 	}
 	
 	public double getValor() {
