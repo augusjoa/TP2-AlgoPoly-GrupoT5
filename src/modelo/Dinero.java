@@ -22,7 +22,7 @@ public class Dinero {
 		
 	}
 
-	public boolean comprar(Comprable unComprable) {
+	public boolean comprar(Adquirible unComprable) {
 		if(this.valor > unComprable.getPrecio()) {
 			this.valor -= unComprable.getPrecio();
 			return true;

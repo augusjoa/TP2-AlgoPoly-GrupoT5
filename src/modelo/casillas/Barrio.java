@@ -1,13 +1,15 @@
 package modelo.casillas;
 
-import modelo.Comprable;
+import modelo.Adquirible;
 import modelo.Dinero;
+import modelo.Jugador;
 
-public class Barrio implements Comprable{
+public class Barrio implements Adquirible{
 
 //	private boolean tieneDuenio = false;
 	Dinero valorDelBarrio;
-
+	Jugador jugadorDuenio;
+	
 	public Barrio(double valor) {
 		this.valorDelBarrio = new Dinero(valor);
 	}
@@ -27,6 +29,11 @@ public class Barrio implements Comprable{
 	@Override
 	public double getPrecio() {
 		return valorDelBarrio.getValor();
+	}
+
+	@Override
+	public Jugador getDuenio() {
+		return jugadorDuenio;
 	}
 
 

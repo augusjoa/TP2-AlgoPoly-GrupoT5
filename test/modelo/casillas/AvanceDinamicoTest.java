@@ -62,7 +62,7 @@ public class AvanceDinamicoTest {
 		Barrio unBarrio8 = new Barrio(1000);
 		Barrio unBarrio9 = new Barrio(1000);
 		Barrio unBarrio10 = new Barrio(1000);
-		Barrio unBarrio11 = new Barrio(1000);
+		Casa unaCasa = new Casa(1000);
 		
 		unJugador.comprar(unBarrio);
 		unJugador.comprar(unBarrio1);
@@ -75,7 +75,7 @@ public class AvanceDinamicoTest {
 		unJugador.comprar(unBarrio8);
 		unJugador.comprar(unBarrio9);
 		unJugador.comprar(unBarrio10);
-		unJugador.comprar(unBarrio11);
+		unJugador.comprar(unaCasa);
 		unAvanceDinamico.avanzar(unJugador, 11);
 	
 		Assert.assertEquals(posicionInicial - 1, unJugador.getPosicion());

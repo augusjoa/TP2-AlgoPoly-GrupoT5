@@ -10,7 +10,7 @@ public class Jugador {
 	private Dinero dinero;
 	public Posicion posicion = new Posicion(0);
 	public boolean jugadorPuedeMover=true;
-	private Collection <Comprable> adquisiciones = new HashSet<Comprable>();
+	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	//public boolean estaEnCarcel=false;
 	
 	public Jugador(double dineroinicial) {
@@ -64,7 +64,7 @@ public class Jugador {
 		return adquisiciones.size();
 	}
 
-	public boolean comprar(Comprable unComprable) {
+	public boolean comprar(Adquirible unComprable) {
 		
 		if(dinero.comprar(unComprable)) {
 			adquisiciones.add(unComprable);
@@ -73,7 +73,7 @@ public class Jugador {
 		return false;
 	}
 
-	public boolean esDuenio(Comprable unComprable) {
+	public boolean esDuenio(Adquirible unComprable) {
 		return adquisiciones.contains(unComprable);
 	}
 	
