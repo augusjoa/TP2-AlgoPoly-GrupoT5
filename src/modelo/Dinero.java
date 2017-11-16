@@ -2,23 +2,23 @@ package modelo;
 
 public class Dinero {
 	
-	private double dinero;
+	private double valor;
 
 	public Dinero(double valor) {
-		this.dinero = valor;
+		this.valor = valor;
 	}
 	
 	public double getDinero() {
-		return this.dinero;
+		return this.valor;
 	}
 
 	public void agregarDinero(double valor) {
-		this.dinero += valor;
+		this.valor += valor;
 		
 	}
 
 	public void sustraerDinero(double valor) {
-		this.dinero -= valor;
+		this.valor -= valor;
 		
 	}
 	
