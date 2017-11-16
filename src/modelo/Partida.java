@@ -1,6 +1,6 @@
 package modelo;
 
-import casillas.Carcel;
+import modelo.casillas.Carcel;
 
 public class Partida {
 	

@@ -1,9 +1,9 @@
-package casillas;
+package modelo.casillas;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import casillas.Barrio;
+import modelo.casillas.Barrio;
 import modelo.Jugador;
 
 public class BarrioTest {
@@ -11,12 +11,12 @@ public class BarrioTest {
 	
 	@Test
 	public void testAlComprarElBarrioElJugadorEsPropietario() {
-		Barrio unBarrio = new Barrio();
+		Barrio unBarrio = new Barrio(1000);
 		Jugador unJugador = new Jugador(100000);
 		
-		unBarrio.setPropietario(unJugador);
+		unJugador.comprarBarrio(unBarrio);
 		
-		Assert.assertEquals(unJugador, unBarrio.getPropietario());
+		Assert.assertTrue(unBarrio.estaComprado());
 	}
 	
 }

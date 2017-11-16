@@ -1,9 +1,9 @@
-package casillas;
+package modelo.casillas;
 
 import org.junit.Test;
 
-import casillas.Carcel;
-import casillas.Policia;
+import modelo.casillas.Carcel;
+import modelo.casillas.Policia;
 import modelo.Jugador;
 
 import org.junit.Assert;

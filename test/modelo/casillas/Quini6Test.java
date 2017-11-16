@@ -1,8 +1,8 @@
-package casillas;
+package modelo.casillas;
 import org.junit.Assert;
 import org.junit.Test;
 
-import casillas.Quini6;
+import modelo.casillas.Quini6;
 import modelo.Jugador;
 
 

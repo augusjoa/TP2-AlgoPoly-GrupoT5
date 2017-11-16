@@ -1,4 +1,4 @@
-package casillas;
+package modelo.casillas;
 
 import modelo.Jugador;
 import modelo.Posicion;

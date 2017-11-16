@@ -1,4 +1,4 @@
-package casillas;
+package modelo.casillas;
 
 import java.util.Hashtable;
 
