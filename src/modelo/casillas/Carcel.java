@@ -30,8 +30,8 @@ public class Carcel {
 	
 	public void pagarFianza(Jugador jugador){
 		if(jugadoresEnCarcel.get(jugador) == 2 || jugadoresEnCarcel.get(jugador) == 3){
-			if(jugador.getDinero()>valorDeLaFianza.getDinero()){
-				jugador.sustraerDinero(valorDeLaFianza.getDinero());
+			if(jugador.getDinero()>valorDeLaFianza.getValor()){
+				jugador.sustraerDinero(valorDeLaFianza.getValor());
 				liberarJugador(jugador);
 			}	
 		}

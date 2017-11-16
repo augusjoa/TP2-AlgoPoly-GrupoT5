@@ -17,21 +17,21 @@ public class DineroTest {
 	@Test
 	public void testgetDinero() {
 		Dinero dinero = new Dinero(100000);
-		Assert.assertEquals(100000, dinero.getDinero(), DELTA);
+		Assert.assertEquals(100000, dinero.getValor(), DELTA);
 	}
 	
 	@Test
 	public void testagregarDinero() {
 		Dinero dinero = new Dinero(100000);
-		dinero.agregarDinero(20000);
-		Assert.assertEquals(120000, dinero.getDinero(), DELTA);
+		dinero.agregarValor(20000);
+		Assert.assertEquals(120000, dinero.getValor(), DELTA);
 	}
 	
 	@Test
 	public void testsustraerDinero() {
 		Dinero dinero = new Dinero(100000);
-		dinero.sustraerDinero(20000);
-		Assert.assertEquals(80000, dinero.getDinero(),DELTA);
+		dinero.sustraerValor(20000);
+		Assert.assertEquals(80000, dinero.getValor(),DELTA);
 	}
 
 }

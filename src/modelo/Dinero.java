@@ -8,16 +8,16 @@ public class Dinero {
 		this.valor = valor;
 	}
 	
-	public double getDinero() {
+	public double getValor() {
 		return this.valor;
 	}
 
-	public void agregarDinero(double valor) {
+	public void agregarValor(double valor) {
 		this.valor += valor;
 		
 	}
 
-	public void sustraerDinero(double valor) {
+	public void sustraerValor(double valor) {
 		this.valor -= valor;
 		
 	}

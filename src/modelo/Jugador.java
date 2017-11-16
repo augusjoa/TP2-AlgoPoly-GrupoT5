@@ -17,7 +17,7 @@ public class Jugador {
 	}
 
 	public double getDinero() {
-		return this.dinero.getDinero();
+		return this.dinero.getValor();
 	}
 	
 	public void comprarBarrio(Barrio barrio) {
@@ -29,12 +29,12 @@ public class Jugador {
 	}
 	
 	public void agregarDinero(double valor) {
-		this.dinero.agregarDinero(valor);
+		this.dinero.agregarValor(valor);
 	}
 	
 	public void sustraerDinero(double valor) {
 		//agregar exp para que no quede valor negativo
-		this.dinero.sustraerDinero(valor);
+		this.dinero.sustraerValor(valor);
 	}
 
 	public boolean puedeMoverse(){

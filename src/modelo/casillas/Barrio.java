@@ -1,24 +1,26 @@
 package modelo.casillas;
 
+import modelo.Dinero;
+
 public class Barrio {
 
-	private boolean tieneDueno = false;
-	private double valorDeBarrio;
+	private boolean tieneDuenio = false;
+	Dinero valorDelBarrio;
 
 	public Barrio(double valor) {
-		this.valorDeBarrio = valor;
+		this.valorDelBarrio = new Dinero(valor);
 	}
 
 	public void comprado() {
-		this.tieneDueno = true;
+		this.tieneDuenio = true;
 	}
 	
 	public boolean estaComprado() {
-		return this.tieneDueno;
+		return this.tieneDuenio;
 	}
 	
 	public double getValor() {
-		return this.valorDeBarrio;
+		return this.valorDelBarrio.getValor();
 	}
 
 
