@@ -2,7 +2,7 @@ package modelo;
 
 public class Posicion{
 	
-	public int posX;
+	private int posX;
 	
 	public Posicion(int posX) {
 		this.posX=posX;

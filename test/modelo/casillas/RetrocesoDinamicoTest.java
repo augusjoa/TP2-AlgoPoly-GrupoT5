@@ -36,7 +36,7 @@ public class RetrocesoDinamicoTest {
 		int posicionInicial = unJugador.getPosicion();
 		Barrio unBarrio = new Barrio(1000);
 		
-		unJugador.comprarBarrio(unBarrio);
+		unJugador.comprar(unBarrio);
 		unRetrocesoDinamico.retroceder(unJugador, 5);
 	
 		Assert.assertEquals(posicionInicial - 4, unJugador.getPosicion());

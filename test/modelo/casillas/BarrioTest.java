@@ -14,9 +14,9 @@ public class BarrioTest {
 		Barrio unBarrio = new Barrio(1000);
 		Jugador unJugador = new Jugador(100000);
 		
-		unJugador.comprarBarrio(unBarrio);
+		unJugador.comprar(unBarrio);
 		
-		Assert.assertTrue(unBarrio.estaComprado());
+		Assert.assertTrue(unJugador.esDuenio(unBarrio));
 	}
 	
 }

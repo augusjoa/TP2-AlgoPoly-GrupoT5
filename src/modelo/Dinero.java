@@ -21,5 +21,13 @@ public class Dinero {
 		this.valor -= valor;
 		
 	}
+
+	public boolean comprar(Comprable unComprable) {
+		if(this.valor > unComprable.getPrecio()) {
+			this.valor -= unComprable.getPrecio();
+			return true;
+		}
+		return false;
+	}
 	
 }
