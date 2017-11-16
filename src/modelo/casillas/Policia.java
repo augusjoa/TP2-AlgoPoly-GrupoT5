@@ -8,9 +8,7 @@ public class Policia {
 	Posicion posicion = new Posicion(10);
 	
 	public void moverALaCarcel(Jugador jugador,Carcel carcel){
-		if (jugador.posicion.getPosX()==this.posicion.getPosX()){
-			jugador.posicion.setPosX(5);
-		}
+		jugador.posicion.setPosX(carcel.getPos());
 	}
 	
 }

@@ -48,4 +48,8 @@ public class Carcel {
 		jugador.pasarTurno();
 
 	}
+
+	public int getPos() {
+		return posicion.getPosX();
+	}
 }
