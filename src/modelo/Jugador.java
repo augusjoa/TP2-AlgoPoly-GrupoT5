@@ -13,7 +13,6 @@ public class Jugador {
 	public Posicion posicion = new Posicion(0);
 	public boolean jugadorPuedeMover=true;
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
-	//public boolean estaEnCarcel=false;
 	
 	public Jugador(double dineroinicial) {
 		this.dinero = new Dinero(dineroinicial);
