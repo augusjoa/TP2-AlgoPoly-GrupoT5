@@ -3,7 +3,7 @@ package modelo;
 import java.util.Collection;
 import java.util.HashSet;
 
-import modelo.casillas.Barrio;
+//import modelo.casillas.Barrio;
 
 public class Jugador {
 	

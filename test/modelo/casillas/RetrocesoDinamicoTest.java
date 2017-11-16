@@ -42,6 +42,8 @@ public class RetrocesoDinamicoTest {
 		Assert.assertEquals(posicionInicial - 4, unJugador.getPosicion());
 	}
 	
+	
+	
 	//Codigo duplicado en AvanceDinamico
 	//El tercer comportamiento en ambos casos es mas complicado, el Jugador deberia almacenar una 
 	//lista de propiedades adquiridas, en contra de lo que dijimos de que lo almacene el barrio su propietario

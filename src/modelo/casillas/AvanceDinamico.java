@@ -2,6 +2,7 @@ package modelo.casillas;
 
 import modelo.Jugador;
 
+
 public class AvanceDinamico {
 
 	public void avanzar(Jugador unJugador, int numeroDelDado) {
