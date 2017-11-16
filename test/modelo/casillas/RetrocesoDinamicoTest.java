@@ -13,9 +13,9 @@ public class RetrocesoDinamicoTest {
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		
-		unRetrocesoDinamico.retroceder(unJugador, 9);
+		unRetrocesoDinamico.retrocederAlJugador(unJugador, 9);
 		
-		Assert.assertEquals(posicionInicial - 25, unJugador.getPosicion());
+		Assert.assertEquals(posicionInicial - 8, unJugador.getPosicion());
 	}
 	
 	@Test
@@ -24,7 +24,7 @@ public class RetrocesoDinamicoTest {
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial = unJugador.posicion.getPosX();
 		
-		unRetrocesoDinamico.retroceder(unJugador, 11);
+		unRetrocesoDinamico.retrocederAlJugador(unJugador, 11);
 		
 		Assert.assertEquals(posicionInicial - 9, unJugador.posicion.getPosX());
 	}
@@ -37,7 +37,7 @@ public class RetrocesoDinamicoTest {
 		Barrio unBarrio = new Barrio(1000);
 		
 		unJugador.comprar(unBarrio);
-		unRetrocesoDinamico.retroceder(unJugador, 5);
+		unRetrocesoDinamico.retrocederAlJugador(unJugador, 5);
 	
 		Assert.assertEquals(posicionInicial - 4, unJugador.getPosicion());
 	}

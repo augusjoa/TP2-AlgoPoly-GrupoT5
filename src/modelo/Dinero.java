@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.interfaces.Adquirible;
+
 public class Dinero {
 	
 	private double valor;

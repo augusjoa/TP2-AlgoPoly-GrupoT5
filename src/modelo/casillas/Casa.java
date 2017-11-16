@@ -1,8 +1,8 @@
 package modelo.casillas;
 
-import modelo.Adquirible;
 import modelo.Dinero;
 import modelo.Jugador;
+import modelo.interfaces.Adquirible;
 
 public class Casa implements Adquirible{
 	Dinero valorDeaCasa;

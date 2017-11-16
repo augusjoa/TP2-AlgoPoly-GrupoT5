@@ -3,6 +3,8 @@ package modelo;
 import java.util.Collection;
 import java.util.HashSet;
 
+import modelo.interfaces.Adquirible;
+
 //import modelo.casillas.Barrio;
 
 public class Jugador {
