@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.interfaces.Adquirible;
+
 public class Dinero {
 	
 	private double valor;
@@ -20,6 +22,14 @@ public class Dinero {
 	public void sustraerValor(double valor) {
 		this.valor -= valor;
 		
+	}
+
+	public boolean comprar(Adquirible unComprable) {
+		if(this.valor > unComprable.getPrecio()) {
+			this.valor -= unComprable.getPrecio();
+			return true;
+		}
+		return false;
 	}
 	
 }

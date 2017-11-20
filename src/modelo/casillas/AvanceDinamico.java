@@ -2,19 +2,18 @@ package modelo.casillas;
 
 import modelo.Jugador;
 
+
 public class AvanceDinamico {
 
-	public void avanzar(Jugador unJugador, int numeroDelDado) {
+	public void avanzarAlJugador(Jugador unJugador, int sumaDeLosDados) {
 		
-		if(numeroDelDado > 6 && numeroDelDado < 11) {
-			unJugador.moverse((int) ( unJugador.getDinero() / numeroDelDado));
+		if(sumaDeLosDados > 10) {
+			unJugador.moverse(sumaDeLosDados - unJugador.getCantidadDePropiedades());
 		}
-		
-		else if(numeroDelDado > 10) {
-			unJugador.moverse(numeroDelDado - unJugador.getCantidadDePropiedades());
+		else if(sumaDeLosDados > 6) {
+			unJugador.moverse((int) ( unJugador.getDinero() % sumaDeLosDados));
 		}		
-		else unJugador.moverse(numeroDelDado - 2);
-		
+		else unJugador.moverse(sumaDeLosDados - 2);
 	}
 
 }

@@ -1,32 +1,34 @@
 package modelo;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 
-import modelo.casillas.Barrio;
+import modelo.interfaces.Adquirible;
+
+//import modelo.casillas.Barrio;
 
 public class Jugador {
 	
-	private ArrayList<Barrio> propiedades = new ArrayList<Barrio>();
 	private Dinero dinero;
 	public Posicion posicion = new Posicion(0);
 	public boolean jugadorPuedeMover=true;
-	//public boolean estaEnCarcel=false;
+	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	
 	public Jugador(double dineroinicial) {
 		this.dinero = new Dinero(dineroinicial);
 	}
 
 	public double getDinero() {
-		return this.dinero.getValor();
+		return dinero.getValor();
 	}
 	
-	public void comprarBarrio(Barrio barrio) {
-		if(this.getDinero() >= barrio.getValor() && !barrio.estaComprado()) {
-			this.propiedades.add(barrio);
-			barrio.comprado();
-			this.sustraerDinero(barrio.getValor());
-		}
-	}
+//	public void comprarBarrio(Barrio barrio) {
+//		if(this.getDinero() >= barrio.getValor() && !barrio.estaComprado()) {
+//			this.propiedades.add(barrio);
+//			barrio.comprado();
+//			this.sustraerDinero(barrio.getValor());
+//		}
+//	}
 	
 	public void agregarDinero(double valor) {
 		this.dinero.agregarValor(valor);
@@ -60,7 +62,20 @@ public class Jugador {
 	}
 
 	public int getCantidadDePropiedades() {
-		return this.propiedades.size();
+		return adquisiciones.size();
+	}
+
+	public boolean comprar(Adquirible unComprable) {
+		
+		if(dinero.comprar(unComprable)) {
+			adquisiciones.add(unComprable);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean esDuenio(Adquirible unComprable) {
+		return adquisiciones.contains(unComprable);
 	}
 	
 

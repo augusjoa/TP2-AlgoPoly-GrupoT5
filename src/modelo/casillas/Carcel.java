@@ -16,7 +16,6 @@ public class Carcel {
 	}
 	
 	public void retenerJugador(Jugador jugador){
-		//if posicion de jugador == pos carcel que haga todo eso?
 		if(this.jugadoresEnCarcel.containsKey(jugador)) {
 			int num = jugadoresEnCarcel.get(jugador);
 			jugadoresEnCarcel.replace(jugador, num+1);
@@ -47,5 +46,9 @@ public class Carcel {
 		jugadoresEnCarcel.remove(jugador);
 		jugador.pasarTurno();
 
+	}
+
+	public int getPos() {
+		return posicion.getPosX();
 	}
 }
