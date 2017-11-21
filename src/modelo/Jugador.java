@@ -9,34 +9,21 @@ import modelo.interfaces.Adquirible;
 
 public class Jugador {
 	
-	private Dinero dinero;
+	private Dinero dinero = new Dinero(100000);
 	public Posicion posicion = new Posicion(0);
 	public boolean jugadorPuedeMover=true;
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	
-	public Jugador(double dineroinicial) {
-		this.dinero = new Dinero(dineroinicial);
-	}
-
-	public double getDinero() {
+	public int getDinero() {
 		return dinero.getValor();
 	}
 	
-//	public void comprarBarrio(Barrio barrio) {
-//		if(this.getDinero() >= barrio.getValor() && !barrio.estaComprado()) {
-//			this.propiedades.add(barrio);
-//			barrio.comprado();
-//			this.sustraerDinero(barrio.getValor());
-//		}
-//	}
-	
-	public void agregarDinero(double valor) {
-		this.dinero.agregarValor(valor);
+	public void agregarDinero(Dinero unDinero) {
+		dinero.agregarDinero(unDinero);
 	}
 	
-	public void sustraerDinero(double valor) {
-		//agregar exp para que no quede valor negativo
-		this.dinero.sustraerValor(valor);
+	public void sustraerDinero(Dinero unDinero) {
+		dinero.sustraerDinero(unDinero);
 	}
 
 	public boolean puedeMoverse(){

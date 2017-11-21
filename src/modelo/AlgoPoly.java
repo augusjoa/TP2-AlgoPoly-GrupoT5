@@ -4,24 +4,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-import modelo.casillas.Carcel;
-
 public class AlgoPoly {
 	
 	Jugador jugador1;
 	Jugador jugador2;
 	Jugador jugador3;
 	Jugador jugadorActual;
-	int dineroInicial = 100000;
+	//int dineroInicial = 100000;
 	//Tablero tablero;
 	ArrayList<Jugador> turnoDelJugador = new ArrayList<>();
 	//cambiar a una circular
-	Iterator<Jugador> iterador = turnoDelJugador.listIterator();
+	Iterator<Jugador> iterador = turnoDelJugador.iterator();
 	
 	public AlgoPoly(){
-		this.jugador1= new Jugador(dineroInicial);
-		this.jugador2= new Jugador(dineroInicial);
-		this.jugador3= new Jugador(dineroInicial);
+		this.jugador1= new Jugador();
+		this.jugador2= new Jugador();
+		this.jugador3= new Jugador();
 		
 		//this.tablero= new Tablero();
 	}

@@ -10,8 +10,8 @@ public class Barrio implements Adquirible{
 	private Dinero valorDelBarrio;
 	private Jugador jugadorDuenio;
 	
-	public Barrio(double precioDeVenta) {
-		valorDelBarrio = new Dinero(precioDeVenta);
+	public Barrio(int precioDelBarrio) {
+		valorDelBarrio = new Dinero(precioDelBarrio);
 		jugadorDuenio = null;
 	}
 
@@ -28,7 +28,7 @@ public class Barrio implements Adquirible{
 //	}
 
 	@Override
-	public double getPrecio() {
+	public int getPrecio() {
 		return valorDelBarrio.getValor();
 	}
 

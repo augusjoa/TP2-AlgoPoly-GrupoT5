@@ -9,7 +9,7 @@ public class CasaTest {
 	@Test
 	public void testAlComprarLaCasaElJugadorEsPropietario() {
 		Barrio unaCasa = new Barrio(1000);
-		Jugador unJugador = new Jugador(100000);
+		Jugador unJugador = new Jugador();
 		
 		unJugador.comprar(unaCasa);
 		

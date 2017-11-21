@@ -11,20 +11,20 @@ public class Quini6 implements Visitable {
 	private Dinero primerPremio = new Dinero(50000);
 	private Dinero segundoPremio = new Dinero(30000);
 	
-	public void obtenerPremio(Jugador jugador){
+	private void obtenerPremio(Jugador jugador){
 		if(!this.jugadores.containsKey(jugador)){
-			jugador.agregarDinero(primerPremio.getValor());
-			this.jugadores.put(jugador, 1);
+			jugador.agregarDinero(primerPremio);
+			jugadores.put(jugador, 1);
 		}
 		else if(jugadores.get(jugador)==1){
-			jugador.agregarDinero(segundoPremio.getValor());
-			this.jugadores.replace(jugador, 2);
+			jugador.agregarDinero(segundoPremio);
+			jugadores.replace(jugador, 2);
 		}
 	}
 
 	@Override
 	public Jugador esVisitadoPorJugador(Jugador unJugador) {
-		// TODO Auto-generated method stub
-		return null;
+		obtenerPremio(unJugador);
+		return unJugador;
 	}
 }

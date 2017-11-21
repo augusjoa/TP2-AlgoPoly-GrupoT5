@@ -7,7 +7,7 @@ import modelo.Jugador;
 
 
 public class Quini6Test {
-	private static final double DELTA = 1e-15;
+	//private static final double DELTA = 1e-15;
 	
 	@Test
 	public void testCrearQuini6(){
@@ -18,28 +18,28 @@ public class Quini6Test {
 	@Test
 	public void testJugadorVisitaQuini6unaVez() {
 		Quini6 quini6 = new Quini6();
-		Jugador jugador = new Jugador(100000);
-		quini6.obtenerPremio(jugador);
-		Assert.assertEquals(150000, jugador.getDinero(), DELTA);
+		Jugador unJugador = new Jugador();
+		quini6.esVisitadoPorJugador(unJugador);
+		Assert.assertEquals(150000, unJugador.getDinero());
 	}
 	
 	@Test
 	public void testJugadorVisitaQuini6DosVeces() {
 		Quini6 quini6 = new Quini6();
-		Jugador jugador = new Jugador(100000);
-		quini6.obtenerPremio(jugador);
-		quini6.obtenerPremio(jugador);
-		Assert.assertEquals(180000, jugador.getDinero(), DELTA);
+		Jugador jugador = new Jugador();
+		quini6.esVisitadoPorJugador(jugador);
+		quini6.esVisitadoPorJugador(jugador);
+		Assert.assertEquals(180000, jugador.getDinero());
 	}
 	
 	@Test
 	public void testJugadorVisitaQuini6TresVeces() {
 		Quini6 quini6 = new Quini6();
-		Jugador jugador = new Jugador(100000);
-		quini6.obtenerPremio(jugador);
-		quini6.obtenerPremio(jugador);
-		quini6.obtenerPremio(jugador);
-		Assert.assertEquals(180000, jugador.getDinero(), DELTA);
+		Jugador jugador = new Jugador();
+		quini6.esVisitadoPorJugador(jugador);
+		quini6.esVisitadoPorJugador(jugador);
+		quini6.esVisitadoPorJugador(jugador);
+		Assert.assertEquals(180000, jugador.getDinero());
 	}
 	
 }

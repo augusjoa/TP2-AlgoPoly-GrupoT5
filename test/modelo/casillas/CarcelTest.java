@@ -3,6 +3,7 @@ package modelo.casillas;
 import org.junit.Test;
 
 import modelo.casillas.Carcel;
+import modelo.Dinero;
 import modelo.Jugador;
 
 import org.junit.Assert;
@@ -11,7 +12,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoNoPuedeMoverse(){
-		Jugador jugador = new Jugador(100000);
+		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		
@@ -23,7 +24,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorCuatroTurnosPuedeMoverse(){
-		Jugador jugador = new Jugador(100000);
+		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		
@@ -39,7 +40,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorDosTurnosYPagaFianza(){
-		Jugador jugador = new Jugador(100000);
+		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		
@@ -53,7 +54,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorTresTurnosYPagaFianza(){
-		Jugador jugador = new Jugador(100000);
+		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		
@@ -68,8 +69,9 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorDosTurnosConFondosInsuficientesNoPuedeMoverse(){
-		Jugador jugador = new Jugador(23999);
-		
+		Jugador jugador = new Jugador();
+		Dinero unDinero = new Dinero(60000);
+		jugador.sustraerDinero(unDinero);
 		Carcel carcel = new Carcel();
 		
 		carcel.retenerJugador(jugador);
@@ -81,8 +83,10 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorTresTurnosConFondosInsuficientesNoPuedeMoverse(){
-		Jugador jugador = new Jugador(23999);
-		
+		Dinero unDinero = new Dinero(60000);
+		Jugador jugador = new Jugador();
+		jugador.sustraerDinero(unDinero);
+				
 		Carcel carcel = new Carcel();
 		
 		carcel.retenerJugador(jugador);
@@ -91,6 +95,7 @@ public class CarcelTest {
 		carcel.pagarFianza(jugador);
 		
 		Assert.assertEquals(false, jugador.puedeMoverse());
+		
 	}
 }
 	

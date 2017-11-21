@@ -5,15 +5,16 @@ import modelo.Jugador;
 import modelo.interfaces.Adquirible;
 
 public class Casa implements Adquirible{
-	Dinero valorDeaCasa;
+	Dinero valorDeLaCasa;
 	Jugador jugadorDuenio;
 
-	public Casa(double valor) {
-		this.valorDeaCasa = new Dinero(valor);
+	public Casa(int valor) {
+		valorDeLaCasa = new Dinero(valor);
+		jugadorDuenio = null;
 	}
 	@Override
-	public double getPrecio() {
-		return valorDeaCasa.getValor();
+	public int getPrecio() {
+		return valorDeLaCasa.getValor();
 	}
 	@Override
 	public Jugador getDuenio() {

@@ -4,24 +4,27 @@ import modelo.interfaces.Adquirible;
 
 public class Dinero {
 	
-	private double valor;
+	private int valor;
 
-	public Dinero(double valor) {
+	public Dinero(int valor) {
 		this.valor = valor;
 	}
 	
-	public double getValor() {
+	public int getValor() {
 		return this.valor;
 	}
 
-	public void agregarValor(double valor) {
-		this.valor += valor;
-		
+	public Dinero agregarDinero(Dinero unDinero) {
+		valor += unDinero.getValor();
+		return this;
 	}
 
-	public void sustraerValor(double valor) {
-		this.valor -= valor;
-		
+	public boolean sustraerDinero(Dinero unDinero) {
+		if(valor < unDinero.getValor()) {
+			return false;
+		}
+		valor -= unDinero.getValor();
+		return true;
 	}
 
 	public boolean comprar(Adquirible unComprable) {

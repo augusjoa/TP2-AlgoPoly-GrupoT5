@@ -12,7 +12,7 @@ public class PoliciaTest {
 
 	@Test
 	public void testJugadorCaeEnPoliciaSeEncuentraEnLaCarcel(){
-		Jugador jugador = new Jugador(100000);
+		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		
@@ -27,7 +27,7 @@ public class PoliciaTest {
 	
 	@Test
 	public void testJugadorCaeEnPoliciaQuedaRetenido(){
-		Jugador jugador = new Jugador(100000);
+		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		

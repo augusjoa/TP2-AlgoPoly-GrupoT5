@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.casillas.Barrio;
+import modelo.Dinero;
 import modelo.Jugador;
 
 public class BarrioTest {
@@ -12,7 +13,7 @@ public class BarrioTest {
 	@Test
 	public void testAlComprarElBarrioElJugadorEsPropietario() {
 		Barrio unBarrio = new Barrio(1000);
-		Jugador unJugador = new Jugador(100000);
+		Jugador unJugador = new Jugador();
 		
 		unJugador.comprar(unBarrio);
 		

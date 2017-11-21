@@ -10,7 +10,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void testCaerEnLaCasillaCon6oMenos(){
-		Jugador unJugador = new Jugador(100000);		
+		Jugador unJugador = new Jugador();		
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		
@@ -23,18 +23,18 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void testCaerEnLaCasillaCon7Hasta10(){
-		Jugador unJugador = new Jugador(9*25+8);		
+		Jugador unJugador = new Jugador();		
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		
 		unAvanceDinamico.avanzarAlJugador(unJugador, 9);
 		
-		Assert.assertEquals(posicionInicial + 8, unJugador.getPosicion());
+		Assert.assertEquals(posicionInicial + 1, unJugador.getPosicion());
 	}
 	
 	@Test
 	public void testCaerEnLaCasillaCon11oMas() {
-		Jugador unJugador = new Jugador(100000);
+		Jugador unJugador = new Jugador();
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		Barrio unBarrio = new Barrio(1000);
@@ -49,7 +49,7 @@ public class AvanceDinamicoTest {
 	
 	@Test 
 	public void testCaerEnLaCasillaCon11oMasYTenerMasCantidadDePropiedades() {
-		Jugador unJugador = new Jugador(100000);		
+		Jugador unJugador = new Jugador();		
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		Barrio unBarrio = new Barrio(1000);
