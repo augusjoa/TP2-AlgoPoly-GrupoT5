@@ -16,9 +16,9 @@ public class AlgoPoly {
 	Iterator<Jugador> iterador = turnoDelJugador.iterator();
 	
 	public AlgoPoly(){
-		this.jugador1= new Jugador();
-		this.jugador2= new Jugador();
-		this.jugador3= new Jugador();
+		jugador1= new Jugador();
+		jugador2= new Jugador();
+		jugador3= new Jugador();
 		
 		//this.tablero= new Tablero();
 	}
