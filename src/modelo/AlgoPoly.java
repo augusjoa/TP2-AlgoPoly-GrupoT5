@@ -6,22 +6,14 @@ import java.util.Random;
 
 public class AlgoPoly {
 	
-	Jugador jugador1;
-	Jugador jugador2;
-	Jugador jugador3;
+	Jugador jugador1 = new Jugador();
+	Jugador jugador2 = new Jugador();
+	Jugador jugador3 = new Jugador();
 	Jugador jugadorActual;
 	//Tablero tablero;
-	ArrayList<Jugador> turnoDelJugador = new ArrayList<>();
+	ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 	//cambiar a una circular
-	Iterator<Jugador> iterador = turnoDelJugador.iterator();
-	
-	public AlgoPoly(){
-		jugador1= new Jugador();
-		jugador2= new Jugador();
-		jugador3= new Jugador();
-		
-		//this.tablero= new Tablero();
-	}
+	Iterator<Jugador> iterador = jugadores.iterator();
 	
 	public void inicioDeJugadoresRandom(){
 	}
@@ -46,7 +38,8 @@ public class AlgoPoly {
 
 	private void cambiarJugadorActual() {
 		//la lista siempre va atener un siguiente
-		if(iterador.hasNext())	jugadorActual= iterador.next();
+		if(!iterador.hasNext()) iterador = jugadores.iterator();
+		jugadorActual= iterador.next();
 	}
 	
 	
