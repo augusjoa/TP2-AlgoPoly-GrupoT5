@@ -5,11 +5,12 @@ import java.util.Hashtable;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.Posicion;
+import modelo.interfaces.Visitable;
 
-public class Carcel {
-	public Hashtable<Jugador, Integer> jugadoresEnCarcel = new Hashtable<Jugador, Integer>();
-	Dinero valorDeLaFianza = new Dinero(45000);
-	Posicion posicion = new Posicion(5);
+public class Carcel implements Visitable{
+	private Hashtable<Jugador, Integer> jugadoresEnCarcel = new Hashtable<Jugador, Integer>();
+	private Dinero valorDeLaFianza = new Dinero(45000);
+	private Posicion posicion = new Posicion(5);
 	
 	public boolean jugadorEstaEnCarcel(Jugador jugador){
 		return this.jugadoresEnCarcel.containsKey(jugador);
@@ -50,5 +51,11 @@ public class Carcel {
 
 	public int getPos() {
 		return posicion.getPosX();
+	}
+
+	@Override
+	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

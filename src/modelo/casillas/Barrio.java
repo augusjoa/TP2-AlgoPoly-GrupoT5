@@ -7,11 +7,12 @@ import modelo.interfaces.Adquirible;
 public class Barrio implements Adquirible{
 
 //	private boolean tieneDuenio = false;
-	Dinero valorDelBarrio;
-	Jugador jugadorDuenio;
+	private Dinero valorDelBarrio;
+	private Jugador jugadorDuenio;
 	
-	public Barrio(double valor) {
-		this.valorDelBarrio = new Dinero(valor);
+	public Barrio(double precioDeVenta) {
+		valorDelBarrio = new Dinero(precioDeVenta);
+		jugadorDuenio = null;
 	}
 
 //	public void comprado() {

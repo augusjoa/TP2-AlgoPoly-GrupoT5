@@ -4,11 +4,12 @@ import java.util.Hashtable;
 
 import modelo.Dinero;
 import modelo.Jugador;
+import modelo.interfaces.Visitable;
 
-public class Quini6 {
+public class Quini6 implements Visitable {
 	private Hashtable<Jugador, Integer> jugadores = new Hashtable<Jugador, Integer>();
-	Dinero primerPremio = new Dinero(50000);
-	Dinero segundoPremio = new Dinero(30000);
+	private Dinero primerPremio = new Dinero(50000);
+	private Dinero segundoPremio = new Dinero(30000);
 	
 	public void obtenerPremio(Jugador jugador){
 		if(!this.jugadores.containsKey(jugador)){
@@ -19,5 +20,11 @@ public class Quini6 {
 			jugador.agregarDinero(segundoPremio.getValor());
 			this.jugadores.replace(jugador, 2);
 		}
+	}
+
+	@Override
+	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
