@@ -5,13 +5,12 @@ import java.util.HashSet;
 
 import modelo.interfaces.Adquirible;
 
-//import modelo.casillas.Barrio;
+
 
 public class Jugador {
 	
 	private Dinero dinero = new Dinero(100000);
-	public Posicion posicion = new Posicion(0);
-	public boolean jugadorPuedeMover=true;
+	private boolean jugadorPuedeMover=true;
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	
 	public int getDinero() {
@@ -35,8 +34,6 @@ public class Jugador {
 	}
 	
 	public void moverse(int numeroDelDado){
-		int posAnterior= this.posicion.getPosX();
-		this.posicion.setPosX(posAnterior + numeroDelDado);
 		this.jugadorPuedeMover = false;
 	}
 	
@@ -44,9 +41,6 @@ public class Jugador {
 		jugadorPuedeMover = true;
 	}
 
-	public int getPosicion() {
-		return posicion.getPosX();
-	}
 
 	public int getCantidadDePropiedades() {
 		return adquisiciones.size();

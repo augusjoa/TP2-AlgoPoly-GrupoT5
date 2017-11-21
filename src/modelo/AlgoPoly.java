@@ -10,7 +10,6 @@ public class AlgoPoly {
 	Jugador jugador2;
 	Jugador jugador3;
 	Jugador jugadorActual;
-	//int dineroInicial = 100000;
 	//Tablero tablero;
 	ArrayList<Jugador> turnoDelJugador = new ArrayList<>();
 	//cambiar a una circular
