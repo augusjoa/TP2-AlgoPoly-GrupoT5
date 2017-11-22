@@ -16,7 +16,7 @@ public class CarcelTest {
 		
 		Carcel carcel = new Carcel();
 		
-		carcel.retenerJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
 		
 		Assert.assertEquals(false, jugador.puedeMoverse());
 	}
@@ -28,11 +28,10 @@ public class CarcelTest {
 		
 		Carcel carcel = new Carcel();
 		
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
-		carcel.quedarLibre(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
 		
 		Assert.assertEquals(true, jugador.puedeMoverse());
 		
@@ -44,8 +43,8 @@ public class CarcelTest {
 		
 		Carcel carcel = new Carcel();
 		
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
 		carcel.pagarFianza(jugador);
 		
 		Assert.assertEquals(true, jugador.puedeMoverse());
@@ -58,9 +57,9 @@ public class CarcelTest {
 		
 		Carcel carcel = new Carcel();
 		
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
 		carcel.pagarFianza(jugador);
 		
 		Assert.assertEquals(true, jugador.puedeMoverse());
@@ -74,8 +73,8 @@ public class CarcelTest {
 		jugador.sustraerDinero(unDinero);
 		Carcel carcel = new Carcel();
 		
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
 		carcel.pagarFianza(jugador);
 		
 		Assert.assertEquals(false, jugador.puedeMoverse());
@@ -89,9 +88,9 @@ public class CarcelTest {
 				
 		Carcel carcel = new Carcel();
 		
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
-		carcel.retenerJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
+		carcel.esVisitadoPorJugador(jugador);
 		carcel.pagarFianza(jugador);
 		
 		Assert.assertEquals(false, jugador.puedeMoverse());
