@@ -54,7 +54,7 @@ public class Jugador {
 
 	public boolean comprar(Adquirible unComprable) {
 		
-		if(dinero.comprar(unComprable)) {
+		if(dinero.comprar(unComprable.getPrecio())) {
 			adquisiciones.add(unComprable);
 			return true;
 		}

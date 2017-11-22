@@ -13,8 +13,8 @@ public class Casa implements Adquirible{
 		jugadorDuenio = null;
 	}
 	@Override
-	public int getPrecio() {
-		return valorDeLaCasa.getValor();
+	public Dinero getPrecio() {
+		return valorDeLaCasa;
 	}
 	@Override
 	public Jugador getDuenio() {

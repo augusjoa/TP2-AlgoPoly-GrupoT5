@@ -1,7 +1,5 @@
 package modelo;
 
-import modelo.interfaces.Adquirible;
-
 public class Dinero {
 	
 	private int valor;
@@ -27,9 +25,9 @@ public class Dinero {
 		return true;
 	}
 
-	public boolean comprar(Adquirible unComprable) {
-		if(this.valor > unComprable.getPrecio()) {
-			this.valor -= unComprable.getPrecio();
+	public boolean comprar(Dinero unPrecio) {
+		if(this.valor > unPrecio.getValor()) {
+			this.valor -= unPrecio.getValor();
 			return true;
 		}
 		return false;

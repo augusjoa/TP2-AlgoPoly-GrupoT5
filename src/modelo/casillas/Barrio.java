@@ -28,8 +28,8 @@ public class Barrio implements Adquirible{
 //	}
 
 	@Override
-	public int getPrecio() {
-		return valorDelBarrio.getValor();
+	public Dinero getPrecio() {
+		return valorDelBarrio;
 	}
 
 	@Override
