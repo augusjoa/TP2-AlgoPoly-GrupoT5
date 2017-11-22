@@ -4,7 +4,6 @@ import java.util.Hashtable;
 
 import modelo.Dinero;
 import modelo.Jugador;
-import modelo.Posicion;
 import modelo.interfaces.Visitable;
 
 public class Carcel implements Visitable{
@@ -52,4 +51,5 @@ public class Carcel implements Visitable{
 		
 		return null;
 	}
+	
 }

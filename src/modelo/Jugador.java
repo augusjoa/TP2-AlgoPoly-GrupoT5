@@ -41,9 +41,20 @@ public class Jugador {
 		this.jugadorPuedeMover = false;
 	}
 	
+	//public void moverse2(int numeroDelDado){
+		//for(int i=numeroDelDado;i<0;i--){
+			//tablero.siguienteCasilla();
+		//}
+	//}
+	
 	public void pasarTurno(){
 		jugadorPuedeMover = true;
 	}
+	
+	//public void pasarTurno2(AlgoPoly algoPoly){
+		//algoPoly.siguienteJugador();
+		//jugadorPuedeMover=true;
+	//}
 
 	public int getPosicion() {
 		return posicion.getPosX();

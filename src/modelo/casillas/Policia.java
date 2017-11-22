@@ -5,14 +5,19 @@ import modelo.interfaces.Visitable;
 
 public class Policia implements Visitable{
 
+	private Carcel carcel;
 	
-	public void moverALaCarcel(Jugador jugador,Carcel carcel){
+	public Policia(Carcel unaCarcel){
+		carcel=unaCarcel;
 	}
 
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador unJugador) {
-		// TODO Auto-generated method stub
+	public Jugador esVisitadoPorJugador(Jugador jugador) {
+		carcel.esVisitadoPorJugador(jugador);
 		return null;
 	}
+
+
+	
 	
 }

@@ -8,11 +8,11 @@ public class AlgoPoly {
 	
 	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 	private Iterator<Jugador> iterador = null;
-	
+	private int cantidadDeJugadores=3;
 	
 	public AlgoPoly() {
 		
-		for(int i=1;i<=3;i++) {
+		for(int i=0;i<cantidadDeJugadores;i++) {
 			jugadores.add(new Jugador());
 		}
 	}
