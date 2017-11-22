@@ -20,11 +20,11 @@ public class Dado {
 	}
 	
 //	Esto habria que borrarlo despues
-	@Test
-	public void testDeDados() {
-		int numero = this.tirarDados();
-		System.out.print(numero);
-	}
+//	@Test
+//	public void testDeDados() {
+//		int numero = this.tirarDados();
+//		System.out.print(numero);
+//	}
 }
 
 
