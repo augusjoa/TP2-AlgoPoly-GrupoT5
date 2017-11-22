@@ -32,7 +32,7 @@ public class Barrio implements Adquirible,Visitable{
 
 	@Override
 	public Jugador esVisitadoPorJugador(Jugador unJugador) {
-		// ver si el Jugador visitante es el dueño o no ...etc
+		// ver si el Jugador visitante es el duenio o no ...etc
 		return null;
 	}
 
