@@ -2,8 +2,6 @@ package modelo;
 
 import java.util.Random;
 
-import org.junit.Test;
-
 public class Dado {
 	private int primerdado = 0;
 	private int segundodado = 0;
