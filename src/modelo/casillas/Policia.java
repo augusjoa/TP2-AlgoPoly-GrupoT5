@@ -9,7 +9,7 @@ public class Policia implements Visitable{
 	Posicion posicion = new Posicion(10);
 	
 	public void moverALaCarcel(Jugador jugador,Carcel carcel){
-		jugador.posicion.setPosX(carcel.getPos());
+		jugador.setPosX(carcel.getPos());
 	}
 
 	@Override

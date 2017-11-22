@@ -10,8 +10,8 @@ import modelo.interfaces.Adquirible;
 public class Jugador {
 	
 	private Dinero dinero = new Dinero(100000);
-	public Posicion posicion = new Posicion(0);
-	public boolean jugadorPuedeMover=true;
+	private Posicion posicion = new Posicion(0);
+	private boolean jugadorPuedeMover=true;
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	
 	public int getDinero() {
@@ -63,6 +63,10 @@ public class Jugador {
 
 	public boolean esDuenio(Adquirible unComprable) {
 		return adquisiciones.contains(unComprable);
+	}
+
+	public void setPosX(int pos) {
+		this.posicion.setPosX(pos);
 	}
 	
 

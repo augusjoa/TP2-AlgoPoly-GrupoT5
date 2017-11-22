@@ -23,11 +23,11 @@ public class RetrocesoDinamicoTest {
 	public void testCaerEnLaCasillaCon11oMas(){
 		Jugador unJugador = new Jugador();		
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
-		int posicionInicial = unJugador.posicion.getPosX();
+		int posicionInicial = unJugador.getPosicion();
 		
 		unRetrocesoDinamico.retrocederAlJugador(unJugador, 11);
 		
-		Assert.assertEquals(posicionInicial - 9, unJugador.posicion.getPosX());
+		Assert.assertEquals(posicionInicial - 9, unJugador.getPosicion());
 	}
 	
 	@Test 
