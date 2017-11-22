@@ -6,35 +6,41 @@ import java.util.Random;
 
 public class AlgoPoly {
 	
-	Jugador jugador1 = new Jugador();
-	Jugador jugador2 = new Jugador();
-	Jugador jugador3 = new Jugador();
-	Jugador jugadorActual;
-	//Tablero tablero;
-	ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-	Iterator<Jugador> iterador = jugadores.iterator();
+	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+	private Iterator<Jugador> iterador = null;
 	
-	public Jugador jugadorInicialRandom(){
-		Random random = new Random();
-		int numRandom = random.nextInt(3);
+	public AlgoPoly() {
 		
-		if(numRandom==0) return jugador1;
-		else if(numRandom==1) return jugador2;
-		return jugador3;
+		for(int i=1;i<=3;i++) {
+			jugadores.add(new Jugador());
+		}
 	}
 	
-	public void iniciarPartida(){
-		jugadorActual=iterador.next();
+//	public Jugador jugadorInicialRandom(){
+//		Random random = new Random();
+//		int numRandom = random.nextInt(3);
+//		
+//		if(numRandom==0) return jugador1;
+//		else if(numRandom==1) return jugador2;
+//		return jugador3;
+//	}
+//	
+//	public void iniciarPartida(){
+//		jugadorActual=iterador.next();
+//	}
+//	
+	public Jugador siguienteJugador(){
+		if(iterador == null || !iterador.hasNext() ) iterador = jugadores.iterator();
+		return iterador.next();
 	}
-	
-	public void avanzarTurno(){
-		cambiarJugadorActual();
-		jugadorActual.pasarTurno();
-	}
+//
+//	private void cambiarJugadorActual() {
+//		if(!iterador.hasNext()) iterador = jugadores.iterator();
+//		jugadorActual= iterador.next();
+//	}
 
-	private void cambiarJugadorActual() {
-		if(!iterador.hasNext()) iterador = jugadores.iterator();
-		jugadorActual= iterador.next();
+	public int cantidadDeJugadoresActivos() {
+		return jugadores.size();
 	}
 	
 	
