@@ -12,19 +12,15 @@ public class AlgoPoly {
 	Jugador jugadorActual;
 	//Tablero tablero;
 	ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-	//cambiar a una circular
 	Iterator<Jugador> iterador = jugadores.iterator();
-	
-	public void inicioDeJugadoresRandom(){
-	}
 	
 	public Jugador jugadorInicialRandom(){
 		Random random = new Random();
 		int numRandom = random.nextInt(3);
 		
-		if(numRandom==0) return this.jugador1;
-		else if(numRandom==1) return this.jugador2;
-		return this.jugador3;
+		if(numRandom==0) return jugador1;
+		else if(numRandom==1) return jugador2;
+		return jugador3;
 	}
 	
 	public void iniciarPartida(){
@@ -37,7 +33,6 @@ public class AlgoPoly {
 	}
 
 	private void cambiarJugadorActual() {
-		//la lista siempre va atener un siguiente
 		if(!iterador.hasNext()) iterador = jugadores.iterator();
 		jugadorActual= iterador.next();
 	}
