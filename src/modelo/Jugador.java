@@ -3,6 +3,7 @@ package modelo;
 import java.util.Collection;
 import java.util.HashSet;
 
+import modelo.casillas.Barrio;
 import modelo.interfaces.Adquirible;
 
 
@@ -52,22 +53,28 @@ public class Jugador {
 		return adquisiciones.size();
 	}
 
-	public boolean comprar(Adquirible unComprable) {
+	public boolean comprar(Adquirible unAdquirible) {
 		
-		if(dinero.comprar(unComprable.getPrecio())) {
-			adquisiciones.add(unComprable);
+		if(dinero.comprar(unAdquirible.getPrecio())) {
+			adquisiciones.add(unAdquirible);
+			unAdquirible.setDuenio(this);
 			return true;
 		}
 		return false;
 	}
 
-	public boolean esDuenio(Adquirible unComprable) {
-		return adquisiciones.contains(unComprable);
+	public boolean esDuenio(Adquirible unAdquirible) {
+		return adquisiciones.contains(unAdquirible);
 	}
 
-	public void setPosX(int pos) {
-		this.posicion.setPosX(pos);
+	public boolean vender(Adquirible unAdquirible) {
+		if(!adquisiciones.contains(unAdquirible)) return false; //o ver de agregar excepciones
+		
+		dinero.vender(unAdquirible.getPrecio());
+		adquisiciones.remove(unAdquirible);
+		unAdquirible.setDuenio(null);
+		return true;
+		
 	}
-	
 
 }

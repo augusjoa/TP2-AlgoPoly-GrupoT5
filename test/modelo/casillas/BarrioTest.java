@@ -7,16 +7,25 @@ import modelo.casillas.Barrio;
 import modelo.Jugador;
 
 public class BarrioTest {
-	//private static final double DELTA = 1e-15;
 	
 	@Test
-	public void testAlComprarElBarrioElJugadorEsPropietario() {
+	public void testElBarrioTieneDuenioAlSerCompradoPorUnJugador() {
 		Barrio unBarrio = new Barrio(1000);
 		Jugador unJugador = new Jugador();
 		
 		unJugador.comprar(unBarrio);
 		
-		Assert.assertTrue(unJugador.esDuenio(unBarrio));
+		Assert.assertEquals(unJugador, unBarrio.getDuenio());
 	}
 	
+	@Test
+	public void testElBarrioNoTieneDuenioAlSerVendido() {
+		Barrio unBarrio = new Barrio(1000);
+		Jugador unJugador = new Jugador();
+		unJugador.comprar(unBarrio);
+		
+		unJugador.vender(unBarrio);
+		
+		Assert.assertNull(unBarrio.getDuenio());
+	}
 }

@@ -1,4 +1,4 @@
-package modelo.casillas;
+package modelo.edificios;
 
 import modelo.Dinero;
 import modelo.Jugador;
@@ -19,6 +19,10 @@ public class Casa implements Adquirible{
 	@Override
 	public Jugador getDuenio() {
 		return jugadorDuenio;
+	}
+	@Override
+	public Jugador setDuenio(Jugador unJugador) {
+		return jugadorDuenio = unJugador;
 	}
 
 }

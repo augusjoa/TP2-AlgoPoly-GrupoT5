@@ -9,6 +9,7 @@ public class AlgoPoly {
 	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 	private Iterator<Jugador> iterador = null;
 	
+	
 	public AlgoPoly() {
 		
 		for(int i=1;i<=3;i++) {

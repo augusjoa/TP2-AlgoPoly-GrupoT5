@@ -32,5 +32,10 @@ public class Dinero {
 		}
 		return false;
 	}
+
+	public Dinero vender(Dinero unPrecio) {
+		valor = (int) (unPrecio.getValor() * 0.85);		//perdida del 15% al vender algo, ver de mejorar. no se si va en Dinero en si.
+		return this;
+	}
 	
 }

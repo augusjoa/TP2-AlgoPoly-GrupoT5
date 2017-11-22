@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.casillas.AvanceDinamico;
+import modelo.edificios.Casa;
 import modelo.Jugador;
 
 public class AvanceDinamicoTest {

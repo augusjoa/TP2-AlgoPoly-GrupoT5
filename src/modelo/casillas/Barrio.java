@@ -3,10 +3,10 @@ package modelo.casillas;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.interfaces.Adquirible;
+import modelo.interfaces.Visitable;
 
-public class Barrio implements Adquirible{
+public class Barrio implements Adquirible,Visitable{
 
-//	private boolean tieneDuenio = false;
 	private Dinero valorDelBarrio;
 	private Jugador jugadorDuenio;
 	
@@ -14,18 +14,6 @@ public class Barrio implements Adquirible{
 		valorDelBarrio = new Dinero(precioDelBarrio);
 		jugadorDuenio = null;
 	}
-
-//	public void comprado() {
-//		this.tieneDuenio = true;
-//	}
-//	
-//	public boolean estaComprado() {
-//		return this.tieneDuenio;
-//	}
-//	
-//	public double getValor() {
-//		return this.valorDelBarrio.getValor();
-//	}
 
 	@Override
 	public Dinero getPrecio() {
@@ -35,6 +23,17 @@ public class Barrio implements Adquirible{
 	@Override
 	public Jugador getDuenio() {
 		return jugadorDuenio;
+	}
+
+	@Override
+	public Jugador setDuenio(Jugador unJugador) {
+		return jugadorDuenio = unJugador;
+	}
+
+	@Override
+	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+		// ver si el Jugador visitante es el dueño o no ...etc
+		return null;
 	}
 
 

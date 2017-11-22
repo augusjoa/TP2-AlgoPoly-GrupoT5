@@ -1,9 +1,10 @@
-package modelo.casillas;
+package modelo.edificios;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.Jugador;
+import modelo.casillas.Barrio;
 
 public class CasaTest {
 	@Test
@@ -13,6 +14,6 @@ public class CasaTest {
 		
 		unJugador.comprar(unaCasa);
 		
-		Assert.assertTrue(unJugador.esDuenio(unaCasa));
+		Assert.assertEquals(unJugador, unaCasa.getDuenio());
 	}
 }

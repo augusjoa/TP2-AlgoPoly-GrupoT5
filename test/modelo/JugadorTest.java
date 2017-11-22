@@ -5,7 +5,7 @@ import org.junit.Test;
 import modelo.Jugador;
 
 public class JugadorTest {
-	private static final double DELTA = 1e-15;
+
 	
 	@Test
 	public void testcrearJugador() {
@@ -16,7 +16,7 @@ public class JugadorTest {
 	@Test
 	public void testObtenerDinero() {
 		Jugador jugador = new Jugador();
-		Assert.assertEquals(100000, jugador.getDinero(),DELTA);
+		Assert.assertEquals(100000, jugador.getDinero());
 	}
 	
 	@Test
@@ -24,7 +24,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Dinero unDinero = new Dinero(20000);
 		jugador.agregarDinero(unDinero);
-		Assert.assertEquals(120000, jugador.getDinero(),DELTA);
+		Assert.assertEquals(120000, jugador.getDinero());
 	}
 	
 	@Test
@@ -32,6 +32,6 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Dinero unDinero = new Dinero(20000);
 		jugador.sustraerDinero(unDinero);
-		Assert.assertEquals(80000, jugador.getDinero(),DELTA);
+		Assert.assertEquals(80000, jugador.getDinero());
 	}
 }
