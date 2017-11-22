@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.casillas.Barrio;
-import modelo.Dinero;
 import modelo.Jugador;
 
 public class BarrioTest {
