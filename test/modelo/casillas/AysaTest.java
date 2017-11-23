@@ -3,6 +3,7 @@ package modelo.casillas;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Dinero;
 import modelo.Jugador;
 
 public class AysaTest {
@@ -29,13 +30,13 @@ public class AysaTest {
 		jugadorDuenio.comprar(aysa);
 		
 		Jugador jugador = new Jugador();
-		int dineroInicial = jugador.getDinero();
+		Dinero dineroInicial = new Dinero(jugador.getDinero());
 		jugador.tirarDados();
 		aysa.esVisitadoPorJugador(jugador);
 		
 		
-		
-		Assert.assertEquals(300*jugador.getNumeroDelDado(), dineroInicial-jugador.getDinero());
+		dineroInicial.sustraerDinero(jugador.getDinero());
+		Assert.assertEquals(300*jugador.getNumeroDelDado(), dineroInicial._getValor());
 	}
 	
 	@Test
@@ -49,12 +50,12 @@ public class AysaTest {
 		jugadorDuenio.comprar(edesur);
 		
 		Jugador jugador = new Jugador();
-		int dineroInicial = jugador.getDinero();
+		Dinero dineroInicial = new Dinero(jugador.getDinero());
 		jugador.tirarDados();
 		aysa.esVisitadoPorJugador(jugador);
 		
 		
-		
-		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial-jugador.getDinero());
+		dineroInicial.sustraerDinero(jugador.getDinero());
+		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial._getValor());
 	}
 }

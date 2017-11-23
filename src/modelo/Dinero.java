@@ -15,7 +15,7 @@ public class Dinero {
 	}
 	
 	public int _getValor() { //Solo para las pruebas se debe utilizar
-		return this.valor;
+		return valor;
 	}
 
 	public void agregarDinero(Dinero unDinero) {

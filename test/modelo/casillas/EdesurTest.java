@@ -3,6 +3,7 @@ package modelo.casillas;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Dinero;
 import modelo.Jugador;
 
 public class EdesurTest {
@@ -28,13 +29,13 @@ public class EdesurTest {
 		jugadorDuenio.comprar(edesur);
 		
 		Jugador jugador = new Jugador();
-		int dineroInicial = jugador.getDinero();
+		Dinero dineroInicial = new Dinero(jugador.getDinero());
 		jugador.tirarDados();
 		edesur.esVisitadoPorJugador(jugador);
 		
 		
-		
-		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial-jugador.getDinero());
+		dineroInicial.sustraerDinero(jugador.getDinero());
+		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial._getValor());
 	}
 	
 	@Test
@@ -48,12 +49,12 @@ public class EdesurTest {
 		jugadorDuenio.comprar(edesur);
 		
 		Jugador jugador = new Jugador();
-		int dineroInicial = jugador.getDinero();
+		Dinero dineroInicial = new Dinero(jugador.getDinero());
 		jugador.tirarDados();
 		edesur.esVisitadoPorJugador(jugador);
 		
 		
-		
-		Assert.assertEquals(1000*jugador.getNumeroDelDado(), dineroInicial-jugador.getDinero());
+		dineroInicial.sustraerDinero(jugador.getDinero());
+		Assert.assertEquals(1000*jugador.getNumeroDelDado(), dineroInicial._getValor());
 	}
 }
