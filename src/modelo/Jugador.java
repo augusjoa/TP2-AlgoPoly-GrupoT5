@@ -14,7 +14,12 @@ public class Jugador {
 	private Posicion posicion = new Posicion(0);
 	private boolean jugadorPuedeMover=true;
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
+	private DobleDado dados = new DobleDado();
 	
+	public int getNumeroDelDado(){
+		return dados.getDobleDado();
+	}
+
 	public int getDinero() {
 		return dinero.getValor();
 	}
