@@ -4,6 +4,7 @@ package modelo.casillas;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Dinero;
 import modelo.Jugador;
 
 public class SubteTest {
@@ -29,14 +30,14 @@ public class SubteTest {
 		Subte subte = new Subte();
 		jugadorDuenio.comprar(subte);
 		
-		Jugador jugador = new Jugador();
-		int dineroInicial = jugador.getDinero();
-		jugador.tirarDados();
-		subte.esVisitadoPorJugador(jugador);
+		Jugador jugadorNoDuenio = new Jugador();
+		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
+		jugadorNoDuenio.tirarDados();
+		subte.esVisitadoPorJugador(jugadorNoDuenio);
 		
 		
-		
-		Assert.assertEquals(600*jugador.getNumeroDelDado(), dineroInicial-jugador.getDinero());
+		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
+		Assert.assertEquals(600*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
 	}
 	
 	@Test
@@ -47,17 +48,15 @@ public class SubteTest {
 		subte.conoceATren(tren);
 		
 		
-		
 		jugadorDuenio.comprar(subte);
 		jugadorDuenio.comprar(tren);
 		
-		Jugador jugador = new Jugador();
-		int dineroInicial = jugador.getDinero();
-		jugador.tirarDados();
-		subte.esVisitadoPorJugador(jugador);
+		Jugador jugadorNoDuenio = new Jugador();
+		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
+		jugadorNoDuenio.tirarDados();
+		subte.esVisitadoPorJugador(jugadorNoDuenio);
 		
-		
-		
-		Assert.assertEquals(1100*jugador.getNumeroDelDado(), dineroInicial-jugador.getDinero());
+		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
+		Assert.assertEquals(1100*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
 	}
 }

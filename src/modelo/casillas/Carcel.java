@@ -28,12 +28,13 @@ public class Carcel implements Visitable{
 		jugador.jugadorDetenido();	
 	}
 	
-	public void pagarFianza(Jugador jugador){
+	public boolean pagarFianza(Jugador jugador){
 		//if(jugadoresEnCarcel.get(jugador) == 2 || jugadoresEnCarcel.get(jugador) == 3){
-			if(jugador.getDinero()>valorDeLaFianza.getValor()){
-				jugador.sustraerDinero(valorDeLaFianza);
+			if(jugador.getDinero().sustraerDinero(valorDeLaFianza)){
 				liberarJugador(jugador);
-			}	
+				return true;
+			}
+			return false;
 		//}
 	}
 	
