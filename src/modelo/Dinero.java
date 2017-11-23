@@ -37,4 +37,10 @@ public class Dinero {
 		return this;
 	}
 	
+	public void aplicarImpuesto(int porcentajeDelImpuesto){
+		int valorActual= valor;
+		int valorConImpuesto= (valor*porcentajeDelImpuesto)/100;
+		valor= valorActual-valorConImpuesto;
+	}
+	
 }
