@@ -69,4 +69,16 @@ public class Jugador {
 		return dado.getDobleDado();
 	}
 
+	public void jugadorDetenido() {
+		detenido=true;
+	}
+	
+	public void jugadorLiberado(){
+		detenido=false;
+	}
+
+	public boolean puedeMoverse() {
+		return !detenido;
+	}
+
 }

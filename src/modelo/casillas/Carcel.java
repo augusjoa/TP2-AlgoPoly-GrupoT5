@@ -40,7 +40,7 @@ public class Carcel implements Visitable{
 	
 	public void liberarJugador(Jugador jugador){
 		jugadoresEnCarcel.remove(jugador);
-		jugador.pasarTurno();
+		jugador.jugadorLiberado();
 
 	}
 
