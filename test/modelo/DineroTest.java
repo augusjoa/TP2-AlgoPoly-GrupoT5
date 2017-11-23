@@ -17,7 +17,7 @@ public class DineroTest{
 	@Test
 	public void testgetDinero() {
 		Dinero dinero = new Dinero(100000);
-		Assert.assertEquals(100000, dinero.getValor());
+		Assert.assertEquals(100000, dinero._getValor());
 	}
 	
 	@Test
@@ -25,7 +25,7 @@ public class DineroTest{
 		Dinero dinero = new Dinero(100000);
 		Dinero dinero2 = new Dinero(20000);
 		dinero.agregarDinero(dinero2);
-		Assert.assertEquals(120000, dinero.getValor());
+		Assert.assertEquals(120000, dinero._getValor());
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class DineroTest{
 		Dinero dinero = new Dinero(100000);
 		Dinero dinero2 = new Dinero(20000);
 		dinero.sustraerDinero(dinero2);
-		Assert.assertEquals(80000, dinero.getValor());
+		Assert.assertEquals(80000, dinero._getValor());
 	}
 	
 	@Test
@@ -42,7 +42,7 @@ public class DineroTest{
 		Casa unaCasa = new Casa(20000);
 		
 		unDinero.comprar(unaCasa);
-		Assert.assertEquals(80000, unDinero.getValor());
+		Assert.assertEquals(80000, unDinero._getValor());
 	}
 	
 	@Test
@@ -59,7 +59,7 @@ public class DineroTest{
 		Casa unaCasa = new Casa(70000);
 		
 		unDinero.comprar(unaCasa);
-		Assert.assertEquals(50000, unDinero.getValor());
+		Assert.assertEquals(50000, unDinero._getValor());
 	}
 	
 	@Test

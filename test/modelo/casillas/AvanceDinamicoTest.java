@@ -15,8 +15,8 @@ public class AvanceDinamicoTest {
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		
-		unAvanceDinamico.avanzarAlJugador(unJugador, 5);	
-		//El 5 puede ser reemplazado por un objeto tipo dado que devuelva el numero sacado.
+		unAvanceDinamico.avanzarAlJugador(unJugador);	
+
 		
 		Assert.assertEquals(posicionInicial + 3, unJugador.getPosicion());
 	}

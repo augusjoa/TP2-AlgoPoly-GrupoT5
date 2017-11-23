@@ -5,12 +5,16 @@ import modelo.interfaces.Adquirible;
 public class Dinero {
 	private static final int porcentajeRetencionDeVenta = 15;
 	private int valor;
-
+		
 	public Dinero(int valor) {
 		this.valor = valor;
 	}
 	
-	protected int getValor() { //Solo para las pruebas se debe utilizar
+	public Dinero(Dinero unDinero) {
+		this.valor = unDinero.valor;
+	}
+	
+	public int _getValor() { //Solo para las pruebas se debe utilizar
 		return this.valor;
 	}
 

@@ -1,13 +1,14 @@
 package modelo.casillas;
 
+import modelo.DobleDado;
 import modelo.Jugador;
 import modelo.interfaces.Visitable;
 
 
 public class AvanceDinamico implements Visitable{
 
-	public void avanzarAlJugador(Jugador unJugador, int sumaDeLosDados) {
-		
+	private void avanzarAlJugador(Jugador unJugador) {
+		DobleDado dados = unJugador.getDadosTirados();
 		if(sumaDeLosDados > 10) {
 			unJugador.moverse(sumaDeLosDados - unJugador.getCantidadDePropiedades());
 		}
@@ -19,8 +20,7 @@ public class AvanceDinamico implements Visitable{
 	
 	@Override
 	public Jugador esVisitadoPorJugador(Jugador unJugador) {
-		this.avanzarAlJugador(unJugador, unJugador.tirarDados());
+		this.avanzarAlJugador(unJugador);
 		return null;
 	}
-
 }
