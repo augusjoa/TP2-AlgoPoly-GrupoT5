@@ -8,7 +8,7 @@ public class JugadorTest {
 
 	
 	@Test
-	public void testcrearJugador() {
+	public void testCrearJugador() {
 		Jugador jugador = new Jugador();
 		Assert.assertNotNull(jugador);
 	}
@@ -20,7 +20,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void testagregarDinero() {
+	public void testAgregarDinero() {
 		Jugador jugador = new Jugador();
 		Dinero unDinero = new Dinero(20000);
 		jugador.agregarDinero(unDinero);
@@ -28,10 +28,12 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void testsustraerDinero() {
+	public void testSustraerDinero() {
 		Jugador jugador = new Jugador();
 		Dinero unDinero = new Dinero(20000);
 		jugador.sustraerDinero(unDinero);
 		Assert.assertEquals(80000, jugador.getDinero());
 	}
+	
+
 }
