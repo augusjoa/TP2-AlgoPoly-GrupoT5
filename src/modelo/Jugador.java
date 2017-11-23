@@ -12,14 +12,11 @@ public class Jugador {
 	
 	private Dinero dinero = new Dinero(100000);
 	private Posicion posicion = new Posicion(0);
-	private boolean jugadorPuedeMover=true;
+	private boolean jugadorPuedeMover = true; 
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
-	private DobleDado dados = new DobleDado();
+	private AdquiriblesDeJugador adquisiciones2 = new AdquiriblesDeJugador();
+	private DobleDado dado = new DobleDado();
 	
-	public int getNumeroDelDado(){
-		return dados.getDobleDado();
-	}
-
 	public int getDinero() {
 		return dinero.getValor();
 	}
@@ -73,6 +70,7 @@ public class Jugador {
 		
 		if(dinero.comprar(unAdquirible.getPrecio())) {
 			adquisiciones.add(unAdquirible);
+			adquisiciones2.comprar((Barrio) unAdquirible);// Hay que arreglar esto
 			unAdquirible.setDuenio(this);
 			return true;
 		}
@@ -91,6 +89,13 @@ public class Jugador {
 		unAdquirible.setDuenio(null);
 		return true;
 		
+	}
+
+	public int tirarDados() {
+		return this.dado.tirarDados();
+	}
+	public int getNumeroDelDado(){
+		return dado.getDobleDado();
 	}
 
 }

@@ -1,8 +1,10 @@
 package modelo.casillas;
 
 import modelo.Jugador;
+import modelo.interfaces.Visitable;
 
-public class RetrocesoDinamico {
+
+public class RetrocesoDinamico implements Visitable{
 
 	public void retrocederAlJugador(Jugador unJugador, int numeroDelDado) {
 		
@@ -16,6 +18,12 @@ public class RetrocesoDinamico {
 		
 		else unJugador.moverse(- numeroDelDado + 2);
 		
+	}
+
+	@Override
+	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+		this.retrocederAlJugador(unJugador, unJugador.tirarDados());
+		return null;
 	}
 
 }

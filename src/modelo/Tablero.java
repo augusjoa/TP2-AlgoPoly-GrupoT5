@@ -3,17 +3,19 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
-
-import modelo.casillas.Barrio;
 import modelo.casillas.Carcel;
 import modelo.casillas.Quini6;
 import modelo.interfaces.Visitable;
 
 
 public class Tablero {
-
+	private int cantidad_nodos;
 	private ArrayList <Visitable> casilleros = new ArrayList<Visitable>();
 	private ListIterator<Visitable> iterador = null;
+	
+
+
+	
 	
 	public Tablero() {
 //		Visitable salidaCas = new Salida();

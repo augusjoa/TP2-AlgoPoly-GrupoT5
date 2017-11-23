@@ -14,11 +14,13 @@ public class Carcel implements Visitable{
 		return this.jugadoresEnCarcel.containsKey(jugador);
 	}
 	
-	public void incrementarTurno(Jugador jugador){
-		if(jugadoresEnCarcel.containsKey(jugador)) {
+	public boolean incrementarTurno(Jugador jugador){
+		if(jugadorEstaEnCarcel(jugador)) {
 			int num = jugadoresEnCarcel.get(jugador);
 			jugadoresEnCarcel.replace(jugador, num+1);
+			return true;
 		}
+		return false;
 	}
 	
 	public void retenerJugador(Jugador jugador){
@@ -45,9 +47,10 @@ public class Carcel implements Visitable{
 	public Jugador esVisitadoPorJugador(Jugador jugador) {
 		if(!jugadoresEnCarcel.containsKey(jugador))	retenerJugador(jugador);
 		
-		if(jugadoresEnCarcel.get(jugador) ==4) liberarJugador(jugador);
+		if(jugadoresEnCarcel.get(jugador) == 4) liberarJugador(jugador);
 		
 		incrementarTurno(jugador);
+		
 		
 		return null;
 	}

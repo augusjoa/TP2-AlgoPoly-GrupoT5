@@ -18,10 +18,8 @@ public class DobleDado {
 	}
 	
 	public int getDobleDado(){
-		return primerDado+segundoDado;
+		return primerDado + segundoDado;
 	}
 	
 
 }
-
-

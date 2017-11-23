@@ -30,7 +30,5 @@ public class TableroTest {
 		siguienteALaUltima = unTablero.siguienteCasilla();
 		
 		Assert.assertEquals(primeraCasilla, siguienteALaUltima);
-		
-		
 	}
 }

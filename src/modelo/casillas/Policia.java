@@ -8,7 +8,7 @@ public class Policia implements Visitable{
 	private Carcel carcel;
 	
 	public Policia(Carcel unaCarcel){
-		carcel=unaCarcel;
+		carcel = unaCarcel;
 	}
 
 	@Override
