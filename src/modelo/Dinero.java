@@ -1,40 +1,35 @@
 package modelo;
 
+import modelo.interfaces.Adquirible;
+
 public class Dinero {
-	
+	private static final int porcentajeRetencionDeVenta = 15;
 	private int valor;
 
 	public Dinero(int valor) {
 		this.valor = valor;
 	}
 	
-	public int getValor() {
+	protected int getValor() { //Solo para las pruebas se debe utilizar
 		return this.valor;
 	}
 
-	public Dinero agregarDinero(Dinero unDinero) {
-		valor += unDinero.getValor();
-		return this;
+	public void agregarDinero(Dinero unDinero) {
+		valor += unDinero.valor;
 	}
 
 	public boolean sustraerDinero(Dinero unDinero) {
-		if(valor < unDinero.getValor()) {
-			return false;
-		}
-		valor -= unDinero.getValor();
+		if(valor < unDinero.valor) return false;
+		valor -= unDinero.valor;
 		return true;
 	}
 
-	public boolean comprar(Dinero unPrecio) {
-		if(this.valor > unPrecio.getValor()) {
-			this.valor -= unPrecio.getValor();
-			return true;
-		}
-		return false;
+	public boolean comprar(Adquirible unAdquirible) {
+		return sustraerDinero(unAdquirible.getPrecio());
 	}
 
-	public Dinero vender(Dinero unPrecio) {
-		valor = (int) (unPrecio.getValor() * 0.85);		//perdida del 15% al vender algo, ver de mejorar. no se si va en Dinero en si.
+	public Dinero vender(Adquirible unAdquirible) {
+		valor += (int) ((unAdquirible.getPrecio().valor * ( 100 - porcentajeRetencionDeVenta )) / 100 );
 		return this;
 	}
 	
