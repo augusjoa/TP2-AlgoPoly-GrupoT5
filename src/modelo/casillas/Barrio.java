@@ -17,6 +17,7 @@ public abstract class Barrio implements Adquirible,Visitable{
 	}
 	
 	public abstract int getCantidadDeEdificios();
+	
 	@Override
 	public Dinero getPrecio() {
 		return valorDelBarrio;
@@ -28,8 +29,8 @@ public abstract class Barrio implements Adquirible,Visitable{
 	}
 
 	@Override
-	public Jugador setDuenio(Jugador unJugador) {
-		return jugadorDuenio = unJugador;
+	public void setDuenio(Jugador unJugador) {
+		jugadorDuenio = unJugador;
 	}
 
 	

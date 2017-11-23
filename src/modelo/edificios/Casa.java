@@ -6,11 +6,10 @@ import modelo.interfaces.Adquirible;
 
 public class Casa implements Adquirible{
 	Dinero valorDeLaCasa;
-	Jugador jugadorDuenio;
+	Jugador jugadorDuenio=null;
 
 	public Casa(int valor) {
 		valorDeLaCasa = new Dinero(valor);
-		jugadorDuenio = null;
 	}
 	@Override
 	public Dinero getPrecio() {
@@ -21,8 +20,8 @@ public class Casa implements Adquirible{
 		return jugadorDuenio;
 	}
 	@Override
-	public Jugador setDuenio(Jugador unJugador) {
-		return jugadorDuenio = unJugador;
+	public void setDuenio(Jugador unJugador) {
+		jugadorDuenio = unJugador;
 	}
 
 }

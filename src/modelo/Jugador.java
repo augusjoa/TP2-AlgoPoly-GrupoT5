@@ -70,7 +70,7 @@ public class Jugador {
 		
 		if(dinero.comprar(unAdquirible.getPrecio())) {
 			adquisiciones.add(unAdquirible);
-			adquisiciones2.comprar((Barrio) unAdquirible);// Hay que arreglar esto
+			//adquisiciones2.comprar((Barrio) unAdquirible);// Hay que arreglar esto
 			unAdquirible.setDuenio(this);
 			return true;
 		}
@@ -92,7 +92,7 @@ public class Jugador {
 	}
 
 	public int tirarDados() {
-		return this.dado.tirarDados();
+		return dado.tirarDados();
 	}
 	public int getNumeroDelDado(){
 		return dado.getDobleDado();

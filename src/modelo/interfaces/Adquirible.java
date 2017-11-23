@@ -6,5 +6,5 @@ import modelo.Jugador;
 public interface Adquirible {
 	public abstract Jugador getDuenio();
 	public abstract Dinero getPrecio();
-	public abstract Jugador setDuenio(Jugador unJugador);
+	public abstract void setDuenio(Jugador unJugador);
 }
