@@ -2,24 +2,27 @@ package modelo.casillas;
 
 import modelo.Dinero;
 import modelo.Jugador;
-import modelo.excepciones.JugadorInvalidoError;
+import modelo.excepciones.JugadorInvalido;
 import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 
 public abstract class Barrio implements Adquirible,Visitable{
 
-	private Dinero valorDelBarrio;
+	protected Dinero valorDelBarrio;
 	protected Jugador jugadorDuenio;
 	protected String nombre;
 	
-
-	public Barrio(int precioDelBarrio, String unNombre) {
-		valorDelBarrio = new Dinero(precioDelBarrio);
-		jugadorDuenio = null;
-		this.nombre = unNombre;
+	public abstract int getCantidadDeEdificios();
+	public abstract void cobrarAlquilerA(Jugador unJugador);
+	public abstract void agregarCasa(Jugador unJugador);
+	
+	protected void verificarJugador(Jugador unJugador) throws JugadorInvalido{
+		if(jugadorDuenio != unJugador) throw new JugadorInvalido();
 	}
 	
-	public abstract int getCantidadDeEdificios();
+	public boolean tieneDuenio(){
+		return jugadorDuenio!=null;
+	}
 	
 	@Override
 	public Dinero getPrecio() {
@@ -36,18 +39,22 @@ public abstract class Barrio implements Adquirible,Visitable{
 		jugadorDuenio = unJugador;
 	}
 	
+	@Override
 	public void esVisitadoPorJugador(Jugador unJugador) {
-		if(this.getDuenio() != unJugador && this.getDuenio() != null) {
-			this.cobrarAlquilerA(unJugador);
+		if(getDuenio() != unJugador && tieneDuenio()) {
+			cobrarAlquilerA(unJugador);
 		}
 	}
-	protected void verificarJugador(Jugador unJugador) {
-		if(this.getDuenio() != unJugador) {
-			throw new JugadorInvalidoError("Solo el propietario puede construir en el terreno");
+	
+	@Override
+	public void comprar(Jugador unJugador) {
+		if(!tieneDuenio()){
+			unJugador.getDinero().sustraerDinero(valorDelBarrio);
+			setDuenio(unJugador);
 		}
 	}
-
-	public abstract void cobrarAlquilerA(Jugador unJugador);
-	public abstract void agregarCasa(Jugador unJugador);
+	
+	
+	
 
 }

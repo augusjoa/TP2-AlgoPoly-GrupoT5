@@ -52,8 +52,6 @@ public class DineroTest{
 		Dinero dineroCasa = new Dinero(70000);
 		
 		unDinero.sustraerDinero(dineroCasa);
-		
-		//Assert.assertEquals(50000, unDinero._getValor());
 	}
 
 }

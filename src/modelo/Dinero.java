@@ -4,7 +4,7 @@ import modelo.excepciones.DineroInsuficiente;
 import modelo.interfaces.Adquirible;
 
 public class Dinero {
-	private static final int porcentajeRetencionDeVenta = 15;
+	
 	private int valor;
 		
 	public Dinero(int valor) {
@@ -28,15 +28,6 @@ public class Dinero {
 		valor -= unDinero.valor;
 	}
 
-	//public boolean comprar(Adquirible unAdquirible) {
-		//return sustraerDinero(unAdquirible.getPrecio());
-	//}
-
-	//public Dinero vender(Adquirible unAdquirible) {
-		//valor += (int) ((unAdquirible.getPrecio().valor * ( 100 - porcentajeRetencionDeVenta )) / 100 );
-		//return this;
-	//}
-	
 	public void aplicarImpuesto(int porcentajeDelImpuesto){
 		int valorActual= valor;
 		int valorConImpuesto= (valor*porcentajeDelImpuesto)/100;

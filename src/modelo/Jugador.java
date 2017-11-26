@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 import modelo.casillas.Barrio;
+import modelo.casillas.BarrioDoble;
 import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 

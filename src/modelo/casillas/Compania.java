@@ -15,8 +15,11 @@ public abstract class Compania implements Adquirible,Visitable {
 	
 	
 	public boolean tieneDuenioDoble(){
-		Jugador duenioDeLaCompania = duenio;
-		return  duenioDeLaCompania.esDuenio(this)  && duenioDeLaCompania.esDuenio(otraCompania);
+		return  duenio.esDuenio(this)  && duenio.esDuenio(otraCompania);
+	}
+	
+	public boolean tieneDuenio(){
+		return duenio!=null;
 	}
 	
 	public void cobrarAlquiler(int precio,Jugador unJugador){
@@ -48,19 +51,31 @@ public abstract class Compania implements Adquirible,Visitable {
 	@Override
 	public void esVisitadoPorJugador(Jugador unJugador) {
 		
-		if(tieneDuenioDoble()){
+		if(tieneDuenioDoble() && tieneDuenio()){
 			cobrarAlquiler(vecesQueCobraDoble,unJugador);
 		}
 		
-		else if(!unJugador.esDuenio(this)){
+		else if(!unJugador.esDuenio(this) && tieneDuenio()){
 			cobrarAlquiler(vecesQueCobra,unJugador);
 		}
 	}
 	
 	@Override
 	public void comprar(Jugador unJugador){
-		unJugador.getDinero().sustraerDinero(costoDeLaCompania);
-		setDuenio(unJugador);
+		if(!tieneDuenio()){
+			unJugador.sustraerDinero(costoDeLaCompania);
+			setDuenio(unJugador);
+		}
+	}
+	
+	@Override
+	public void vender(Jugador unJugador){
+		if(unJugador.esDuenio(this)){
+			Dinero costoConRetencion = new Dinero(costoDeLaCompania);
+			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
+			unJugador.agregarDinero(costoConRetencion);
+			duenio=null;
+		}	
 	}
 	
 }
