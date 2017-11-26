@@ -1,7 +1,6 @@
 package modelo;
 
 import modelo.excepciones.DineroInsuficiente;
-import modelo.interfaces.Adquirible;
 
 public class Dinero {
 	

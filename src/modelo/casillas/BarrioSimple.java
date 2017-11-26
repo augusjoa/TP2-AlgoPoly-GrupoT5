@@ -57,9 +57,9 @@ public class BarrioSimple extends Barrio {
 		if(unJugador.esDuenio(this)){
 			Dinero costoConRetencion = valorDelBarrio;
 			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
-			unJugador.getDinero().agregarDinero(costoConRetencion);
-			jugadorDuenio=null;
+			unJugador.agregarDinero(costoConRetencion);
 			destruirEdificios();
+			jugadorDuenio=null;
 		}
 		
 	}
