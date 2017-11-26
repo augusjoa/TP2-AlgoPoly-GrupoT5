@@ -13,10 +13,6 @@ public class Tablero {
 	private ArrayList <Visitable> casilleros = new ArrayList<Visitable>();
 	private ListIterator<Visitable> iterador = null;
 	
-
-
-	
-	
 	public Tablero() {
 //		Visitable salidaCas = new Salida();
 		Visitable quini6Cas = new Quini6();
@@ -49,7 +45,7 @@ public class Tablero {
 		return casilleros.size();
 	}
 
-
+//public Visitable siguienteCasilla(Visitable v, int cant)
 	public Visitable siguienteCasilla() {
 		if(iterador == null || !iterador.hasNext() ) iterador = casilleros.listIterator();
 		return iterador.next();

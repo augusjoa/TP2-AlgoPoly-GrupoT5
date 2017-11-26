@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.Dinero;
-import modelo.edificios.Casa;
+import modelo.excepciones.DineroInsuficiente;
 
 public class DineroTest{
 
@@ -39,35 +39,21 @@ public class DineroTest{
 	@Test
 	public void testDineroEsMenorAlComprarAdquiribleConFondosSuficientes() {
 		Dinero unDinero = new Dinero(100000);
-		Casa unaCasa = new Casa(20000);
+		Dinero dineroCasa = new Dinero(20000);
 		
-		unDinero.comprar(unaCasa);
+		unDinero.sustraerDinero(dineroCasa);
 		Assert.assertEquals(80000, unDinero._getValor());
 	}
+
 	
-	@Test
-	public void testSePuedeComprarUnAdquiribleConFondosSuficientes() {
-		Dinero unDinero = new Dinero(100000);
-		Casa unaCasa = new Casa(20000);
-		
-		Assert.assertTrue(unDinero.comprar(unaCasa));
-	}
-	
-	@Test
-	public void testDineroNoCambiaAlComprarAdquiribleConFondosInsuficientes() {
-		Dinero unDinero = new Dinero(50000);
-		Casa unaCasa = new Casa(70000);
-		
-		unDinero.comprar(unaCasa);
-		Assert.assertEquals(50000, unDinero._getValor());
-	}
-	
-	@Test
+	@Test(expected=DineroInsuficiente.class)
 	public void testNoSePuedeComprarUnAdquiribleConFondosInsuficientes() {
 		Dinero unDinero = new Dinero(50000);
-		Casa unaCasa = new Casa(70000);
+		Dinero dineroCasa = new Dinero(70000);
 		
-		Assert.assertFalse(unDinero.comprar(unaCasa));
+		unDinero.sustraerDinero(dineroCasa);
+		
+		//Assert.assertEquals(50000, unDinero._getValor());
 	}
 
 }

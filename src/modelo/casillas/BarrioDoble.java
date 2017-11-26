@@ -41,18 +41,16 @@ public class BarrioDoble extends Barrio {
 		return false;
 	}
 	
-	public BarrioDoble setOtraZona(BarrioDoble unaZona) {
+	public void setOtraZona(BarrioDoble unaZona) {
 		//Lo vas a usar al contruir el tablero
 		this.otrazona = unaZona;
-		return this;
 	}
 
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+	public void esVisitadoPorJugador(Jugador unJugador) {
 		if(unJugador != this.getDuenio() && (this.getDuenio() != null)){
 			unJugador.sustraerDinero(this.alquileres.get(cantidadDeCasas + cantidadDeHoteles));
 		}
-		return null;
 	}
 	public int getCantidadDeEdificios() {
 		return this.cantidadDeCasas + this.cantidadDeHoteles;

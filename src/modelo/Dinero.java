@@ -1,5 +1,6 @@
 package modelo;
 
+import modelo.excepciones.DineroInsuficiente;
 import modelo.interfaces.Adquirible;
 
 public class Dinero {
@@ -22,20 +23,19 @@ public class Dinero {
 		valor += unDinero.valor;
 	}
 
-	public boolean sustraerDinero(Dinero unDinero) {
-		if(valor < unDinero.valor) return false;
+	public void sustraerDinero(Dinero unDinero) throws DineroInsuficiente {
+		if(valor < unDinero.valor) throw new DineroInsuficiente();
 		valor -= unDinero.valor;
-		return true;
 	}
 
-	public boolean comprar(Adquirible unAdquirible) {
-		return sustraerDinero(unAdquirible.getPrecio());
-	}
+	//public boolean comprar(Adquirible unAdquirible) {
+		//return sustraerDinero(unAdquirible.getPrecio());
+	//}
 
-	public Dinero vender(Adquirible unAdquirible) {
-		valor += (int) ((unAdquirible.getPrecio().valor * ( 100 - porcentajeRetencionDeVenta )) / 100 );
-		return this;
-	}
+	//public Dinero vender(Adquirible unAdquirible) {
+		//valor += (int) ((unAdquirible.getPrecio().valor * ( 100 - porcentajeRetencionDeVenta )) / 100 );
+		//return this;
+	//}
 	
 	public void aplicarImpuesto(int porcentajeDelImpuesto){
 		int valorActual= valor;

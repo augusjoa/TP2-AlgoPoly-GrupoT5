@@ -20,11 +20,12 @@ public class BarrioSimple extends Barrio {
 	}
 	
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+	public void esVisitadoPorJugador(Jugador unJugador) {
 		if(unJugador != this.getDuenio() && (this.getDuenio() != null)){
-			unJugador.sustraerDinero(this.alquileres.get(cantidadDeCasas));
+			Dinero valorASustraer=this.alquileres.get(cantidadDeCasas);
+			unJugador.sustraerDinero(valorASustraer);
+			jugadorDuenio.agregarDinero(valorASustraer);
 		}
-		return null;
 	}
 	
 	public int getCantidadDeEdificios() {

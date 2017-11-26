@@ -13,12 +13,13 @@ public class AvanceDinamicoTest {
 	public void testCaerEnLaCasillaCon6oMenos(){
 		Jugador unJugador = new Jugador();		
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
-		int posicionInicial = unJugador.getPosicion();
 		
-		unAvanceDinamico.avanzarAlJugador(unJugador);	
-
+		int numeroDelDado= 5;
 		
-		Assert.assertEquals(posicionInicial + 3, unJugador.getPosicion());
+		int numero = unAvanceDinamico.avanzarAlJugador(unJugador, numeroDelDado);
+		
+		
+		Assert.assertEquals(numeroDelDado - 2, numero);
 	}
 	
 	

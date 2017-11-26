@@ -1,26 +1,24 @@
 package modelo.casillas;
 
-import modelo.DobleDado;
 import modelo.Jugador;
 import modelo.interfaces.Visitable;
 
 
 public class AvanceDinamico implements Visitable{
 
-	private void avanzarAlJugador(Jugador unJugador) {
-		DobleDado dados = unJugador.getDadosTirados();
-		if(sumaDeLosDados > 10) {
-			unJugador.moverse(sumaDeLosDados - unJugador.getCantidadDePropiedades());
+	public int avanzarAlJugador(Jugador unJugador, int numeroDelDado) {
+		if(numeroDelDado > 10) {
+			return (numeroDelDado - unJugador.getCantidadDePropiedades());
 		}
-		else if(sumaDeLosDados > 6) {
-			unJugador.moverse((int) ( unJugador.getDinero() % sumaDeLosDados));
+		else if(numeroDelDado > 6) {
+			return ( unJugador.getDinero()._getValor() % numeroDelDado);//refactor
 		}		
-		else unJugador.moverse(sumaDeLosDados - 2);
+		else return(numeroDelDado - 2);
 	}
 	
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador unJugador) {
-		this.avanzarAlJugador(unJugador);
-		return null;
+	public void esVisitadoPorJugador(Jugador unJugador) {
+		int cantidadDeCasillas = avanzarAlJugador(unJugador,unJugador.getNumeroDelDado());
+		//unJugador.moverse(cantidadDeCasillas);
 	}
 }

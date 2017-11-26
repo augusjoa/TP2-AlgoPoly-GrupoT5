@@ -23,8 +23,7 @@ public class Quini6 implements Visitable {
 	}
 
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+	public void esVisitadoPorJugador(Jugador unJugador) {
 		obtenerPremio(unJugador);
-		return unJugador;
 	}
 }

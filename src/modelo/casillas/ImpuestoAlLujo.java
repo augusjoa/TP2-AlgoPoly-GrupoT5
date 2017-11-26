@@ -14,9 +14,8 @@ public class ImpuestoAlLujo implements Visitable {
 	}
 	
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador unJugador) {
+	public void esVisitadoPorJugador(Jugador unJugador) {
 		aplicarImpuesto(unJugador);
-		return null;
 	}
 
 }

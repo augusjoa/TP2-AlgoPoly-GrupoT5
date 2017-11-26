@@ -12,13 +12,13 @@ public class TrenTest {
 	public void unJugadorEsDuenioDobleSiAdquiereTrenYSubte(){
 		
 		Jugador jugador = new Jugador();
-		Subte subte = new Subte();
-		Tren tren = new Tren();
+		Compania subte = new Subte();
+		Compania tren = new Tren();
 		
 		jugador.comprar(subte);
 		jugador.comprar(tren);
 		
-		subte.conoceATren(tren);
+		subte.setOtraCompania(tren);
 		
 		Assert.assertTrue(subte.tieneDuenioDoble());
 	}
@@ -26,7 +26,7 @@ public class TrenTest {
 	@Test
 	public void unJugadorQueNoEsDuenioCaeEnTren(){
 		Jugador jugadorDuenio = new Jugador();
-		Tren tren = new Tren();
+		Compania tren = new Tren();
 		jugadorDuenio.comprar(tren);
 		
 		Jugador jugadorNoDuenio = new Jugador();
@@ -42,9 +42,9 @@ public class TrenTest {
 	@Test
 	public void unJugadorQueNoEsDuenioCaeEnTrenConDuenioDoble(){
 		Jugador jugadorDuenio = new Jugador();
-		Subte subte = new Subte();
-		Tren tren = new Tren();
-		tren.conoceASubte(subte);
+		Compania subte = new Subte();
+		Compania tren = new Tren();
+		tren.setOtraCompania(subte);
 		
 		jugadorDuenio.comprar(subte);
 		jugadorDuenio.comprar(tren);

@@ -12,9 +12,8 @@ public class Policia implements Visitable{
 	}
 
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador jugador) {
-		carcel.esVisitadoPorJugador(jugador);
-		return null;
+	public void esVisitadoPorJugador(Jugador jugador) {
+		//this.elQueSabeMover.mover(jugador, carcel)
 	}
 
 

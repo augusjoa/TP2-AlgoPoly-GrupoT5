@@ -38,29 +38,23 @@ public class Jugador {
 		return adquisiciones.size();
 	}
 
-	public boolean comprar(Adquirible unAdquirible) {
+	public void comprar(Adquirible unAdquirible) {
 		
-		if(dinero.comprar(unAdquirible)) {
-			adquisiciones.add(unAdquirible);
-			unAdquirible.setDuenio(this);
-			return true;
-		}
-		return false;
+		unAdquirible.comprar(this);
+		adquisiciones.add(unAdquirible);		
 	}
 
 	public boolean esDuenio(Adquirible unAdquirible) {
 		return adquisiciones.contains(unAdquirible);
 	}
 
-	public boolean vender(Adquirible unAdquirible) {
-		if(!adquisiciones.contains(unAdquirible)) return false; //o ver de agregar excepciones
-		
-		dinero.vender(unAdquirible);
-		adquisiciones.remove(unAdquirible);
-		unAdquirible.setDuenio(null);
-		return true;
-		
-	}
+	//public boolean vender(Adquirible unAdquirible) {
+		//if(!adquisiciones.contains(unAdquirible)) return false; //o ver de agregar excepciones	
+		//dinero.vender(unAdquirible);
+		//adquisiciones.remove(unAdquirible);
+		//unAdquirible.setDuenio(null);
+		//return true;
+	//}
 
 	public int tirarDados() {
 		return dado.tirarDados();
@@ -80,5 +74,9 @@ public class Jugador {
 	public boolean puedeMoverse() {
 		return !detenido;
 	}
+
+	//public void moverse(int cantidadDeCasillas) {
+		//this.elQueSabeMover.mover(this, cantidadDeCasillas)
+	//}
 
 }

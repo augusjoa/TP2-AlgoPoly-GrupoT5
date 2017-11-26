@@ -11,13 +11,13 @@ public class EdesurTest {
 	public void unJugadorEsDuenioDobleSiAdquiereEdesurYAysa(){
 		
 		Jugador jugador = new Jugador();
-		Aysa aysa = new Aysa();
-		Edesur edesur = new Edesur();
+		Compania aysa = new Aysa();
+		Compania edesur = new Edesur();
 		
 		jugador.comprar(aysa);
 		jugador.comprar(edesur);
 		
-		edesur.conoceAAysa(aysa);
+		edesur.setOtraCompania(aysa);
 		
 		Assert.assertTrue(edesur.tieneDuenioDoble());
 	}
@@ -25,7 +25,7 @@ public class EdesurTest {
 	@Test
 	public void unJugadorQueNoEsDuenioCaeEnEdesur(){
 		Jugador jugadorDuenio = new Jugador();
-		Edesur edesur = new Edesur();
+		Compania edesur = new Edesur();
 		jugadorDuenio.comprar(edesur);
 		
 		Jugador jugador = new Jugador();
@@ -41,9 +41,9 @@ public class EdesurTest {
 	@Test
 	public void unJugadorQueNoEsDuenioCaeEnEdesurConDuenioDoble(){
 		Jugador jugadorDuenio = new Jugador();
-		Aysa aysa = new Aysa();
-		Edesur edesur = new Edesur();
-		edesur.conoceAAysa(aysa);		
+		Compania aysa = new Aysa();
+		Compania edesur = new Edesur();
+		edesur.setOtraCompania(aysa);		
 		
 		jugadorDuenio.comprar(aysa);
 		jugadorDuenio.comprar(edesur);

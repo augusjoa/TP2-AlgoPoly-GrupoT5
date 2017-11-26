@@ -8,7 +8,7 @@ import modelo.interfaces.Visitable;
 public abstract class Barrio implements Adquirible,Visitable{
 
 	private Dinero valorDelBarrio;
-	private Jugador jugadorDuenio;
+	protected Jugador jugadorDuenio;
 	
 
 	public Barrio(int precioDelBarrio) {

@@ -28,13 +28,10 @@ public class Carcel implements Visitable{
 		jugador.jugadorDetenido();	
 	}
 	
-	public boolean pagarFianza(Jugador jugador){
+	public void pagarFianza(Jugador jugador){
 		//if(jugadoresEnCarcel.get(jugador) == 2 || jugadoresEnCarcel.get(jugador) == 3){
-			if(jugador.getDinero().sustraerDinero(valorDeLaFianza)){
-				liberarJugador(jugador);
-				return true;
-			}
-			return false;
+			jugador.getDinero().sustraerDinero(valorDeLaFianza);
+			liberarJugador(jugador);
 		//}
 	}
 	
@@ -45,15 +42,9 @@ public class Carcel implements Visitable{
 	}
 
 	@Override
-	public Jugador esVisitadoPorJugador(Jugador jugador) {
+	public void esVisitadoPorJugador(Jugador jugador) {
 		if(!jugadoresEnCarcel.containsKey(jugador))	retenerJugador(jugador);
 		
-		if(jugadoresEnCarcel.get(jugador) == 4) liberarJugador(jugador);
-		
-		incrementarTurno(jugador);
-		
-		
-		return null;
 	}
 	
 }

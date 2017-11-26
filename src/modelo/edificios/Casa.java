@@ -23,5 +23,10 @@ public class Casa implements Adquirible{
 	public void setDuenio(Jugador unJugador) {
 		jugadorDuenio = unJugador;
 	}
+	@Override
+	public void comprar(Jugador unJugador) {
+		unJugador.getDinero().sustraerDinero(valorDeLaCasa);
+		setDuenio(unJugador);
+	}
 
 }
