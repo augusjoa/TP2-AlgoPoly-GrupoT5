@@ -78,5 +78,12 @@ public class Jugador {
 	//public void moverse(int cantidadDeCasillas) {
 		//this.elQueSabeMover.mover(this, cantidadDeCasillas)
 	//}
-
+	
+	public void agregarCasa(Barrio unBarrio) {
+		unBarrio.agregarCasa(this);
+	}
+	
+	public void agregarHotel(BarrioDoble unBarrio) {
+		unBarrio.agregarHotel(this);
+	}
 }

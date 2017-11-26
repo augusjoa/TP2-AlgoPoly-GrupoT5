@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import modelo.Dinero;
 import modelo.Jugador;
+import modelo.excepciones.AccionInvalidaError;
 
 public class BarrioSimple extends Barrio {
 	private int cantidadDeCasas = 0;
@@ -11,34 +12,57 @@ public class BarrioSimple extends Barrio {
     private Hashtable<Integer, Dinero> alquileres = new Hashtable<Integer, Dinero>();
 
 
-	public BarrioSimple(int precioDelBarrio, int unprecioCasa, int alquilersincasa, int alquilerconcasa) {
+	public BarrioSimple(int precioDelBarrio, int unprecioCasa, int alquilersincasa, int alquilerconcasa, String unNombre) {
 		
-		super(precioDelBarrio);
+		super(precioDelBarrio, unNombre);
 		this.precioCasa = new Dinero(unprecioCasa);
-		this.alquileres.put(0,new Dinero (alquilersincasa));
+		this.alquileres.put(0, new Dinero (alquilersincasa));
 		this.alquileres.put(1, new Dinero (alquilerconcasa));
 	}
 	
-	@Override
-	public void esVisitadoPorJugador(Jugador unJugador) {
-		if(unJugador != this.getDuenio() && (this.getDuenio() != null)){
-			Dinero valorASustraer=this.alquileres.get(cantidadDeCasas);
-			unJugador.sustraerDinero(valorASustraer);
-			jugadorDuenio.agregarDinero(valorASustraer);
-		}
-	}
 	
 	public int getCantidadDeEdificios() {
 		return this.cantidadDeCasas;
 	}
 	
-	public boolean agregarCasa() {
-		if (this.cantidadDeCasas == 0) {
-			this.getDuenio().sustraerDinero(this.precioCasa);
-			this.cantidadDeCasas ++;
-			return true;
+	public void agregarCasa(Jugador unJugador) {
+		this.verificarJugador(unJugador);
+		this.verificarLimiteDeCasas();
+		this.getDuenio().sustraerDinero(this.precioCasa);
+		this.cantidadDeCasas ++;
+	}
+
+	private void verificarLimiteDeCasas() {
+		if(this.cantidadDeCasas != 0) {
+			throw new AccionInvalidaError("Ya se construyo una casa");
 		}
-		return false;
+	}
+	
+	private void destruirEdificios() {
+		this.cantidadDeCasas = 0;
+	}
+
+
+
+	@Override
+	public void cobrarAlquilerA(Jugador unJugador) {
+		Dinero alquiler = this.alquileres.get(cantidadDeCasas);
+		unJugador.sustraerDinero(alquiler);
+		this.getDuenio().agregarDinero(alquiler);
+	}
+
+
+	@Override
+	public void comprar(Jugador unJugador) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void vender(Jugador unJugador) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

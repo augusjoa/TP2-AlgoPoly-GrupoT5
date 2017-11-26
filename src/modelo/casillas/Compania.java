@@ -20,7 +20,7 @@ public abstract class Compania implements Adquirible,Visitable {
 	}
 	
 	public void cobrarAlquiler(int precio,Jugador unJugador){
-		Dinero valorASustraerDoble= new Dinero(precio*unJugador.getNumeroDelDado());
+		Dinero valorASustraerDoble = new Dinero(precio * unJugador.getNumeroDelDado());
 		unJugador.sustraerDinero(valorASustraerDoble);
 		duenio.agregarDinero(valorASustraerDoble);
 	
@@ -42,7 +42,7 @@ public abstract class Compania implements Adquirible,Visitable {
 
 	@Override
 	public void setDuenio(Jugador unJugador) {
-		duenio=unJugador;
+		duenio = unJugador;
 	}
 	
 	@Override
