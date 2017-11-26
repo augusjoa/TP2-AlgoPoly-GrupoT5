@@ -39,6 +39,10 @@ public class BarrioDoble extends Barrio {
 		if (cantidadDeCasas != otrazona.getCantidadDeCasas()) throw new BarrioNoLleno();
 	}
 	
+	private void verificarNumeroDeCasasMaximo() throws TerrenoLleno{
+		if(cantidadDeCasas != LIMITEDECASAS) throw new TerrenoLleno();
+	}
+	
 	public void agregarCasa(Jugador unJugador) {
 		verificarJugador(unJugador);
 		verificarConstruccionDeCasas();
@@ -56,10 +60,6 @@ public class BarrioDoble extends Barrio {
 		destruirCasas();
 		cantidadDeHoteles ++;
 		
-	}
-	
-	private void verificarNumeroDeCasasMaximo() throws TerrenoLleno{
-		if(cantidadDeCasas != LIMITEDECASAS) throw new TerrenoLleno();
 	}
 
 	public void setOtraZona(BarrioDoble unaZona) {
@@ -95,21 +95,8 @@ public class BarrioDoble extends Barrio {
 		}
 	}
 	
-	private void destruirEdificios(){
+	public void destruirEdificios(){
 		destruirHoteles();
 		destruirCasas();
 	}
-
-	@Override
-	public void vender(Jugador unJugador) {
-		if(unJugador.esDuenio(this)){
-			Dinero costoConRetencion = valorDelBarrio;
-			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
-			unJugador.agregarDinero(costoConRetencion);
-			destruirEdificios();
-			jugadorDuenio=null;
-		}
-		
-	}
-
 }

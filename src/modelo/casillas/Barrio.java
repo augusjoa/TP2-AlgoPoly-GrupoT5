@@ -15,6 +15,7 @@ public abstract class Barrio implements Adquirible,Visitable{
 	public abstract int getCantidadDeEdificios();
 	public abstract void cobrarAlquilerA(Jugador unJugador);
 	public abstract void agregarCasa(Jugador unJugador);
+	public abstract void destruirEdificios();
 	
 	protected void verificarJugador(Jugador unJugador) throws JugadorInvalido{
 		if(jugadorDuenio != unJugador) throw new JugadorInvalido();
@@ -54,7 +55,16 @@ public abstract class Barrio implements Adquirible,Visitable{
 		}
 	}
 	
+	@Override
+	public void vender(Jugador unJugador) {
+		if(unJugador.esDuenio(this)){
+			Dinero costoConRetencion = valorDelBarrio;
+			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
+			unJugador.agregarDinero(costoConRetencion);
+			destruirEdificios();
+			jugadorDuenio=null;
+		}
+		
+	}
 	
-	
-
 }

@@ -24,7 +24,7 @@ public class BarrioSimple extends Barrio {
 	
 	
 	public int getCantidadDeEdificios() {
-		return this.cantidadDeCasas;
+		return cantidadDeCasas;
 	}
 	
 	public void agregarCasa(Jugador unJugador) {
@@ -39,9 +39,11 @@ public class BarrioSimple extends Barrio {
 		if(cantidadDeCasas > 0)	throw new TerrenoLleno();
 	}
 	
-	private void destruirEdificios() {
-		valorDelBarrio.sustraerDinero(precioCasa);
-		cantidadDeCasas = 0;
+	public void destruirEdificios() {
+		if(cantidadDeCasas!=0){
+			valorDelBarrio.sustraerDinero(precioCasa);
+			cantidadDeCasas = 0;
+		}
 	}
 
 	@Override
@@ -49,23 +51,6 @@ public class BarrioSimple extends Barrio {
 		Dinero alquiler = alquileres.get(cantidadDeCasas);
 		unJugador.getDinero().sustraerDinero(alquiler);
 		jugadorDuenio.getDinero().agregarDinero(alquiler);
-	}
-
-
-	@Override
-	public void vender(Jugador unJugador) {
-		if(unJugador.esDuenio(this)){
-			Dinero costoConRetencion = valorDelBarrio;
-			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
-			unJugador.agregarDinero(costoConRetencion);
-			destruirEdificios();
-			jugadorDuenio=null;
-		}
-		
-	}
-
-
-
-	
+	}	
 
 }
