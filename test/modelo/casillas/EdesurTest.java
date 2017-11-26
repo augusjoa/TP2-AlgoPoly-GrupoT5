@@ -35,7 +35,7 @@ public class EdesurTest {
 		
 		
 		dineroInicial.sustraerDinero(jugador.getDinero());
-		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial.getValor());
 	}
 	
 	@Test
@@ -55,6 +55,6 @@ public class EdesurTest {
 		
 		
 		dineroInicial.sustraerDinero(jugador.getDinero());
-		Assert.assertEquals(1000*jugador.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(1000*jugador.getNumeroDelDado(), dineroInicial.getValor());
 	}
 }

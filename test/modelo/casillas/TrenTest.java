@@ -36,7 +36,7 @@ public class TrenTest {
 		
 		
 		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
-		Assert.assertEquals(450*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(450*jugadorNoDuenio.getNumeroDelDado(), dineroInicial.getValor());
 	}
 	
 	@Test
@@ -56,6 +56,6 @@ public class TrenTest {
 		
 		
 		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
-		Assert.assertEquals(800*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(800*jugadorNoDuenio.getNumeroDelDado(), dineroInicial.getValor());
 	}
 }

@@ -8,7 +8,8 @@ import modelo.Dinero;
 import modelo.Jugador;
 
 public class SubteTest {
-
+	private static final int DINEROINICIAL = 100000;
+	
 	@Test
 	public void unJugadorEsDuenioDobleSiAdquiereSubteYTren(){
 		
@@ -31,13 +32,11 @@ public class SubteTest {
 		jugadorDuenio.comprar(subte);
 		
 		Jugador jugadorNoDuenio = new Jugador();
-		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
 		jugadorNoDuenio.tirarDados();
+		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 600);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);
 		
-		
-		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
-		Assert.assertEquals(600*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(dineroFinal, jugadorNoDuenio.getDinero());
 	}
 	
 	@Test
@@ -52,11 +51,10 @@ public class SubteTest {
 		jugadorDuenio.comprar(tren);
 		
 		Jugador jugadorNoDuenio = new Jugador();
-		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
 		jugadorNoDuenio.tirarDados();
+		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 1100);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);
 		
-		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
-		Assert.assertEquals(1100*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(dineroFinal, jugadorNoDuenio.getDinero());
 	}
 }

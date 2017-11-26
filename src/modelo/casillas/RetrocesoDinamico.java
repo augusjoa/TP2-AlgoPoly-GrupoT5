@@ -9,7 +9,7 @@ public class RetrocesoDinamico implements Visitable{
 	public int retrocederAlJugador(Jugador unJugador, int numeroDelDado) {
 		
 		if (numeroDelDado > 6 && numeroDelDado < 11) {
-			return (- unJugador.getDinero()._getValor() % numeroDelDado);//refactor
+			return (- unJugador.getDinero().getValor() % numeroDelDado);//refactor
 		}
 		
 		else if (numeroDelDado < 7) {

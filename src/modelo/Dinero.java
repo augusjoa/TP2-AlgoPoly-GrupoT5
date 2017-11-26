@@ -14,7 +14,7 @@ public class Dinero {
 		this.valor = unDinero.valor;
 	}
 	
-	public int _getValor() { //Solo para las pruebas se debe utilizar
+	public int getValor() { //Solo para las pruebas se debe utilizar
 		return valor;
 	}
 
@@ -31,6 +31,11 @@ public class Dinero {
 		int valorActual= valor;
 		int valorConImpuesto= (valor*porcentajeDelImpuesto)/100;
 		valor= valorActual-valorConImpuesto;
+	}
+	@Override
+	public boolean equals(Object unDinero) {
+		if(unDinero == null || unDinero.getClass() != this.getClass()) return false;
+		return valor ==  ((Dinero) unDinero).getValor();	
 	}
 	
 }

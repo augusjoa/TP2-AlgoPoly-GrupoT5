@@ -11,7 +11,7 @@ public class AvanceDinamico implements Visitable{
 			return (numeroDelDado - unJugador.getCantidadDePropiedades());
 		}
 		else if(numeroDelDado > 6) {
-			return ( unJugador.getDinero()._getValor() % numeroDelDado);//refactor
+			return ( unJugador.getDinero().getValor() % numeroDelDado);//refactor
 		}		
 		else return(numeroDelDado - 2);
 	}

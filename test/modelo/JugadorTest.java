@@ -5,7 +5,7 @@ import org.junit.Test;
 import modelo.Jugador;
 
 public class JugadorTest {
-
+	private static final int DINEROINICIAL = 100000;
 	
 	@Test
 	public void testCrearJugador() {
@@ -16,23 +16,26 @@ public class JugadorTest {
 	@Test
 	public void testObtenerDinero() {
 		Jugador jugador = new Jugador();
-		Assert.assertEquals(100000, jugador.getDinero());
+		
+		Assert.assertNotNull(jugador.getDinero());
 	}
 	
 	@Test
 	public void testAgregarDinero() {
 		Jugador jugador = new Jugador();
-		Dinero unDinero = new Dinero(20000);
-		jugador.agregarDinero(unDinero);
-		Assert.assertEquals(120000, jugador.getDinero());
+		int valorAgregado = 20000;
+		Dinero dineroFinal = new Dinero(DINEROINICIAL + valorAgregado);
+		jugador.agregarDinero(new Dinero(valorAgregado));
+		Assert.assertEquals(dineroFinal, jugador.getDinero());
 	}
 	
 	@Test
 	public void testSustraerDinero() {
 		Jugador jugador = new Jugador();
-		Dinero unDinero = new Dinero(20000);
-		jugador.sustraerDinero(unDinero);
-		Assert.assertEquals(80000, jugador.getDinero());
+		int valorSustraido = 20000;
+		Dinero dineroFinal = new Dinero(DINEROINICIAL - valorSustraido);
+		jugador.sustraerDinero(new Dinero(valorSustraido));
+		Assert.assertEquals(dineroFinal, jugador.getDinero());
 	}
 	
 
