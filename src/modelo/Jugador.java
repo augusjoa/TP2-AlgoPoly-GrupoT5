@@ -19,7 +19,7 @@ public class Jugador {
 	private DobleDado dado = new DobleDado();
 	private Visitable CasillaActual;
 	
-	private AdquiriblesDeJugador adquisiciones2 = new AdquiriblesDeJugador();
+	//private AdquiriblesDeJugador adquisiciones2 = new AdquiriblesDeJugador();
 	
 	
 	public Dinero getDinero() {
@@ -45,17 +45,14 @@ public class Jugador {
 		adquisiciones.add(unAdquirible);		
 	}
 
+	public void vender(Adquirible unAdquirible) {
+		unAdquirible.vender(this);
+		adquisiciones.remove(unAdquirible);
+	}
+	
 	public boolean esDuenio(Adquirible unAdquirible) {
 		return adquisiciones.contains(unAdquirible);
 	}
-
-	//public boolean vender(Adquirible unAdquirible) {
-		//if(!adquisiciones.contains(unAdquirible)) return false; //o ver de agregar excepciones	
-		//dinero.vender(unAdquirible);
-		//adquisiciones.remove(unAdquirible);
-		//unAdquirible.setDuenio(null);
-		//return true;
-	//}
 
 	public int tirarDados() {
 		return dado.tirarDados();
