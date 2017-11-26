@@ -4,7 +4,7 @@ import java.util.Hashtable;
 
 import modelo.Dinero;
 import modelo.Jugador;
-import modelo.excepciones.TerrenoLleno;
+import modelo.excepciones.BarrioLleno;
 
 public class BarrioSimple extends Barrio {
 	
@@ -35,8 +35,8 @@ public class BarrioSimple extends Barrio {
 		cantidadDeCasas ++;
 	}
 
-	private void verificarLimiteDeCasas() throws TerrenoLleno{
-		if(cantidadDeCasas > 0)	throw new TerrenoLleno();
+	private void verificarLimiteDeCasas() throws BarrioLleno{
+		if(cantidadDeCasas > 0)	throw new BarrioLleno();
 	}
 	
 	public void destruirEdificios() {
