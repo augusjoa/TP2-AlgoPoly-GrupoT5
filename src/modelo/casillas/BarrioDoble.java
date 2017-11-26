@@ -5,7 +5,8 @@ import java.util.Hashtable;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.excepciones.BarrioNoLleno;
-import modelo.excepciones.TerrenoLleno;
+import modelo.excepciones.NoEsDuenioDeLosDosTerrenos;
+import modelo.excepciones.BarrioLleno;
 
 public class BarrioDoble extends Barrio {
 	
@@ -19,8 +20,8 @@ public class BarrioDoble extends Barrio {
     private BarrioDoble otrazona; 
 
 	public BarrioDoble(int precioDelBarrio, int unprecioCasa, int unprecioHotel, int alquilersincasa, int alquilerconcasa, int alquilerconDosCasas, int alquilerconHotel, String unNombre) {
-		valorDelBarrio= new Dinero(precioDelBarrio);
-		nombre=unNombre;
+		valorDelBarrio = new Dinero(precioDelBarrio);
+		nombre = unNombre;
 		precioCasa = new Dinero(unprecioCasa);
 		precioHotel = new Dinero(unprecioHotel);
 		alquileres.put(0,new Dinero (alquilersincasa));
@@ -29,18 +30,31 @@ public class BarrioDoble extends Barrio {
 		alquileres.put(3, new Dinero(alquilerconHotel));
 	}
 	
-	private void verificarConstruccionDeCasas() throws TerrenoLleno {
-		if(cantidadDeCasas < LIMITEDECASAS && jugadorDuenio.esDuenio(otrazona) && cantidadDeHoteles == LIMITEDEHOTEL) {
-			throw new TerrenoLleno();	
+	private void verificarConstruccionDeCasas() throws BarrioLleno, NoEsDuenioDeLosDosTerrenos {
+		if(!jugadorDuenio.esDuenio(otrazona)){
+			throw new NoEsDuenioDeLosDosTerrenos();
+		}
+		if(cantidadDeCasas == LIMITEDECASAS || cantidadDeHoteles == LIMITEDEHOTEL) {
+			throw new BarrioLleno();	
 		}
 	}
 	
 	private void verificarOtraZona() throws BarrioNoLleno {
-		if (cantidadDeCasas != otrazona.getCantidadDeCasas()) throw new BarrioNoLleno();
+	
+	 if (otrazona.getCantidadDeEdificios() == 0 || otrazona.getCantidadDeEdificios() == 1) {
+		 if(otrazona.getCantidadDeCasas() != LIMITEDECASAS && otrazona.getCantidadDeHoteles() == 0) {
+			 throw new BarrioNoLleno();
+		 }
+	 }
 	}
 	
-	private void verificarNumeroDeCasasMaximo() throws TerrenoLleno{
-		if(cantidadDeCasas != LIMITEDECASAS) throw new TerrenoLleno();
+	private int getCantidadDeHoteles() {
+		// TODO Auto-generated method stub
+		return cantidadDeHoteles;
+	}
+
+	private void verificarNumeroDeCasasMaximo() throws BarrioLleno{
+		if(cantidadDeCasas != LIMITEDECASAS) throw new BarrioLleno();
 	}
 	
 	public void agregarCasa(Jugador unJugador) {
@@ -82,10 +96,11 @@ public class BarrioDoble extends Barrio {
 	}
 	
 	private void destruirCasas(){
-		if(cantidadDeCasas!=0){
+		while(cantidadDeCasas > 0){
 			valorDelBarrio.sustraerDinero(precioCasa);
-			cantidadDeCasas = 0;
+			cantidadDeCasas--;
 		}
+		cantidadDeCasas = 0;
 	}
 	
 	private void destruirHoteles() {

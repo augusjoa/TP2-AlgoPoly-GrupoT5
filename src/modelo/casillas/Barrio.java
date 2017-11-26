@@ -22,7 +22,7 @@ public abstract class Barrio implements Adquirible,Visitable{
 	}
 	
 	public boolean tieneDuenio(){
-		return jugadorDuenio!=null;
+		return jugadorDuenio != null;
 	}
 	
 	@Override
@@ -62,7 +62,7 @@ public abstract class Barrio implements Adquirible,Visitable{
 			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
 			unJugador.agregarDinero(costoConRetencion);
 			destruirEdificios();
-			jugadorDuenio=null;
+			jugadorDuenio = null;
 		}
 		
 	}
