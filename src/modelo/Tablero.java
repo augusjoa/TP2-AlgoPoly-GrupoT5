@@ -9,9 +9,9 @@ import modelo.interfaces.Visitable;
 
 
 public class Tablero {
+	
 	private ArrayList <Visitable> casilleros = new ArrayList<Visitable>();
 	private static Tablero tableroUnico = null;
-	
 	public static Tablero TableroUnico() {
 		if(tableroUnico == null) tableroUnico = new Tablero();
 		return tableroUnico;

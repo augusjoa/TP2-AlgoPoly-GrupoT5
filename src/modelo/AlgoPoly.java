@@ -10,11 +10,11 @@ public class AlgoPoly {
 	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 	private Iterator<Jugador> iterador = null;
 	private Jugador jugadorActual;
-
+	private Tablero tablero;
 	
 	public AlgoPoly() {
 		
-		Tablero.TableroUnico();
+		tablero = tablero.TableroUnico();
 		
 		for(int i=0;i<cantidadDeJugadores;i++) {
 			jugadores.add(new Jugador());
