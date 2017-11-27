@@ -10,8 +10,14 @@ import modelo.interfaces.Visitable;
 
 public class Tablero {
 	private ArrayList <Visitable> casilleros = new ArrayList<Visitable>();
+	private static Tablero tableroUnico = null;
 	
-	public Tablero() {
+	public static Tablero TableroUnico() {
+		if(tableroUnico == null) tableroUnico = new Tablero();
+		return tableroUnico;
+	}
+	
+	private Tablero() {
 			
 		BarrioFactory bFactory = new BarrioFactory();
 		
@@ -73,7 +79,7 @@ public class Tablero {
 		//if(iterador == null || !iterador.hasNext() ) iterador = casilleros.listIterator();
 		//iterador.next();
 
-	public Visitable avanzarACasilla(Visitable casillaDelJugador, int numDelDado){
+	public Visitable avanzarCasillas(Visitable casillaDelJugador, int numDelDado){
 		int posActual = casilleros.indexOf(casillaDelJugador);
 		posActual = (posActual+numDelDado)%cantidadDeCasillas();
 		return casilleros.get(posActual);	

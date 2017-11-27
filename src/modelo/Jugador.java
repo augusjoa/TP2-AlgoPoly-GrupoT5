@@ -18,7 +18,7 @@ public class Jugador {
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	private DobleDado dado = new DobleDado();
 	private Visitable casillaActual;
-	protected Tablero tablero;
+	protected Tablero tablero = null;
 	//private AdquiriblesDeJugador adquisiciones2 = new AdquiriblesDeJugador();
 	
 	public Jugador(Tablero unTablero){
@@ -78,7 +78,7 @@ public class Jugador {
 	}
 
 	public void moverse(Tablero unTablero) {
-		casillaActual = unTablero.avanzarACasilla(casillaActual, getNumeroDelDado());
+		casillaActual = unTablero.avanzarCasillas(casillaActual, getNumeroDelDado());
 		casillaActual.esVisitadoPorJugador(this);
 	}
 	
