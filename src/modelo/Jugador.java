@@ -12,19 +12,23 @@ import modelo.interfaces.Visitable;
 
 public class Jugador {
 	
-	//private String nombre;
+	
 	private Dinero dinero = new Dinero(100000);
 	private boolean detenido = false;	
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	private DobleDado dado = new DobleDado();
-	private Visitable CasillaActual;
-	
+	private Visitable casillaActual;
+	protected Tablero tablero;
 	//private AdquiriblesDeJugador adquisiciones2 = new AdquiriblesDeJugador();
 	
+	public Jugador(Tablero unTablero){
+		tablero= unTablero;
+	}
 	
 	public Dinero getDinero() {
 		return dinero;
 	}
+
 	
 	public void agregarDinero(Dinero unDinero) {
 		dinero.agregarDinero(unDinero);
@@ -73,9 +77,15 @@ public class Jugador {
 		return !detenido;
 	}
 
-	//public void moverse(int cantidadDeCasillas) {
-		//this.elQueSabeMover.mover(this, cantidadDeCasillas)
-	//}
+	public void moverse(Tablero unTablero) {
+		casillaActual = unTablero.avanzarACasilla(casillaActual, getNumeroDelDado());
+		casillaActual.esVisitadoPorJugador(this);
+	}
+	
+	public void setCasillaActual(Visitable unVisitable){
+		casillaActual=unVisitable;
+		
+	}
 	
 	public void agregarCasa(Barrio unBarrio) {
 		unBarrio.agregarCasa(this);

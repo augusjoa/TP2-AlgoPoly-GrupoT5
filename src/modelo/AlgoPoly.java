@@ -6,14 +6,18 @@ import java.util.Random;
 
 public class AlgoPoly {
 	
+	public static final int cantidadDeJugadores= 3;
 	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 	private Iterator<Jugador> iterador = null;
-	private int cantidadDeJugadores=3;
+	private Jugador jugadorActual;
+
 	
 	public AlgoPoly() {
 		
+		Tablero tablero = new Tablero();
+		
 		for(int i=0;i<cantidadDeJugadores;i++) {
-			jugadores.add(new Jugador());
+			jugadores.add(new Jugador(tablero));
 		}
 	}
 	
@@ -26,10 +30,10 @@ public class AlgoPoly {
 //		return jugador3;
 //	}
 //	
-//	public void iniciarPartida(){
-//		jugadorActual=iterador.next();
-//	}
-//	
+//public void iniciarPartida(){
+	//	jugadorActual.
+	//}
+	
 	public Jugador siguienteJugador(){
 		if(iterador == null || !iterador.hasNext() ) iterador = jugadores.iterator();
 		return iterador.next();

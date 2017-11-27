@@ -17,6 +17,9 @@ public abstract class Barrio implements Adquirible,Visitable{
 	public abstract void agregarCasa(Jugador unJugador);
 	public abstract void destruirEdificios();
 	
+	//public abstract void setOtraZona(Barrio otroBarrio);
+
+	
 	protected void verificarJugador(Jugador unJugador) throws JugadorInvalido{
 		if(jugadorDuenio != unJugador) throw new JugadorInvalido();
 	}
@@ -66,5 +69,5 @@ public abstract class Barrio implements Adquirible,Visitable{
 		}
 		
 	}
-	
+		
 }

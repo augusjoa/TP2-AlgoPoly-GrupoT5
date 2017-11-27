@@ -13,7 +13,7 @@ public class CarcelTest {
 	
 	//@Test
 	public void testJugadorRetenidoNoPuedeMoverse(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		
 		Carcel carcel = new Carcel();
 		
@@ -25,7 +25,7 @@ public class CarcelTest {
 	
 	//@Test
 	public void testJugadorRetenidoPorCuatroTurnosPuedeMoverse(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		
 		//AlgoPoly algoPoly = new AlgoPoly()
 		
@@ -46,7 +46,7 @@ public class CarcelTest {
 	
 	//@Test
 	public void testJugadorRetenidoPorDosTurnosYPagaFianza(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		
 		Carcel carcel = new Carcel();
 		
@@ -60,7 +60,7 @@ public class CarcelTest {
 	
 	//@Test
 	public void testJugadorRetenidoPorTresTurnosYPagaFianza(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		
 		Carcel carcel = new Carcel();
 		
@@ -75,7 +75,7 @@ public class CarcelTest {
 	
 	@Test(expected=DineroInsuficiente.class)
 	public void testJugadorRetenidoPorDosTurnosConFondosInsuficientesNoPuedePagarFianza(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		Dinero unDinero = new Dinero(60000);
 		jugador.sustraerDinero(unDinero);
 		Carcel carcel = new Carcel();
@@ -90,7 +90,7 @@ public class CarcelTest {
 	//@Test
 	public void testJugadorRetenidoPorTresTurnosConFondosInsuficientesNoPuedeMoverse(){
 		Dinero unDinero = new Dinero(60000);
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		jugador.sustraerDinero(unDinero);
 				
 		Carcel carcel = new Carcel();

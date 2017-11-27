@@ -10,7 +10,7 @@ public class RetrocesoDinamicoTest {
 	@Test
 	public void testCaerEnLaCasillaCon7Hasta10(){
 		
-		Jugador unJugador = new Jugador();	
+		Jugador unJugador = new Jugador(null);	
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		
@@ -21,7 +21,7 @@ public class RetrocesoDinamicoTest {
 	
 	@Test
 	public void testCaerEnLaCasillaCon11oMas(){
-		Jugador unJugador = new Jugador();		
+		Jugador unJugador = new Jugador(null);		
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		
@@ -32,7 +32,7 @@ public class RetrocesoDinamicoTest {
 	
 	@Test 
 	public void testCaerEnLaCasillaCon5() {
-		Jugador unJugador = new Jugador();		
+		Jugador unJugador = new Jugador(null);		
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		int posicionInicial = unJugador.getPosicion();
 		Barrio unBarrio = new Barrio(1000);

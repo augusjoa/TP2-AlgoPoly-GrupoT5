@@ -3,32 +3,33 @@ package modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.casillas.*;
 import modelo.interfaces.Visitable;
 
 public class TableroTest {
 	@Test
-	public void testAlCrearTableroTieneCasillas() {
-		Tablero unTablero = new Tablero();
+	public void testAlCrearTableroTiene20Casillas() {
+		Tablero tablero = new Tablero();
 		
-		Assert.assertNotEquals(0, unTablero.cantidadDeCasillas());
+		Assert.assertEquals(20, tablero.cantidadDeCasillas());
+	}
+
+	@Test
+	public void testAlAvanzarUnaPosicionEstoyEnQuini6(){
+		Tablero tablero = new Tablero();
+		Visitable salida = tablero.getCasillero(0);
+		Visitable quini6 = tablero.avanzarACasilla(salida, 1);
+		
+		Assert.assertEquals(1, tablero.getPosDeCasilla(quini6)) ;
+		
 	}
 	
 	@Test
-	public void testLasCasillasSonCiclicas() {
-		Tablero unTablero = new Tablero();
+	public void testAlAvanzarUnaPosicionFueraDeRangoEsteAvanzaCorrectamente(){
+		Tablero tablero = new Tablero();
+		Visitable salida = tablero.getCasillero(0);
+		Visitable quini6 = tablero.avanzarACasilla(salida, 21);
 		
-		int cantidadDeCasillas = unTablero.cantidadDeCasillas();
-		
-		Visitable primeraCasilla;
-		
-		Visitable siguienteALaUltima;
-		
-		primeraCasilla = unTablero.siguienteCasilla();
-		for(int i=1; i < cantidadDeCasillas; i++) {
-			unTablero.siguienteCasilla();
-		}
-		siguienteALaUltima = unTablero.siguienteCasilla();
-		
-		Assert.assertEquals(primeraCasilla, siguienteALaUltima);
+		Assert.assertEquals(1, tablero.getPosDeCasilla(quini6)) ;
 	}
 }

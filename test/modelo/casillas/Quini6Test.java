@@ -18,7 +18,7 @@ public class Quini6Test {
 	@Test
 	public void testJugadorVisitaQuini6unaVez() {
 		Quini6 quini6 = new Quini6();
-		Jugador unJugador = new Jugador();
+		Jugador unJugador = new Jugador(null);
 		quini6.esVisitadoPorJugador(unJugador);
 		Assert.assertEquals(150000, unJugador.getDinero());
 	}
@@ -26,7 +26,7 @@ public class Quini6Test {
 	@Test
 	public void testJugadorVisitaQuini6DosVeces() {
 		Quini6 quini6 = new Quini6();
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		quini6.esVisitadoPorJugador(jugador);
 		quini6.esVisitadoPorJugador(jugador);
 		Assert.assertEquals(180000, jugador.getDinero());
@@ -35,7 +35,7 @@ public class Quini6Test {
 	@Test
 	public void testJugadorVisitaQuini6TresVeces() {
 		Quini6 quini6 = new Quini6();
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(null);
 		quini6.esVisitadoPorJugador(jugador);
 		quini6.esVisitadoPorJugador(jugador);
 		quini6.esVisitadoPorJugador(jugador);

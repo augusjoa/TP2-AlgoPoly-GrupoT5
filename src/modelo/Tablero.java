@@ -2,53 +2,90 @@ package modelo;
 
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 import modelo.casillas.Carcel;
 import modelo.casillas.Quini6;
+import modelo.casillas.*;
 import modelo.interfaces.Visitable;
 
 
 public class Tablero {
-	private int cantidad_nodos;
 	private ArrayList <Visitable> casilleros = new ArrayList<Visitable>();
-	private ListIterator<Visitable> iterador = null;
 	
 	public Tablero() {
-//		Visitable salidaCas = new Salida();
-		Visitable quini6Cas = new Quini6();
-//		Visitable barrio1Cas = new Barrio(20000);
-//		Visitable empresa1Cas = new Empresa(35000);
-//		Visitable barrio2Cas = new Barrio(25000);
-		Visitable carcelCas = new Carcel();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
-//		Visitable quini6Cas = new Quini6();
+			
+		BarrioFactory bFactory = new BarrioFactory();
 		
-		casilleros.add(carcelCas);
-		casilleros.add(quini6Cas);
+		casilleros.add(new Salida());
+		casilleros.add(new Quini6());
+		BarrioDoble bsasSur = bFactory.crearBuenosAiresSur();
+		BarrioDoble bsasNorte = bFactory.crearBuenosAiresNorte();
+		bsasSur.setOtraZona(bsasNorte);
+		bsasNorte.setOtraZona(bsasSur);
+		Compania edesur = new Edesur();
+		Compania aysa = new Aysa();
+		edesur.setOtraCompania(aysa);
+		aysa.setOtraCompania(edesur);
+		
+		casilleros.add(bsasSur);
+		casilleros.add(edesur);
+		casilleros.add(bsasNorte);
+		Carcel carcel = new Carcel();
+		casilleros.add(carcel);
+		
+		BarrioDoble cordobaSur = bFactory.crearCordobaSur();
+		BarrioDoble cordobaNorte = bFactory.crearCordobaNorte();
+		cordobaNorte.setOtraZona(cordobaSur);
+		cordobaSur.setOtraZona(cordobaNorte);
+		Compania subte = new Subte();
+		Compania tren = new Tren();
+		subte.setOtraCompania(tren);
+		tren.setOtraCompania(subte);
+		
+		casilleros.add(cordobaSur);
+		casilleros.add(new AvanceDinamico());
+		casilleros.add(subte);
+		casilleros.add(cordobaNorte);
+		casilleros.add(new ImpuestoAlLujo());
+		
+		casilleros.add(bFactory.crearSantaFe());
+		casilleros.add(aysa);
+		BarrioDoble saltaNorte = bFactory.crearSaltaNorte();
+		BarrioDoble saltaSur = bFactory.crearSaltaSur();
+		saltaNorte.setOtraZona(saltaSur);
+		saltaSur.setOtraZona(saltaNorte);
+		casilleros.add(saltaNorte);
+		casilleros.add(saltaSur);
+		casilleros.add(new Policia(carcel));
+		
+		casilleros.add(tren);
+		casilleros.add(bFactory.crearNeuquen());
+		casilleros.add(new RetrocesoDinamico());
+		casilleros.add(bFactory.crearTucuman());
 	}
 	
 	
 	public int cantidadDeCasillas() {
-		
 		return casilleros.size();
 	}
 
-//public Visitable siguienteCasilla(Visitable v, int cant)
-	public Visitable siguienteCasilla() {
-		if(iterador == null || !iterador.hasNext() ) iterador = casilleros.listIterator();
-		return iterador.next();
+	//public Visitable siguienteCasilla(Visitable v, int cant)
+	//public void siguienteCasilla() {
+		//if(iterador == null || !iterador.hasNext() ) iterador = casilleros.listIterator();
+		//iterador.next();
+
+	public Visitable avanzarACasilla(Visitable casillaDelJugador, int numDelDado){
+		int posActual = casilleros.indexOf(casillaDelJugador);
+		posActual = (posActual+numDelDado)%cantidadDeCasillas();
+		return casilleros.get(posActual);	
+	}
+	
+	public int getPosDeCasilla(Visitable casilla){
+		return casilleros.indexOf(casilla);
+	}
+	
+	public Visitable getCasillero(int pos){
+		return casilleros.get(pos);
 	}
 
+	
 }
