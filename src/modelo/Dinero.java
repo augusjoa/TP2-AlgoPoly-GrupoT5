@@ -14,7 +14,7 @@ public class Dinero {
 		this.valor = unDinero.valor;
 	}
 	
-	public int getValor() { //Solo para las pruebas se debe utilizar
+	public int getValor() {
 		return valor;
 	}
 
@@ -27,10 +27,8 @@ public class Dinero {
 		valor -= unDinero.valor;
 	}
 
-	public void aplicarImpuesto(int porcentajeDelImpuesto){
-		int valorActual= valor;
-		int valorConImpuesto= (valor*porcentajeDelImpuesto)/100;
-		valor= valorActual-valorConImpuesto;
+	public void aplicarImpuesto(int porcentajeDelImpuesto) {
+		valor = valor - (valor * porcentajeDelImpuesto) / 100;
 	}
 	
 	@Override

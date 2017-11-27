@@ -9,16 +9,16 @@ import modelo.interfaces.Visitable;
 public class TableroTest {
 	@Test
 	public void testAlCrearTableroTiene20Casillas() {
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.TableroUnico();
 		
 		Assert.assertEquals(20, tablero.cantidadDeCasillas());
 	}
 
 	@Test
 	public void testAlAvanzarUnaPosicionEstoyEnQuini6(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.TableroUnico();
 		Visitable salida = tablero.getCasillero(0);
-		Visitable quini6 = tablero.avanzarACasilla(salida, 1);
+		Visitable quini6 = tablero.avanzarCasillas(salida, 1);
 		
 		Assert.assertEquals(1, tablero.getPosDeCasilla(quini6)) ;
 		
@@ -26,9 +26,9 @@ public class TableroTest {
 	
 	@Test
 	public void testAlAvanzarUnaPosicionFueraDeRangoEsteAvanzaCorrectamente(){
-		Tablero tablero = new Tablero();
+		Tablero tablero = Tablero.TableroUnico();
 		Visitable salida = tablero.getCasillero(0);
-		Visitable quini6 = tablero.avanzarACasilla(salida, 21);
+		Visitable quini6 = tablero.avanzarCasillas(salida, 21);
 		
 		Assert.assertEquals(1, tablero.getPosDeCasilla(quini6)) ;
 	}

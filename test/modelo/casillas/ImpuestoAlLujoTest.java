@@ -4,21 +4,23 @@ package modelo.casillas;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Dinero;
 import modelo.Jugador;
 
 public class ImpuestoAlLujoTest {
 
 	@Test
 	public void jugadorCaenEnImpuestoSuDineroSeReduceUn10PorcientoDelTotal(){
-		Jugador jugador = new Jugador(null);
+		Jugador jugador = new Jugador();
 		ImpuestoAlLujo impuestoAlLujo = new ImpuestoAlLujo();
 		
-		int dineroActual=jugador.getDinero().getValor();
+		Dinero dineroInicial = jugador.getDinero();
+		Dinero valorEsperado = new Dinero(dineroInicial.getValor() - (dineroInicial.getValor() * 10) / 100);
 		
 		impuestoAlLujo.esVisitadoPorJugador(jugador);
 		
-		int valorEsperado=dineroActual-(dineroActual*10)/100;
-		Assert.assertEquals(valorEsperado, jugador.getDinero().getValor());
+		
+		Assert.assertEquals(valorEsperado, jugador.getDinero());
 	}
 	
 }

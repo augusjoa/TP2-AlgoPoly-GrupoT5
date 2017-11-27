@@ -24,30 +24,24 @@ public class DineroTest{
 	public void testAgregarDinero() {
 		Dinero dinero = new Dinero(100000);
 		Dinero dinero2 = new Dinero(20000);
+		Dinero dineroEsperado = new Dinero(100000 + 20000);
 		dinero.agregarDinero(dinero2);
-		Assert.assertEquals(120000, dinero.getValor());
+		
+		Assert.assertEquals(dineroEsperado, dinero);
 	}
 	
 	@Test
-	public void testSustraerDinero() {
+	public void testSustraerDineroConFondeosSuficientes() {
 		Dinero dinero = new Dinero(100000);
 		Dinero dinero2 = new Dinero(20000);
+		Dinero dineroEsperado = new Dinero(100000 - 20000);
 		dinero.sustraerDinero(dinero2);
-		Assert.assertEquals(80000, dinero.getValor());
-	}
-	
-	@Test
-	public void testDineroEsMenorAlComprarAdquiribleConFondosSuficientes() {
-		Dinero unDinero = new Dinero(100000);
-		Dinero dineroCasa = new Dinero(20000);
 		
-		unDinero.sustraerDinero(dineroCasa);
-		Assert.assertEquals(80000, unDinero.getValor());
+		Assert.assertEquals(dineroEsperado, dinero);
 	}
-
-	
+	//esto en si va en un Test aparte de excepciones, donde estan todas juntas.
 	@Test(expected=DineroInsuficiente.class)
-	public void testNoSePuedeComprarUnAdquiribleConFondosInsuficientes() {
+	public void testSustraerDineroConFondosInsuficientesLanzaExcepcion() {
 		Dinero unDinero = new Dinero(50000);
 		Dinero dineroCasa = new Dinero(70000);
 		
