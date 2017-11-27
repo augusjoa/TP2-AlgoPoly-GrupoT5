@@ -31,12 +31,7 @@ public class SubteTest {
 		Compania subte = new Subte();
 		jugadorDuenio.comprar(subte);
 		
-<<<<<<< HEAD
 		Jugador jugadorNoDuenio = new Jugador(null);
-		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
-=======
-		Jugador jugadorNoDuenio = new Jugador();
->>>>>>> f1bef4b7c00659efe7b7bfdd9e63ee706f919e53
 		jugadorNoDuenio.tirarDados();
 		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 600);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);
@@ -55,12 +50,7 @@ public class SubteTest {
 		jugadorDuenio.comprar(subte);
 		jugadorDuenio.comprar(tren);
 		
-<<<<<<< HEAD
 		Jugador jugadorNoDuenio = new Jugador(null);
-		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
-=======
-		Jugador jugadorNoDuenio = new Jugador();
->>>>>>> f1bef4b7c00659efe7b7bfdd9e63ee706f919e53
 		jugadorNoDuenio.tirarDados();
 		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 1100);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);
