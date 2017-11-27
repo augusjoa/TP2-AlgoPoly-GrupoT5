@@ -13,7 +13,7 @@ public class SubteTest {
 	@Test
 	public void unJugadorEsDuenioDobleSiAdquiereSubteYTren(){
 		
-		Jugador jugador = new Jugador(null);
+		Jugador jugador = new Jugador();
 		Compania subte = new Subte();
 		Compania tren = new Tren();
 		
@@ -27,11 +27,11 @@ public class SubteTest {
 	
 	@Test
 	public void unJugadorQueNoEsDuenioCaeEnSubte(){
-		Jugador jugadorDuenio = new Jugador(null);
+		Jugador jugadorDuenio = new Jugador();
 		Compania subte = new Subte();
 		jugadorDuenio.comprar(subte);
 		
-		Jugador jugadorNoDuenio = new Jugador(null);
+		Jugador jugadorNoDuenio = new Jugador();
 		jugadorNoDuenio.tirarDados();
 		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 600);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);
@@ -41,7 +41,7 @@ public class SubteTest {
 	
 	@Test
 	public void unJugadorQueNoEsDuenioCaeEnSubteConDuenioDoble(){
-		Jugador jugadorDuenio = new Jugador(null);
+		Jugador jugadorDuenio = new Jugador();
 		Compania subte = new Subte();
 		Compania tren = new Tren();
 		subte.setOtraCompania(tren);
@@ -50,7 +50,7 @@ public class SubteTest {
 		jugadorDuenio.comprar(subte);
 		jugadorDuenio.comprar(tren);
 		
-		Jugador jugadorNoDuenio = new Jugador(null);
+		Jugador jugadorNoDuenio = new Jugador();
 		jugadorNoDuenio.tirarDados();
 		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 1100);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);

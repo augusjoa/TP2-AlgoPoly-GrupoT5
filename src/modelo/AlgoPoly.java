@@ -17,7 +17,7 @@ public class AlgoPoly {
 		Tablero tablero = Tablero.TableroUnico();
 		
 		for(int i=0;i<cantidadDeJugadores;i++) {
-			jugadores.add(new Jugador(tablero));
+			jugadores.add(new Jugador());
 		}
 	}
 	
