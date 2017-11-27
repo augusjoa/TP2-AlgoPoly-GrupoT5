@@ -32,4 +32,14 @@ public class TableroTest {
 		
 		Assert.assertEquals(1, tablero.getPosDeCasilla(quini6)) ;
 	}
+	
+	@Test
+	public void elTableroSabeDondeEstaLaCarcel(){
+		Tablero tablero = Tablero.TableroUnico();
+		Visitable carcel = tablero.getCarcel();
+		
+		Visitable carcelEsperada = tablero.getCasillero(5);
+		
+		Assert.assertEquals(carcelEsperada, carcel);
+	}
 }

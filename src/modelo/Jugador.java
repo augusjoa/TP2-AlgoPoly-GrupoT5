@@ -12,7 +12,6 @@ import modelo.interfaces.Visitable;
 
 public class Jugador {
 	
-	
 	private Dinero dinero = new Dinero(100000);
 	private boolean detenido = false;	
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
@@ -67,6 +66,7 @@ public class Jugador {
 
 	public void jugadorDetenido() {
 		detenido=true;
+		//podriamos hacer q los estados queden como "usados"
 	}
 	
 	public void jugadorLiberado(){
@@ -88,11 +88,11 @@ public class Jugador {
 	}
 	
 	public void agregarCasa(Barrio unBarrio) {
-		unBarrio.agregarCasa(this);
+		((Barrio) casillaActual).agregarCasa(this);
 	}
 	
 	public void agregarHotel(BarrioDoble unBarrio) {
-		unBarrio.agregarHotel(this);
+		((BarrioDoble) casillaActual).agregarHotel(this);
 	}
 	
 	public boolean perdio(){
@@ -101,7 +101,7 @@ public class Jugador {
 
 
 	public void irPreso() {
-		casillaActual = tablero.irACarcel();
-		jugadorDetenido();
+		casillaActual = tablero.getCarcel();
+		casillaActual.esVisitadoPorJugador(this);
 	}
 }

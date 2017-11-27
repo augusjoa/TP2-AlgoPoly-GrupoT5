@@ -44,7 +44,6 @@ public class Carcel implements Visitable{
 	@Override
 	public void esVisitadoPorJugador(Jugador jugador) {
 		if(!jugadoresEnCarcel.containsKey(jugador))	retenerJugador(jugador);
-		
 	}
 	
 }

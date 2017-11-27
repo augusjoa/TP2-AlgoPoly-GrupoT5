@@ -16,6 +16,7 @@ public class Tablero {
 		if(tableroUnico == null) tableroUnico = new Tablero();
 		return tableroUnico;
 	}
+	Carcel carcel;
 	
 	private Tablero() {
 			
@@ -35,7 +36,7 @@ public class Tablero {
 		casilleros.add(bsasSur);
 		casilleros.add(edesur);
 		casilleros.add(bsasNorte);
-		Carcel carcel = new Carcel();
+		carcel = new Carcel();
 		casilleros.add(carcel);
 		
 		
@@ -94,8 +95,9 @@ public class Tablero {
 		return casilleros.get(pos);
 	}
 
-	public Visitable irACarcel() {
-		return casilleros.get(5);	//Ver como hacer para saber donde esta la carcel. esto es HC 
+	public Visitable getCarcel() {
+		int posCarcel = getPosDeCasilla(carcel);
+		return getCasillero(posCarcel); 
 	}
 
 	

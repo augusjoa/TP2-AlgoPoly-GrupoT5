@@ -55,7 +55,7 @@ public class AlgoPoly {
 	}
 	
 	public void avanzarTurno() throws HayGanador{
-		if(hayGanador()) throw new HayGanador();
+		if(hayGanador()) throw new HayGanador(ganador());
 		
 		jugadorActual=siguienteJugador();
 		//jugadorActual.pasarTurno() pone en false los "movimientos";
@@ -65,6 +65,10 @@ public class AlgoPoly {
 
 	public boolean hayGanador(){
 		return cantidadDeJugadoresActivos()==1;
+	}
+	
+	public Jugador ganador(){
+		return jugadores.get(cantidadDeJugadoresActivos());
 	}
 		
 	public Jugador siguienteJugador(){
