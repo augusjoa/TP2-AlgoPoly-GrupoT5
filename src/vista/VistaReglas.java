@@ -11,6 +11,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class VistaReglas extends ScrollPane {
 
@@ -18,12 +20,9 @@ public class VistaReglas extends ScrollPane {
 		
 		this.setPadding(new Insets(10));
 		
-		Label label = new Label("Reglas del Juego");
-		label.getStyleClass().add("titulo");
-		
-		
+		Label titulo = new Label("Reglas de Juego");
+		titulo.setFont(Font.font("Consolas", FontWeight.BOLD, 20));
 		Label reglas = new Label();
-		reglas.getStyleClass().add("texto");
 		reglas.setWrapText(true);
 		reglas.setMaxWidth(770);
 		
@@ -41,9 +40,8 @@ public class VistaReglas extends ScrollPane {
 			e.printStackTrace();
 		}
 		
-		reglas.getStyleClass().add("titulo");
 		VBox vBox = new VBox();
-		vBox.getChildren().addAll(label,reglas);
+		vBox.getChildren().addAll(titulo,reglas);
 		
 		this.setContent(vBox);
 		this.setHbarPolicy(ScrollBarPolicy.NEVER);
