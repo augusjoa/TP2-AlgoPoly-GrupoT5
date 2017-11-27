@@ -98,4 +98,10 @@ public class Jugador {
 	public boolean perdio(){
 		return (dinero.getValor() < 0 && getCantidadDePropiedades()==0);
 	}
+
+
+	public void irPreso() {
+		casillaActual = tablero.irACarcel();
+		jugadorDetenido();
+	}
 }

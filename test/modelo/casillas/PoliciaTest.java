@@ -13,13 +13,10 @@ public class PoliciaTest {
 	@Test
 	public void testJugadorCaeEnPoliciaQuedaRetenido(){
 		Jugador jugador = new Jugador();
-		
-		Carcel carcel = new Carcel();
-		
-		Policia policia = new Policia(carcel);
+		Policia policia = new Policia();
 		
 		policia.esVisitadoPorJugador(jugador);
 		
-		Assert.assertEquals(false, jugador.puedeMoverse());
+		Assert.assertFalse(jugador.puedeMoverse());
 	}
 }

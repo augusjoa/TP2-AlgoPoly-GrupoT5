@@ -6,24 +6,22 @@ import modelo.interfaces.Visitable;
 
 public class RetrocesoDinamico implements Visitable{
 
-	public int retrocederAlJugador(Jugador unJugador, int numeroDelDado) {
-		
-		if (numeroDelDado > 6 && numeroDelDado < 11) {
-			return (- unJugador.getDinero().getValor() % numeroDelDado);//refactor
+	public int getCantidadDePasos(Jugador unJugador, int numeroDelDado) {
+		int casillasAMover = 0;
+		if (numeroDelDado < 7) {
+			casillasAMover = numeroDelDado - unJugador.getCantidadDePropiedades();
 		}
-		
-		else if (numeroDelDado < 7) {
-			return (-numeroDelDado + unJugador.getCantidadDePropiedades());
+		else if (numeroDelDado < 11) {
+			casillasAMover =  unJugador.getDinero().getValor() % numeroDelDado;
 		}
-		
-		else return (- numeroDelDado + 2);
-		
+		else casillasAMover =  numeroDelDado - 2;
+		return -casillasAMover;
 	}
 
 	@Override
 	public void esVisitadoPorJugador(Jugador unJugador) {
-		int cantidadDeCasillas = retrocederAlJugador(unJugador, unJugador.getNumeroDelDado());
-		unJugador.moverse(cantidadDeCasillas);
+		int cantidadDePasos = getCantidadDePasos(unJugador, unJugador.getNumeroDelDado());
+		unJugador.moverse(cantidadDePasos);
 	}
 
 }

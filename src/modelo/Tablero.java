@@ -38,6 +38,7 @@ public class Tablero {
 		Carcel carcel = new Carcel();
 		casilleros.add(carcel);
 		
+		
 		BarrioDoble cordobaSur = bFactory.crearCordobaSur();
 		BarrioDoble cordobaNorte = bFactory.crearCordobaNorte();
 		cordobaNorte.setOtraZona(cordobaSur);
@@ -61,7 +62,7 @@ public class Tablero {
 		saltaSur.setOtraZona(saltaNorte);
 		casilleros.add(saltaNorte);
 		casilleros.add(saltaSur);
-		casilleros.add(new Policia(carcel));
+		casilleros.add(new Policia());
 		
 		casilleros.add(tren);
 		casilleros.add(bFactory.crearNeuquen());
@@ -91,6 +92,10 @@ public class Tablero {
 	
 	public Visitable getCasillero(int pos){
 		return casilleros.get(pos);
+	}
+
+	public Visitable irACarcel() {
+		return casilleros.get(5);	//Ver como hacer para saber donde está la carcel. esto es HC 
 	}
 
 	
