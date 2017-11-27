@@ -8,7 +8,8 @@ import modelo.Dinero;
 import modelo.Jugador;
 
 public class SubteTest {
-
+	private static final int DINEROINICIAL = 100000;
+	
 	@Test
 	public void unJugadorEsDuenioDobleSiAdquiereSubteYTren(){
 		
@@ -30,14 +31,17 @@ public class SubteTest {
 		Compania subte = new Subte();
 		jugadorDuenio.comprar(subte);
 		
+<<<<<<< HEAD
 		Jugador jugadorNoDuenio = new Jugador(null);
 		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
+=======
+		Jugador jugadorNoDuenio = new Jugador();
+>>>>>>> f1bef4b7c00659efe7b7bfdd9e63ee706f919e53
 		jugadorNoDuenio.tirarDados();
+		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 600);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);
 		
-		
-		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
-		Assert.assertEquals(600*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(dineroFinal, jugadorNoDuenio.getDinero());
 	}
 	
 	@Test
@@ -51,12 +55,16 @@ public class SubteTest {
 		jugadorDuenio.comprar(subte);
 		jugadorDuenio.comprar(tren);
 		
+<<<<<<< HEAD
 		Jugador jugadorNoDuenio = new Jugador(null);
 		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
+=======
+		Jugador jugadorNoDuenio = new Jugador();
+>>>>>>> f1bef4b7c00659efe7b7bfdd9e63ee706f919e53
 		jugadorNoDuenio.tirarDados();
+		Dinero dineroFinal = new Dinero(DINEROINICIAL - jugadorNoDuenio.getNumeroDelDado() * 1100);
 		subte.esVisitadoPorJugador(jugadorNoDuenio);
 		
-		dineroInicial.sustraerDinero(jugadorNoDuenio.getDinero());
-		Assert.assertEquals(1100*jugadorNoDuenio.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(dineroFinal, jugadorNoDuenio.getDinero());
 	}
 }
