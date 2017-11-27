@@ -18,12 +18,12 @@ public class Jugador {
 	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
 	private DobleDado dado = new DobleDado();
 	private Visitable casillaActual;
-	protected Tablero tablero;
+	protected Tablero tablero = Tablero.TableroUnico();
 	//private AdquiriblesDeJugador adquisiciones2 = new AdquiriblesDeJugador();
 	
-	public Jugador(Tablero unTablero){
-		tablero= unTablero;
-	}
+	//public Jugador(Tablero unTablero){
+	//	tablero= unTablero;
+	//}
 	
 	public Dinero getDinero() {
 		return dinero;
@@ -78,8 +78,7 @@ public class Jugador {
 	}
 
 	public void moverse(int cantidadDeCasillas) {
-		//casillaActual = tablero.avanzarACasilla(casillaActual, getNumeroDelDado());
-		casillaActual = tablero.avanzarACasilla(casillaActual, cantidadDeCasillas);
+		casillaActual = tablero.avanzarCasillas(casillaActual, cantidadDeCasillas);
 		casillaActual.esVisitadoPorJugador(this);
 	}
 	
