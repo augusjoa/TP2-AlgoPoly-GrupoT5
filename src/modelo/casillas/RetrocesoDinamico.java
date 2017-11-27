@@ -23,7 +23,7 @@ public class RetrocesoDinamico implements Visitable{
 	@Override
 	public void esVisitadoPorJugador(Jugador unJugador) {
 		int cantidadDeCasillas = retrocederAlJugador(unJugador, unJugador.getNumeroDelDado());
-		//unJugador.moverse(cantidadDeCasillas);
+		unJugador.moverse(cantidadDeCasillas);
 	}
 
 }

@@ -77,8 +77,9 @@ public class Jugador {
 		return !detenido;
 	}
 
-	public void moverse(Tablero unTablero) {
-		casillaActual = unTablero.avanzarACasilla(casillaActual, getNumeroDelDado());
+	public void moverse(int cantidadDeCasillas) {
+		//casillaActual = tablero.avanzarACasilla(casillaActual, getNumeroDelDado());
+		casillaActual = tablero.avanzarACasilla(casillaActual, cantidadDeCasillas);
 		casillaActual.esVisitadoPorJugador(this);
 	}
 	
