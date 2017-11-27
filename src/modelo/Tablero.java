@@ -95,7 +95,7 @@ public class Tablero {
 	}
 
 	public Visitable irACarcel() {
-		return casilleros.get(5);	//Ver como hacer para saber donde está la carcel. esto es HC 
+		return casilleros.get(5);	//Ver como hacer para saber donde esta la carcel. esto es HC 
 	}
 
 	
