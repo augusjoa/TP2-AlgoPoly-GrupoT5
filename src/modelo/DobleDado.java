@@ -8,9 +8,9 @@ public class DobleDado {
 	Random rand = new Random();
 	
 	public int tirarDados() {
-		this.primerDado = 1 + rand.nextInt(6);
-		this.segundoDado = 1 + rand.nextInt(6);
-		return this.primerDado + this.segundoDado;
+		primerDado = 1 + rand.nextInt(6);
+		segundoDado = 1 + rand.nextInt(6);
+		return primerDado + segundoDado;
 	}
 	
 	public boolean DadosSonIguales() {

@@ -94,4 +94,8 @@ public class Jugador {
 	public void agregarHotel(BarrioDoble unBarrio) {
 		unBarrio.agregarHotel(this);
 	}
+	
+	public boolean perdio(){
+		return (dinero.getValor() < 0 && getCantidadDePropiedades()==0);
+	}
 }

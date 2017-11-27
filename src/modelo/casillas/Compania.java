@@ -66,6 +66,7 @@ public abstract class Compania implements Adquirible,Visitable {
 			unJugador.sustraerDinero(costoDeLaCompania);
 			setDuenio(unJugador);
 		}
+		//catch jugador perdio?
 	}
 	
 	@Override

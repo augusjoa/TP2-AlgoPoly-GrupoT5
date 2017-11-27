@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+import modelo.excepciones.HayGanador;
+
 public class AlgoPoly {
 	
 	public static final int cantidadDeJugadores= 3;
@@ -11,14 +13,16 @@ public class AlgoPoly {
 	private Iterator<Jugador> iterador = null;
 	private Jugador jugadorActual;
 	private Tablero tablero;
+	private boolean iniciada=false;
 	
 	public AlgoPoly() {
 		
-		tablero = tablero.TableroUnico();
+		tablero = Tablero.TableroUnico();
 		
 		for(int i=0;i<cantidadDeJugadores;i++) {
 			jugadores.add(new Jugador());
 		}
+		
 	}
 	
 //	public Jugador jugadorInicialRandom(){
@@ -29,24 +33,53 @@ public class AlgoPoly {
 //		else if(numRandom==1) return jugador2;
 //		return jugador3;
 //	}
-//	
-//public void iniciarPartida(){
-	//	jugadorActual.
-	//}
+	public boolean jugadorPerdio(){
+		return jugadorActual.perdio();
+	}
+
+	public void borrarJugador(){
+		jugadores.remove(jugadorActual);
+	}
 	
+	public void iniciarPartida() throws HayGanador{
+		if(iniciada==false){
+			posicionarJugadoresInicial();
+			iniciada=true;
+		}
+		try{
+			avanzarTurno();
+		}
+		catch(HayGanador e){
+			throw e;
+		}
+	}
+	
+	public void avanzarTurno() throws HayGanador{
+		if(hayGanador()) throw new HayGanador();
+		
+		jugadorActual=siguienteJugador();
+		//jugadorActual.pasarTurno() pone en false los "movimientos";
+		if(jugadorPerdio())	borrarJugador();
+		
+	}
+
+	public boolean hayGanador(){
+		return cantidadDeJugadoresActivos()==1;
+	}
+		
 	public Jugador siguienteJugador(){
 		if(iterador == null || !iterador.hasNext() ) iterador = jugadores.iterator();
 		return iterador.next();
 	}
-//
-//	private void cambiarJugadorActual() {
-//		if(!iterador.hasNext()) iterador = jugadores.iterator();
-//		jugadorActual= iterador.next();
-//	}
+	
+	public void posicionarJugadoresInicial(){
+		for(Jugador jugador: jugadores){
+			jugador.setCasillaActual(tablero.getCasillero(0));
+		}
+	}
 
 	public int cantidadDeJugadoresActivos() {
 		return jugadores.size();
 	}
-	
 	
 }
