@@ -37,7 +37,7 @@ public class AysaTest {
 		
 		
 		dineroInicial.sustraerDinero(jugador.getDinero());
-		Assert.assertEquals(300*jugador.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(300*jugador.getNumeroDelDado(), dineroInicial.getValor());
 	}
 	
 	@Test
@@ -57,6 +57,6 @@ public class AysaTest {
 		
 		
 		dineroInicial.sustraerDinero(jugador.getDinero());
-		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial._getValor());
+		Assert.assertEquals(500*jugador.getNumeroDelDado(), dineroInicial.getValor());
 	}
 }
