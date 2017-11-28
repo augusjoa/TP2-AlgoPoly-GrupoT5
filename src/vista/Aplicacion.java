@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import modelo.AlgoPoly;
 import vista.eventos.SalirEventoWindow;
 
 public class Aplicacion extends Application {
@@ -21,7 +22,9 @@ public class Aplicacion extends Application {
 		stage.setOnCloseRequest(new SalirEventoWindow());
         stage.getIcons().add(new Image(getClass().getResourceAsStream("img/iconGrande.png")));
         
-        Juego vistaJuego = new Juego(stage);
+        AlgoPoly unaPartida = new AlgoPoly();
+        
+        Juego vistaJuego = new Juego(stage, unaPartida);
         Scene escenaJuego = new Scene(vistaJuego,800,600);
         
         escenaJuego.setOnKeyPressed(new AplicacionOnKeyPressedEvento(vistaJuego.getBarraMenu()));

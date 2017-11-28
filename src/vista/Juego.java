@@ -2,18 +2,20 @@ package vista;
 
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import modelo.AlgoPoly;
 
 public class Juego extends BorderPane{
 	static final int pixelCasilla=60;
-	protected VistaTablero vistaTablero;
-	protected VistaSuperior vistaSuperior;
+	private VistaTablero vistaTablero;
+	private VistaSuperior vistaSuperior;
+	private VistaLateralDerecha vistaLateralDerecha;
+	private AlgoPoly unaPartida;
 	
-	
-	public Juego(Stage stage){
-		
-		vistaSuperior = new VistaSuperior(this,stage);
+	public Juego(Stage stage, AlgoPoly unaPartida){
+		this.unaPartida = unaPartida;
+		vistaSuperior = new VistaSuperior(stage, this);
 		vistaTablero = new VistaTablero(this);
-		//vistaLateralDerecha = new VistaLateralDerecha(this);
+		vistaLateralDerecha = new VistaLateralDerecha(stage, this, unaPartida);
 		setSuperior();
 		setCentro();
 		//setDerecha();

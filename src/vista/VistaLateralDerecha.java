@@ -2,12 +2,13 @@ package vista;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import modelo.AlgoPoly;
 
-public class VistaSuperior extends VBox {
+public class VistaLateralDerecha extends VBox {
 
 	private BarraMenu barraMenu;
 	
-	public VistaSuperior(Stage stage, Juego juego){
+	public VistaLateralDerecha(Stage stage, Juego juego, AlgoPoly unaPartida){
 		barraMenu = new BarraMenu(stage, juego);
 		this.getChildren().add(barraMenu);
 	}

@@ -86,4 +86,7 @@ public class AlgoPoly {
 		return jugadores.size();
 	}
 	
+	public Jugador getJugadorActual() {
+		return jugadorActual;
+	}
 }

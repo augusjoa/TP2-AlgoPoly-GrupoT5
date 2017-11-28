@@ -68,8 +68,8 @@ public class VistaTablero extends GridPane {
 	
 	private void agregarBoton(int col,int fil){
 		Button boton = new Button();
-		boton.setMaxWidth(150);
-		boton.setMaxHeight(100);
+		boton.setMaxWidth(Long.MAX_VALUE);
+		boton.setMaxHeight(Long.MAX_VALUE);
 		this.add(boton, col, fil);
 	}
 	
