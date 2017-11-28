@@ -4,7 +4,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Juego extends BorderPane{
-	static final int pixelCasilla=30;
+	static final int pixelCasilla=60;
 	protected VistaTablero vistaTablero;
 	protected VistaSuperior vistaSuperior;
 	
