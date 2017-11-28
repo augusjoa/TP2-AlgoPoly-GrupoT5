@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 
 public class SalirDePantallaCompletaOnAction implements EventHandler<ActionEvent> {
 
-	Stage unStage;
-	MenuItem unMenuItem;
+	private Stage unStage;
+	private MenuItem unMenuItem;
 	
 	public SalirDePantallaCompletaOnAction(Stage stage, MenuItem menuItem) {
 		unStage = stage;

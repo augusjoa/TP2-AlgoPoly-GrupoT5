@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 
 public class CambiarEscena implements EventHandler<ActionEvent>{
 
-	Stage stage;
-	Scene escena;
+	private Stage stage;
+	private Scene escena;
 	
 	public CambiarEscena(Stage stage, Scene escena) {
 		this.stage=stage;
