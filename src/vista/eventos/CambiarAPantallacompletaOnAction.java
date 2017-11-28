@@ -7,19 +7,19 @@ import javafx.stage.Stage;
 
 public class CambiarAPantallacompletaOnAction implements EventHandler<ActionEvent> {
 
-	Stage unStage;
-	MenuItem unMenuItem;
+	Stage stage;
+	MenuItem opcionPantallaCompleta;
 	
 	public CambiarAPantallacompletaOnAction(Stage stage, MenuItem menuitem) {
-		unStage = stage;
-		unMenuItem = menuitem;
+		this.stage = stage;
+		opcionPantallaCompleta = menuitem;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		unStage.setFullScreen(true);
-		unMenuItem.setText("Salir de Pantalla Completa");
-		unMenuItem.setOnAction(new SalirDePantallaCompletaOnAction(unStage, unMenuItem));
+		stage.setFullScreen(true);
+		opcionPantallaCompleta.setText("Salir de Pantalla Completa");
+		opcionPantallaCompleta.setOnAction(new SalirDePantallaCompletaOnAction(stage, opcionPantallaCompleta));
 		
 	}
 
