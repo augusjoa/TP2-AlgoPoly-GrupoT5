@@ -14,19 +14,21 @@ public class SalirEventoWindow implements EventHandler<WindowEvent> {
 
 	@Override
 	public void handle(WindowEvent event) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setTitle("Salir");
-    	alert.setHeaderText("");
-    	alert.setContentText("Esta seguro que desea salir?");
-    	Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-    	stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
+		new SalirEventoOnAction().handle(null);
+		
+		//Alert alert = new Alert(AlertType.CONFIRMATION);
+    	//alert.setTitle("Salir");
+    	//alert.setHeaderText("");
+    	//alert.setContentText("Esta seguro que desea salir?");
+    	//Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+    	//stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
     	
-    	Optional<ButtonType> result = alert.showAndWait();
-    	if (result.get() == ButtonType.OK){
-    		System.exit(0);
-    	} else {
+    	//Optional<ButtonType> result = alert.showAndWait();
+    	//if (result.get() == ButtonType.OK){
+    	//	System.exit(0);
+    	//} else {
     		event.consume();
-    	}
+    	//}
 	}
 	
 }

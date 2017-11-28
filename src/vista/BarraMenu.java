@@ -6,6 +6,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.stage.Stage;
 import vista.eventos.CambiarAPantallacompletaOnAction;
+import vista.eventos.ConfirmarNuevoJuegoOnAction;
 import vista.eventos.MostrarReglasOnAction;
 import vista.eventos.MutearOnAction;
 import vista.eventos.SalirEventoOnAction;
@@ -33,7 +34,9 @@ public class BarraMenu extends MenuBar{
         opcionReglas.setOnAction(new MostrarReglasOnAction());
        
         MenuItem opcionAcercaDe = new MenuItem("Acerda de");
+        
         MenuItem opcionNuevoJuego = new MenuItem("Juego Nuevo");
+        opcionNuevoJuego.setOnAction(new ConfirmarNuevoJuegoOnAction(stage));
         
         MenuItem opcionSalir = new MenuItem("Salir");
         opcionSalir.setOnAction(new SalirEventoOnAction());

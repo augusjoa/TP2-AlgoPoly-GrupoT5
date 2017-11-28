@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 
 
 public class MenuPrincipal extends BorderPane{
-	Stage stage;
-	Scene escenaJuego;
+	private Stage stage;
+	private Scene escenaJuego;
 	
 	public MenuPrincipal(Stage stage, Scene escenaJuego){
 		this.stage= stage;
