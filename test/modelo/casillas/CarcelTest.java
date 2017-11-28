@@ -1,17 +1,17 @@
 package modelo.casillas;
 
-import org.junit.Test;
+/*import org.junit.Test;
 
 import modelo.casillas.Carcel;
 import modelo.excepciones.DineroInsuficiente;
 import modelo.Dinero;
 import modelo.Jugador;
 
-import org.junit.Assert;
+import org.junit.Assert;*/
 
 public class CarcelTest {
 	
-	//@Test
+	/*//@Test
 	public void testJugadorRetenidoNoPuedeMoverse(){
 		Jugador jugador = new Jugador();
 		
@@ -102,7 +102,7 @@ public class CarcelTest {
 		
 		Assert.assertEquals(false, jugador.puedeMoverse());
 		
-	}
+	}*/
 }
 	
 	

@@ -17,7 +17,7 @@ public class SalirEventoOnAction implements EventHandler<ActionEvent>{
     	Alert alert = new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Salir");
     	alert.setHeaderText("");
-    	alert.setContentText("¿Esta seguro que desea salir?");
+    	alert.setContentText("Â¿Esta seguro que desea salir?");
     	Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
     	stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
     	
