@@ -5,6 +5,12 @@ import java.util.HashSet;
 
 import modelo.casillas.Barrio;
 import modelo.casillas.BarrioDoble;
+import modelo.casillas.Carcel;
+import modelo.casillas.Compania;
+import modelo.estadoJugador.Encarcelado;
+import modelo.estadoJugador.EncarceladoTurno1;
+import modelo.estadoJugador.EstadoJugador;
+import modelo.estadoJugador.Libre;
 import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 
@@ -12,17 +18,16 @@ import modelo.interfaces.Visitable;
 
 public class Jugador {
 	
+	
 	private Dinero dinero = new Dinero(100000);
-	private boolean detenido = false;	
-	private Collection <Adquirible> adquisiciones = new HashSet<Adquirible>();
+	//private boolean detenido = false;	
+	private Collection <Barrio> barriosAdquiridos = new HashSet<Barrio>();
+	private Collection <Compania> companiasAdquiridas = new HashSet<Compania>();
 	private DobleDado dado = new DobleDado();
 	private Visitable casillaActual;
 	protected Tablero tablero = Tablero.TableroUnico();
-	//private AdquiriblesDeJugador adquisiciones2 = new AdquiriblesDeJugador();
-	
-	//public Jugador(Tablero unTablero){
-	//	tablero= unTablero;
-	//}
+	private EstadoJugador estado = new Libre();
+
 	
 	public Dinero getDinero() {
 		return dinero;
@@ -39,60 +44,76 @@ public class Jugador {
 
 
 	public int getCantidadDePropiedades() {
-		return adquisiciones.size();
+		int total = this.barriosAdquiridos.size();
+		for (Barrio unBarrio : barriosAdquiridos) {
+			total += unBarrio.getCantidadDeEdificios();
+		}
+		return total + this.companiasAdquiridas.size(); 
 	}
 
-	public void comprar(Adquirible unAdquirible) {
-		
-		unAdquirible.comprar(this);
-		adquisiciones.add(unAdquirible);		
-	}
-
-	public void vender(Adquirible unAdquirible) {
-		unAdquirible.vender(this);
-		adquisiciones.remove(unAdquirible);
+	public void comprar(Barrio unBarrio) {
+		unBarrio.comprar(this);
+		barriosAdquiridos.add(unBarrio);		
 	}
 	
-	public boolean esDuenio(Adquirible unAdquirible) {
-		return adquisiciones.contains(unAdquirible);
+	public void comprar(Compania unaCompania) {	
+		unaCompania.comprar(this);
+		companiasAdquiridas.add(unaCompania);		
+	}
+
+	public void vender(Barrio unBarrio) {
+		unBarrio.vender(this);
+		barriosAdquiridos.remove(unBarrio);
+	}
+	
+	public void vender(Compania unaCompania) {
+		unaCompania.vender(this);
+		companiasAdquiridas.remove(unaCompania);
+	}
+	
+	public boolean esDuenio(Barrio unBarrio) {
+		return barriosAdquiridos.contains(unBarrio);
+	}
+	
+	public boolean esDuenio(Compania unaCompania) {
+		return companiasAdquiridas.contains(unaCompania);
 	}
 
 	public int tirarDados() {
 		return dado.tirarDados();
 	}
-	public int getNumeroDelDado(){
+	public int getNumeroDelDado() {
 		return dado.getDobleDado();
 	}
 
-	public void jugadorDetenido() {
-		detenido=true;
-		//podriamos hacer q los estados queden como "usados"
+/*	public void jugadorDetenido() {
+		detenido = true;
 	}
 	
-	public void jugadorLiberado(){
-		detenido=false;
+	/public void jugadorLiberado() {
+		detenido = false;
 	}
 
 	public boolean puedeMoverse() {
 		return !detenido;
-	}
+	}*/
 
 	public void moverse(int cantidadDeCasillas) {
-		casillaActual = tablero.avanzarCasillas(casillaActual, cantidadDeCasillas);
+		estado.moverse(this, cantidadDeCasillas, casillaActual);
 		casillaActual.esVisitadoPorJugador(this);
 	}
 	
 	public void setCasillaActual(Visitable unVisitable){
-		casillaActual=unVisitable;
+		casillaActual = unVisitable;
 		
 	}
 	
 	public void agregarCasa(Barrio unBarrio) {
-		((Barrio) casillaActual).agregarCasa(this);
+		unBarrio.agregarCasa(this);
 	}
 	
 	public void agregarHotel(BarrioDoble unBarrio) {
-		((BarrioDoble) casillaActual).agregarHotel(this);
+		unBarrio.agregarHotel(this);
 	}
 	
 	public boolean perdio(){
@@ -103,5 +124,23 @@ public class Jugador {
 	public void irPreso() {
 		casillaActual = tablero.getCarcel();
 		casillaActual.esVisitadoPorJugador(this);
+	}
+
+
+	public void cambiarEstado(EstadoJugador estado) {
+		this.estado = estado;		
+	}
+
+
+	public void encarcelar() {
+		this.cambiarEstado(new Encarcelado());
+	}
+	
+	public void pagarFianza(Carcel unaCarcel) {
+		this.estado.pagarFianza(this, unaCarcel);
+	}
+
+	public void liberar() {
+		this.cambiarEstado(new Libre());
 	}
 }
