@@ -41,6 +41,10 @@ public class BarrioTest {
 		Barrio unBarrio = fabrica.crearSantaFe();
 		Jugador unJugador = new Jugador();
 		
+
+		unJugador.setCasillaActual(unBarrio);
+		
+		
 		unJugador.comprar(unBarrio);
 		unJugador.agregarCasa(unBarrio);
 		
@@ -52,6 +56,8 @@ public class BarrioTest {
 		BarrioFactory fabrica = new BarrioFactory();
 		Barrio unBarrio = fabrica.crearNeuquen();
 		Jugador unJugador = new Jugador();
+		
+		unJugador.setCasillaActual(unBarrio);
 		
 		unJugador.comprar(unBarrio);
 		unJugador.agregarCasa(unBarrio);
@@ -68,14 +74,25 @@ public class BarrioTest {
 		Jugador unJugador = new Jugador();
 		Dinero unDinero = new Dinero(100000);
 		unJugador.agregarDinero(unDinero);
+
+		unJugador.setCasillaActual(unBarrio);
+		
 		unJugador.comprar(unBarrio);
 		unJugador.comprar(unBarrio2);
 
 		unJugador.agregarCasa(unBarrio);
 		unJugador.agregarCasa(unBarrio);
+		
+
+		unJugador.setCasillaActual(unBarrio2);
+		
 		unJugador.agregarCasa(unBarrio2);
 		unJugador.agregarCasa(unBarrio2);
 		unJugador.agregarHotel(unBarrio2);
+		
+
+		unJugador.setCasillaActual(unBarrio);
+		
 		unJugador.agregarHotel(unBarrio);
 		Assert.assertEquals(1, unBarrio.getCantidadDeEdificios());
 		Assert.assertEquals(1, unBarrio2.getCantidadDeEdificios());
@@ -91,6 +108,9 @@ public class BarrioTest {
 		Jugador unJugador = new Jugador();
 		Dinero unDinero = new Dinero(100000);
 		unJugador.agregarDinero(unDinero);
+
+		unJugador.setCasillaActual(unBarrio);
+		
 		unJugador.comprar(unBarrio);
 		unJugador.agregarCasa(unBarrio);
 	}
@@ -105,6 +125,9 @@ public class BarrioTest {
 		Jugador unJugador = new Jugador();
 		Dinero unDinero = new Dinero(100000);
 		unJugador.agregarDinero(unDinero);
+
+		unJugador.setCasillaActual(unBarrio);
+		
 		unJugador.comprar(unBarrio);
 		unJugador.comprar(unBarrio2);
 
@@ -123,6 +146,9 @@ public class BarrioTest {
 		Barrio unBarrio = fabrica.crearSantaFe();
 		Jugador unJugador = new Jugador();
 		Jugador unJugador2 = new Jugador();
+
+		unJugador.setCasillaActual(unBarrio);
+		
 		unJugador2.comprar(unBarrio);
 		unJugador.agregarCasa(unBarrio);	
 	}
@@ -137,6 +163,9 @@ public class BarrioTest {
 		Jugador unJugador = new Jugador();
 		Dinero unDinero = new Dinero(100000);
 		unJugador.agregarDinero(unDinero);
+
+		unJugador.setCasillaActual(unBarrio);
+		
 		unJugador.comprar(unBarrio);
 		unJugador.comprar(unBarrio2);
 
