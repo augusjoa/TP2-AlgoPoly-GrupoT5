@@ -16,11 +16,13 @@ public class Aplicacion extends Application {
     public void start(final Stage stage) throws Exception{
 		
 		stage.setTitle("AlgoPoly");
-        stage.setOnCloseRequest(new SalirEventoWindow());
+		stage.setResizable(false);
+		stage.setOnCloseRequest(new SalirEventoWindow());
         stage.getIcons().add(new Image(getClass().getResourceAsStream("img/iconGrande.png")));
         
         Juego vistaJuego = new Juego(stage);
         Scene escenaJuego = new Scene(vistaJuego,800,600);
+        
         
         MenuPrincipal menuPrincipal = new MenuPrincipal(stage, escenaJuego);
         Scene escenaPrincipal = new Scene(menuPrincipal, 800,600);

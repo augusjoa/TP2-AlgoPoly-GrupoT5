@@ -12,6 +12,7 @@ public class MostrarReglasOnAction implements EventHandler<ActionEvent> {
 	 @Override
 	    public void handle(ActionEvent actionEvent){
 	    	Stage reglas = new Stage();
+	    	reglas.setResizable(false);
 	    	reglas.setTitle("Reglas de Juego");
 			reglas.getIcons().add(new Image(getClass().getResourceAsStream("../img/iconGrande.png")));
 	    	VistaReglas vistaReglasDeJuego = new VistaReglas();
