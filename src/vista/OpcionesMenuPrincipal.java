@@ -12,6 +12,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import vista.eventos.CambiarEscena;
 import vista.eventos.MostrarReglasOnAction;
 import vista.eventos.SalirEventoOnAction;
 
@@ -29,7 +30,7 @@ public class OpcionesMenuPrincipal extends VBox{
 		
 		Button bJugar = new Button();
 		bJugar.setText("Jugar");
-		//botonJugar.setOnAction(new CambiarEscenaEvento(stage, escenaJugar, mediaPlayer));
+		bJugar.setOnAction(new CambiarEscena(stage, escenaJugar));
 
 		
 		Button bInstrucciones = new Button();

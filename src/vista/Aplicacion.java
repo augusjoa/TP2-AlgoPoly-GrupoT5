@@ -19,10 +19,10 @@ public class Aplicacion extends Application {
         stage.setOnCloseRequest(new SalirEventoWindow());
         stage.getIcons().add(new Image(getClass().getResourceAsStream("img/iconGrande.png")));
         
-        //Juego vistaJuego = new Juego(stage);
-        //Scene escenaJuego = new Scene(vistaJugar,800,600);
+        Juego vistaJuego = new Juego(stage);
+        Scene escenaJuego = new Scene(vistaJuego,800,600);
         
-        MenuPrincipal menuPrincipal = new MenuPrincipal(stage, null);
+        MenuPrincipal menuPrincipal = new MenuPrincipal(stage, escenaJuego);
         Scene escenaPrincipal = new Scene(menuPrincipal, 800,600);
         
         stage.setScene(escenaPrincipal);
