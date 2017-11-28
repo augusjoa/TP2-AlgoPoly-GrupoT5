@@ -11,9 +11,6 @@ import modelo.Dinero;
 import modelo.Jugador;
 
 public class BarrioTest {
-	
-	public class BarrioTest {
-		
 		@Test
 		public void testElBarrioTieneDuenioAlSerCompradoPorUnJugador() {
 			BarrioFactory fabrica = new BarrioFactory();
