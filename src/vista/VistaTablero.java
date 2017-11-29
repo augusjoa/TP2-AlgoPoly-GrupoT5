@@ -62,25 +62,28 @@ public class VistaTablero extends GridPane {
 		imagePane.setStyle( "-fx-background-color: red;" );
 	  	imagePane.getChildren().add( imageView );
 	  	
+	  	//VER DE CAMBIAR EL LUGAR
+	  	//int contador=0;
 	  	for (int i = 0 ; i < cantidadDeCasilleros ; i++) {
             for (int j = 0; j < cantidadDeCasilleros; j++) {
-            	if(i==0 || i==7 || j==0 || j==7){
-            		agregarBoton(i,j);
+            	if(i==0 || i==5 || j==0 || j==5){
+            		agregarBoton(i,j,0);
+            		//contador++;
             	}         	
             }
         }
 	}
 	
-	private void agregarBoton(int columna,int fila){
+	private void agregarBoton(int columna,int fila,int contadorDeLista){
 		Button boton = new Button();
 		boton.setMaxWidth(Long.MAX_VALUE);
 		boton.setMaxHeight(Long.MAX_VALUE);
-		boton.setText(getNombreDelBoton(columna,fila));
+		boton.setText(getNombreDelBoton(contadorDeLista));
 		this.add(boton, columna, fila);
 	}
 	
-	private String getNombreDelBoton(int columna,int fila){
-		Visitable casilla =partida.tablero().getCasillero(0);
+	private String getNombreDelBoton(int contador){
+		Visitable casilla = partida.tablero().getCasillero(contador);
 		return casilla.getNombre();
 	}
 
