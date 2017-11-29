@@ -17,12 +17,12 @@ public class BarrioFactory {
 	}
 	
 	public BarrioDoble crearBuenosAiresSur() {
-		BarrioDoble bsasSur = new BarrioDoble(20000, 5000, 8000, 2000, 3000, 3500, 5000, "Buenos Aires Sur");
+		BarrioDoble bsasSur = new BarrioDoble(20000, 5000, 8000, 2000, 3000, 3500, 5000, "BsAs Sur");
 		return bsasSur;
 	}
 	
 	public BarrioDoble crearBuenosAiresNorte() {
-		BarrioDoble bsasNorte = new BarrioDoble(25000, 5500, 9000, 2500, 3500, 4000, 6000, "Buenos Aires Norte");
+		BarrioDoble bsasNorte = new BarrioDoble(25000, 5500, 9000, 2500, 3500, 4000, 6000, "BsAs Norte");
 		return bsasNorte;
 	}
 	

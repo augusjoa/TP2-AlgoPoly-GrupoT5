@@ -1,5 +1,7 @@
 package vista;
 
+import java.util.Vector;
+
 import javafx.beans.binding.DoubleBinding;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -17,12 +19,14 @@ import modelo.interfaces.Visitable;
 public class VistaTablero extends GridPane {
 
 	Juego juego;
-	int cantidadDeCasilleros = 6;
+	int cantidadFilas = 6;
+	int cantidadDeCasilleros;
 	AlgoPoly partida;
 	
 	public VistaTablero(Juego juego){
 		this.juego = juego;
 		partida=juego.partida();
+		cantidadDeCasilleros=partida.tablero().cantidadDeCasillas();
 		
 		this.setAlignment(Pos.CENTER);
 
@@ -62,13 +66,12 @@ public class VistaTablero extends GridPane {
 		imagePane.setStyle( "-fx-background-color: red;" );
 	  	imagePane.getChildren().add( imageView );
 	  	
-	  	//VER DE CAMBIAR EL LUGAR
-	  	//int contador=0;
-	  	for (int i = 0 ; i < cantidadDeCasilleros ; i++) {
-            for (int j = 0; j < cantidadDeCasilleros; j++) {
-            	if(i==0 || i==5 || j==0 || j==5){
-            		agregarBoton(i,j,0);
-            		//contador++;
+	  	int contador=cantidadDeCasilleros-1;
+	  	for (int i = 0 ; i < cantidadFilas ; i++) {
+            for (int j = 0; j < cantidadFilas; j++) {
+            	if(i==0 || i==cantidadFilas-1 || j==0 || j==cantidadFilas-1){
+            		agregarBoton(i,j,contador);
+            		contador--;
             	}         	
             }
         }
@@ -82,10 +85,13 @@ public class VistaTablero extends GridPane {
 		this.add(boton, columna, fila);
 	}
 	
+	//vector ver donde va
+	int vector[]={0,19,18,17,16,15,1,14,2,13,3,12,4,11,5,6,7,8,9,10};
 	private String getNombreDelBoton(int contador){
-		Visitable casilla = partida.tablero().getCasillero(contador);
+		Visitable casilla = partida.tablero().getCasillero(vector[contador]);
 		return casilla.getNombre();
 	}
+	
 
 	
 }
