@@ -17,10 +17,11 @@ public class CambiarAPantallacompletaOnAction implements EventHandler<ActionEven
 
 	@Override
 	public void handle(ActionEvent event) {
-		stage.setFullScreen(true);
+		stage.hide();
 		opcionPantallaCompleta.setText("Salir de Pantalla Completa");
 		opcionPantallaCompleta.setOnAction(new SalirDePantallaCompletaOnAction(stage, opcionPantallaCompleta));
-		
+		stage.setFullScreen(true);
+		stage.show();
 	}
 
 }

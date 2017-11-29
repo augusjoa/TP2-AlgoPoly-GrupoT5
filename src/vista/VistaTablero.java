@@ -15,14 +15,14 @@ import javafx.scene.text.Text;
 public class VistaTablero extends GridPane {
 
 	Juego juego;
-	int cantidadDeCasilleros = 8;
+	int cantidadDeCasilleros = 6;
 	
 	public VistaTablero(Juego juego){
 		this.juego = juego;
 		this.setAlignment(Pos.CENTER);
 
 		this.setGridLinesVisible(true);
-
+		
 		final RowConstraints rowsEdge = new RowConstraints();
 		rowsEdge.setPercentHeight( 14 );
 		
@@ -35,14 +35,14 @@ public class VistaTablero extends GridPane {
 		final ColumnConstraints colMid = new ColumnConstraints();
 		colMid.setPercentWidth( 10 );
 		
-		this.getColumnConstraints().addAll(colEdge, colMid, colMid, colMid, colMid, colMid, colMid, colEdge );
-		this.getRowConstraints().addAll(rowsEdge, rowsMid, rowsMid, rowsMid, rowsMid, rowsMid, rowsMid, rowsEdge );
+		this.getColumnConstraints().addAll(colEdge,  colMid, colMid, colMid, colMid, colEdge );
+		this.getRowConstraints().addAll(rowsEdge,  rowsMid, rowsMid, rowsMid, rowsMid, rowsEdge );
 
 		final StackPane imagePane = new StackPane();
-		this.add( imagePane, 1, 1, 6, 6);
+		this.add( imagePane, 1, 1, 4, 4);
 		
-		final DoubleBinding multipliedHeight = this.heightProperty().multiply( 0.6 );
-		final DoubleBinding multipliedWidth = this.widthProperty().multiply( 0.6 );
+		final DoubleBinding multipliedHeight = this.heightProperty().multiply( 0.4 );
+		final DoubleBinding multipliedWidth = this.widthProperty().multiply( 0.4 );
 
 		imagePane.maxHeightProperty().bind( multipliedHeight );
 		imagePane.maxWidthProperty().bind( multipliedWidth );
@@ -59,7 +59,7 @@ public class VistaTablero extends GridPane {
 	  	
 	  	for (int i = 0 ; i < cantidadDeCasilleros ; i++) {
             for (int j = 0; j < cantidadDeCasilleros; j++) {
-            	if(i==0 || i==7 || j==0 || j==7){
+            	if(i==0 || i==5 || j==0 || j==5){
             		agregarBoton(i,j);
             	}         	
             }

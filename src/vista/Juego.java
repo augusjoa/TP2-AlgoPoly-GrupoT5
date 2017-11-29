@@ -15,19 +15,19 @@ public class Juego extends BorderPane{
 		this.unaPartida = unaPartida;
 		vistaSuperior = new VistaSuperior(stage, this);
 		vistaTablero = new VistaTablero(this);
-		vistaLateralDerecha = new VistaLateralDerecha(stage, this, unaPartida);
+		vistaLateralDerecha = new VistaLateralDerecha(this, unaPartida);
 		setSuperior();
 		setCentro();
-		//setDerecha();
+		setDerecha();
 	}
 	
 	private void setSuperior(){
 		this.setTop(vistaSuperior);
 	}
 	
-	//private void setDerecha(){
-		//this.setRight(vistaLateralDerecha);
-	//}
+	private void setDerecha(){
+		this.setRight(vistaLateralDerecha);
+	}
 	
 	private void setCentro(){
 		this.setCenter(vistaTablero);

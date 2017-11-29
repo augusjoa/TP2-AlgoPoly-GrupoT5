@@ -17,9 +17,11 @@ public class SalirDePantallaCompletaOnAction implements EventHandler<ActionEvent
 
 	@Override
 	public void handle(ActionEvent event) {
-		unStage.setFullScreen(false);
+		unStage.hide();
 		unMenuItem.setText("Pantalla Completa");
 		unMenuItem.setOnAction(new CambiarAPantallacompletaOnAction(unStage, unMenuItem));
+		unStage.setFullScreen(false);
+		unStage.show();
 	}
 
 }
