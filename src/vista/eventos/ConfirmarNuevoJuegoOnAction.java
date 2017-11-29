@@ -31,7 +31,7 @@ public class ConfirmarNuevoJuegoOnAction implements EventHandler<ActionEvent> {
     	
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){
-    		//unStage.setScene(new Scene(new Juego(unStage),800,600));
+    		//unStage.setScene(new Scene(new Juego(unStage),1280,720));
        	}
     }
 

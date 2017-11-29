@@ -23,7 +23,7 @@ public class Aplicacion extends Application {
         
         
         Juego vistaJuego = new Juego(stage);
-        Scene escenaJuego = new Scene(vistaJuego,800,600);
+        Scene escenaJuego = new Scene(vistaJuego,1280,720);
         
         escenaJuego.setOnKeyPressed(new AplicacionOnKeyPressedEvento(vistaJuego.getBarraMenu()));
         
