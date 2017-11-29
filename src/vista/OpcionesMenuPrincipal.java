@@ -11,6 +11,8 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import vista.eventos.CambiarEscena;
 import vista.eventos.MostrarReglasOnAction;
@@ -28,17 +30,20 @@ public class OpcionesMenuPrincipal extends VBox{
 		this.setBackground(new Background(bk));
 		
 		
+		Button bInstrucciones = new Button();
+		bInstrucciones.setText("Reglas de Juego");
+		bInstrucciones.setFont(Font.font("Consolas", FontWeight.BOLD, 17));
+		bInstrucciones.setOnAction(new MostrarReglasOnAction());
+		
 		Button bJugar = new Button();
-		bJugar.setText("Jugar");
+		bJugar.setText("Jugar!");
+		bJugar.setFont(Font.font("Consolas", FontWeight.BOLD, 17));
 		bJugar.setOnAction(new CambiarEscena(stage, escenaJugar));
 
 		
-		Button bInstrucciones = new Button();
-		bInstrucciones.setText("Reglas de Juego");
-		bInstrucciones.setOnAction(new MostrarReglasOnAction());
-		
 		Button bSalir = new Button();
 		bSalir.setText("Salir");
+		bSalir.setFont(Font.font("Consolas", FontWeight.BOLD, 17));
 		bSalir.setOnAction(new SalirEventoOnAction());
 		
 		
