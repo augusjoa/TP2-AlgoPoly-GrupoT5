@@ -10,7 +10,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import vista.Juego;
 
 public class ConfirmarNuevoJuegoOnAction implements EventHandler<ActionEvent> {
@@ -31,7 +30,7 @@ public class ConfirmarNuevoJuegoOnAction implements EventHandler<ActionEvent> {
     	
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){
-    		//unStage.setScene(new Scene(new Juego(unStage),1280,720));
+    		unStage.setScene(new Scene(new Juego(unStage),1280,720));
        	}
     }
 

@@ -17,6 +17,9 @@ public class CambiarEscena implements EventHandler<ActionEvent>{
 
 	@Override
 	public void handle(ActionEvent event) {
+		stage.hide();
+		stage.centerOnScreen();
 		stage.setScene(escena);
+		stage.show();
 	}
 }
