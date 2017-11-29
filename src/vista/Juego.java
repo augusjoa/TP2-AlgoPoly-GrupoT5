@@ -16,13 +16,17 @@ public class Juego extends BorderPane{
 		partida = new AlgoPoly();
 		partida.iniciarPartida();
 		
-		vistaSuperior = new VistaSuperior(stage, this, partida);
+		vistaSuperior = new VistaSuperior(stage, this);
 		vistaTablero = new VistaTablero(this);
 		vistaLateralDerecha = new VistaLateralDerecha(this, partida);
 		
 		setSuperior();
 		setCentro();
 		setDerecha();
+	}
+	
+	public void update(){
+		vistaTablero.update();
 	}
 	
 	private void setSuperior(){

@@ -5,6 +5,7 @@ import java.util.Vector;
 import javafx.beans.binding.DoubleBinding;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -15,108 +16,114 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import modelo.AlgoPoly;
+import modelo.Tablero;
 import modelo.interfaces.Visitable;
 
 public class VistaTablero extends GridPane {
 
-	Juego juego;
-	int cantidadFilas = 6;
-	int cantidadDeCasilleros;
 	AlgoPoly partida;
+	Tablero tablero;
+	Juego juego;
+	int cantidadDeCasilleros;
+	int cantidadFilas = 6;
+	int posEnLista[]={0,19,18,17,16,15,1,14,2,13,3,12,4,11,5,6,7,8,9,10};
+	int posX[]={5,4,3,2,1,0,0,0,0,0,0,1,2,3,4,5,5,5,5,5};
+	int posY[]={5,5,5,5,5,5,4,3,2,1,0,0,0,0,0,0,1,2,3,4};
+	VistaJugador[] vistaJugador;
 	
 	public VistaTablero(Juego juego){
 
 		partida=juego.partida();
-		cantidadDeCasilleros=partida.tablero().cantidadDeCasillas();
+		tablero=partida.tablero();
+		cantidadDeCasilleros=tablero.cantidadDeCasillas();
 		
 		this.setAlignment(Pos.CENTER);
 
 		this.setGridLinesVisible(true);
 		
-		final RowConstraints rowsEdge = new RowConstraints();
-		rowsEdge.setPercentHeight( 14 );
+		final RowConstraints fila = new RowConstraints();
+		fila.setPercentHeight( 14 );
+
+		final ColumnConstraints columna = new ColumnConstraints();
+		columna.setPercentWidth( 14 );
 		
-		final RowConstraints rowsMid = new RowConstraints();
-		rowsMid.setPercentHeight( 10 );
+		this.getColumnConstraints().addAll(columna,  columna, columna, columna, columna, columna );
+		this.getRowConstraints().addAll(fila,  fila, fila, fila, fila, fila );
 
-		final ColumnConstraints colEdge = new ColumnConstraints();
-		colEdge.setPercentWidth( 14 );
-
-		final ColumnConstraints colMid = new ColumnConstraints();
-		colMid.setPercentWidth( 10 );
+		final StackPane panel = new StackPane();
+		this.add( panel, 1, 1, 4, 4);
 		
-		this.getColumnConstraints().addAll(colEdge,  colMid, colMid, colMid, colMid, colEdge );
-		this.getRowConstraints().addAll(rowsEdge,  rowsMid, rowsMid, rowsMid, rowsMid, rowsEdge );
+		final DoubleBinding multipliedHeight = this.heightProperty().multiply( 0.56 );
+		final DoubleBinding multipliedWidth = this.widthProperty().multiply( 0.56 );
 
-		final StackPane imagePane = new StackPane();
-		this.add( imagePane, 1, 1, 4, 4);
-		
-		final DoubleBinding multipliedHeight = this.heightProperty().multiply( 0.4 );
-		final DoubleBinding multipliedWidth = this.widthProperty().multiply( 0.4 );
-
-		imagePane.maxHeightProperty().bind( multipliedHeight );
-		imagePane.maxWidthProperty().bind( multipliedWidth );
-		imagePane.minHeightProperty().bind( multipliedHeight );
-		imagePane.minWidthProperty().bind( multipliedWidth );
-		imagePane.prefHeightProperty().bind( multipliedHeight );
-		imagePane.prefWidthProperty().bind( multipliedWidth );
+		panel.maxHeightProperty().bind( multipliedHeight );
+		panel.maxWidthProperty().bind( multipliedWidth );
+		panel.minHeightProperty().bind( multipliedHeight );
+		panel.minWidthProperty().bind( multipliedWidth );
+		panel.prefHeightProperty().bind( multipliedHeight );
+		panel.prefWidthProperty().bind( multipliedWidth );
 
 		final ImageView imageView =	new ImageView( "http://1.bp.blogspot.com/-Wjc79oqi1y0/VHitLAU44BI/AAAAAAAAG80/0UZ9n2JmvEo/s1600/Logo%2BMonopoly.png" );
 		imageView.setPreserveRatio( true );
-		imageView.fitWidthProperty().bind( imagePane.widthProperty().divide( 1 ) );
-		imagePane.setStyle( "-fx-background-color: red;" );
-	  	imagePane.getChildren().add( imageView );
+		imageView.fitWidthProperty().bind( panel.widthProperty().divide( 1 ) );
+		panel.setStyle( "-fx-background-color: red;" );
+	  	panel.getChildren().add( imageView );
 	  	
-	  	int contador=cantidadDeCasilleros-1;
-	  	for (int i = 0 ; i < cantidadFilas ; i++) {
+	  	agregarBotones(cantidadDeCasilleros-1);
+	  	agregarJugadores(partida);
+	  	
+	  	
+	}
+	
+	private void agregarBotones(int contador){
+		for (int i = 0 ; i < cantidadFilas ; i++) {
             for (int j = 0; j < cantidadFilas; j++) {
             	if(i==0 || i==cantidadFilas-1 || j==0 || j==cantidadFilas-1){
-            		agregarBoton(i,j,contador);
+            		VistaCasillero casillero = new VistaCasillero(tablero,posEnLista[contador]);
+            		this.add(casillero.getBotonCasillero(), i,j);
             		contador--;
             	}         	
             }
         }
-	  	
-	  	agregarJugadores();
 	}
 	
-	private void agregarBoton(int columna,int fila,int contadorDeLista){
-		Button boton = new Button();
-		boton.setMaxWidth(Long.MAX_VALUE);
-		boton.setMaxHeight(Long.MAX_VALUE);
-		boton.setText(getNombreDelBoton(contadorDeLista));
-		this.add(boton, columna, fila);
+	
+	
+	private void agregarJugadores(AlgoPoly partida){
+		
+		for(int i=1; i<=partida.cantidadDeJugadores;i++){
+			vistaJugador = new VistaJugador[i];
+			Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
+			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
+			
+			VistaJugador vistaJugador = new VistaJugador(partida,i);
+			
+			this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
+		}		
 	}
 	
-	//vector ver donde va
-	int vector[]={0,19,18,17,16,15,1,14,2,13,3,12,4,11,5,6,7,8,9,10};
-	private String getNombreDelBoton(int contador){
-		Visitable casilla = partida.tablero().getCasillero(vector[contador]);
-		return casilla.getNombre();
+	public void update(){
+//		//this.getChildren().clear();
+//		for(int i=1; i<=partida.cantidadDeJugadores;i++){
+//			this.clearConstraints(vistaJugador[i].getImagenVista());
+//			vistaJugador = new VistaJugador[i];
+//			Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
+//			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
+//			this.add(new VistaJugador(partida,i).getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
+//		}	
 	}
 	
-	private void agregarJugadores(){
-		Circle jugador = new Circle(10);
-		jugador.setFill(Color.GREEN);
-		jugador.setTranslateX(125);
-		jugador.setTranslateY(25);
-		
-		this.add(jugador, 5, 5);
-		
-		Circle jugador2 = new Circle(10);
-		jugador2.setFill(Color.BLUE);
-		jugador2.setTranslateX(100);
-		jugador2.setTranslateY(25);
-		this.add(jugador2, 5, 5);
-		
-		Circle jugador3 = new Circle(10);
-		jugador3.setFill(Color.BLACK);
-		jugador3.setTranslateX(75);
-		jugador3.setTranslateY(25);
-		this.add(jugador3, 5, 5);
-	}
+//	private void agregarJugadoresPosInicial(AlgoPoly partida){
+//		
+//		Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
+//		int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
+//		int x= posX(posicionJugador)
+//		int y= posY(posicionJugador)
+//	}
 	
 
 	

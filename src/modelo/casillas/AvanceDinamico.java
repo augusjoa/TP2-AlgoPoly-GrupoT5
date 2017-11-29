@@ -6,7 +6,7 @@ import modelo.interfaces.Visitable;
 
 public class AvanceDinamico implements Visitable{
 
-	private String nombre = "Avance Dinamico";
+	private String nombre = "Avance";
 	
 	public int getCantidadDePasos(Jugador unJugador, int tiradaDeDados) {
 		int casillasAMover = 0;

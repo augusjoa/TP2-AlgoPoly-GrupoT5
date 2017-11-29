@@ -6,7 +6,7 @@ import modelo.interfaces.Visitable;
 
 public class RetrocesoDinamico implements Visitable{
 
-	private String nombre = "Retroceso Dinamico";
+	private String nombre = "Retroceso";
 	
 	public int getCantidadDePasos(Jugador unJugador, int numeroDelDado) {
 		int casillasAMover = 0;

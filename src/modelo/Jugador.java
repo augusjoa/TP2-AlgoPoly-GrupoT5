@@ -105,7 +105,10 @@ public class Jugador {
 	
 	public void setCasillaActual(Visitable unVisitable){
 		casillaActual = unVisitable;
-		
+	}
+	
+	public Visitable getCasillaActual(){
+		return casillaActual;
 	}
 	
 	public void agregarCasa(Barrio unBarrio) {
