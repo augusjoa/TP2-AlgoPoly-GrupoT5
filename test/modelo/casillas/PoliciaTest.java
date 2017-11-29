@@ -1,16 +1,16 @@
 package modelo.casillas;
 
-/*import org.junit.Test;
+import org.junit.Test;
 
 import modelo.casillas.Carcel;
 import modelo.casillas.Policia;
 import modelo.Jugador;
 
-import org.junit.Assert;*/
+import org.junit.Assert;
 
 public class PoliciaTest {
 	
-	/*@Test
+	@Test
 	public void testJugadorCaeEnPoliciaQuedaRetenido(){
 		Jugador jugador = new Jugador();
 		Policia policia = new Policia();
@@ -18,5 +18,5 @@ public class PoliciaTest {
 		policia.esVisitadoPorJugador(jugador);
 		
 		Assert.assertFalse(jugador.puedeMoverse());
-	}*/
+	}
 }

@@ -8,7 +8,6 @@ import modelo.casillas.BarrioDoble;
 import modelo.casillas.Carcel;
 import modelo.casillas.Compania;
 import modelo.estadoJugador.Encarcelado;
-import modelo.estadoJugador.EncarceladoTurno1;
 import modelo.estadoJugador.EstadoJugador;
 import modelo.estadoJugador.Libre;
 import modelo.interfaces.Adquirible;
@@ -93,10 +92,10 @@ public class Jugador {
 	/public void jugadorLiberado() {
 		detenido = false;
 	}
-
+*/
 	public boolean puedeMoverse() {
-		return !detenido;
-	}*/
+		return this.estado.puedeMoverse();
+	}
 
 	public void moverse(int cantidadDeCasillas) {
 		estado.moverse(this, cantidadDeCasillas, casillaActual);
@@ -105,10 +104,11 @@ public class Jugador {
 	
 	public void setCasillaActual(Visitable unVisitable){
 		casillaActual = unVisitable;
+		
 	}
 	
 	public Visitable getCasillaActual(){
-		return casillaActual;
+	 	return casillaActual;
 	}
 	
 	public void agregarCasa(Barrio unBarrio) {
@@ -149,5 +149,13 @@ public class Jugador {
 	
 	public boolean tiradaInvalida() {
 		return dado.dadosSonIguales();
+	}
+	
+	public int getTurnosRestantes() {
+		return this.estado.getTurnosRestantes();
+	}
+
+	public void iniciarTurno() {
+		this.estado.restarTurnos(this);
 	}
 }

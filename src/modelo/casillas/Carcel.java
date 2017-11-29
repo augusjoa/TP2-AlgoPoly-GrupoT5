@@ -10,8 +10,7 @@ public class Carcel implements Visitable{
 	private String nombre = "Carcel";
 	
 
-	public void pagarFianza(Jugador jugador){
-		
+	public void cobrarFianza(Jugador jugador){
 			jugador.getDinero().sustraerDinero(valorDeLaFianza);
 			jugador.liberar();
 
