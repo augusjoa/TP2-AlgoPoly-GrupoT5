@@ -13,7 +13,7 @@ public class DobleDado {
 		return primerDado + segundoDado;
 	}
 	
-	public boolean DadosSonIguales() {
+	public boolean dadosSonIguales() {
 		return this.primerDado == this.segundoDado;
 	}
 	

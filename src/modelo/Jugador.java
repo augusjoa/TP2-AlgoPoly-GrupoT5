@@ -143,4 +143,8 @@ public class Jugador {
 	public void liberar() {
 		this.cambiarEstado(new Libre());
 	}
+	
+	public boolean tiradaInvalida() {
+		return dado.dadosSonIguales();
+	}
 }

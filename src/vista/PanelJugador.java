@@ -21,9 +21,8 @@ public class PanelJugador extends HBox{
 		Button btnTirarDados = new Button("Tirar Dados");
 		btnTirarDados.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		SectorDado sectorDado = new SectorDado(btnTirarDados, textoDados);
-		btnTirarDados.setOnAction(new TirarDadosOnAction(partida, sectorDado));
 		
-		
+				
 		
 		
 		Separator unSeparador = new Separator(Orientation.VERTICAL);
@@ -31,7 +30,10 @@ public class PanelJugador extends HBox{
 		
 		Button btnPasarTurno = new Button("Pasar Turno");
 		btnPasarTurno.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
-		btnPasarTurno.setOnAction(new PasarTurnoOnAction(partida, sectorDado));
+		btnPasarTurno.setDisable(true);
+		btnPasarTurno.setOnAction(new PasarTurnoOnAction(partida, sectorDado, btnPasarTurno));
+		
+		btnTirarDados.setOnAction(new TirarDadosOnAction(partida, sectorDado, btnPasarTurno));
 		
 		this.setSpacing(10);
 		this.setStyle( "-fx-background-color: lightgrey;");
