@@ -18,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import modelo.AlgoPoly;
 import modelo.interfaces.Visitable;
+import vista.eventos.SeleccionDeCasillaOnAction;
 
 public class VistaTablero extends GridPane {
 
@@ -87,11 +88,12 @@ public class VistaTablero extends GridPane {
 		boton.setMaxWidth(Long.MAX_VALUE);
 		boton.setMaxHeight(Long.MAX_VALUE);
 		boton.setText(getNombreDelBoton(contadorDeLista));
+		boton.setOnAction(new SeleccionDeCasillaOnAction(partida.tablero().getCasillero(vector[contadorDeLista])));
 		this.add(boton, columna, fila);
 	}
 	
 	//vector ver donde va
-	int vector[]={0,19,18,17,16,15,1,14,2,13,3,12,4,11,5,6,7,8,9,10};
+	private int vector[]={0,19,18,17,16,15,1,14,2,13,3,12,4,11,5,6,7,8,9,10};
 	private String getNombreDelBoton(int contador){
 		Visitable casilla = partida.tablero().getCasillero(vector[contador]);
 		return casilla.getNombre();
