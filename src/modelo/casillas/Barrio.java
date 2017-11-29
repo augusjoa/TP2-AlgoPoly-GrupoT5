@@ -27,6 +27,11 @@ public abstract class Barrio implements Adquirible,Visitable{
 	}
 	
 	@Override
+	public String getNombre(){
+		return nombre;
+	}
+	
+	@Override
 	public Dinero getPrecio() {
 		return valorDelBarrio;
 	}

@@ -7,8 +7,10 @@ import modelo.AlgoPoly;
 public class VistaLateralDerecha extends VBox {
 
 	private BarraMenu barraMenu;
+	private AlgoPoly partida;
 	
-	public VistaLateralDerecha(Stage stage, Juego juego, AlgoPoly unaPartida){
+	public VistaLateralDerecha(Stage stage, Juego juego){
+		partida=juego.partida();
 		barraMenu = new BarraMenu(stage, juego);
 		this.getChildren().add(barraMenu);
 	}

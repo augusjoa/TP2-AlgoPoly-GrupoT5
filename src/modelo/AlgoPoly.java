@@ -89,4 +89,8 @@ public class AlgoPoly {
 	public Jugador getJugadorActual() {
 		return jugadorActual;
 	}
+	
+	public Tablero tablero(){
+		return tablero;
+	}
 }
