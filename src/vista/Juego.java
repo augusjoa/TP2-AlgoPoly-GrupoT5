@@ -9,13 +9,17 @@ public class Juego extends BorderPane{
 	private VistaTablero vistaTablero;
 	private VistaSuperior vistaSuperior;
 	private VistaLateralDerecha vistaLateralDerecha;
-	private AlgoPoly unaPartida;
+	private AlgoPoly partida;
 	
-	public Juego(Stage stage, AlgoPoly unaPartida){
-		this.unaPartida = unaPartida;
+	public Juego(Stage stage){
+		
+		partida = new AlgoPoly();
+		partida.iniciarPartida();
+		
 		vistaSuperior = new VistaSuperior(stage, this);
 		vistaTablero = new VistaTablero(this);
 		vistaLateralDerecha = new VistaLateralDerecha(this, unaPartida);
+		
 		setSuperior();
 		setCentro();
 		setDerecha();
@@ -35,6 +39,10 @@ public class Juego extends BorderPane{
 	
 	public int getPixelCasilla(){
 		return pixelCasilla;
+	}
+	
+	public AlgoPoly partida(){
+		return this.partida;
 	}
 	
 	public BarraMenu getBarraMenu(){

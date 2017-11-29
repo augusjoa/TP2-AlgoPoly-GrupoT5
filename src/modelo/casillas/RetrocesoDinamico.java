@@ -6,6 +6,8 @@ import modelo.interfaces.Visitable;
 
 public class RetrocesoDinamico implements Visitable{
 
+	private String nombre = "Retroceso Dinamico";
+	
 	public int getCantidadDePasos(Jugador unJugador, int numeroDelDado) {
 		int casillasAMover = 0;
 		if (numeroDelDado < 7) {
@@ -16,6 +18,11 @@ public class RetrocesoDinamico implements Visitable{
 		}
 		else casillasAMover =  numeroDelDado - 2;
 		return -casillasAMover;
+	}
+
+	@Override
+	public String getNombre(){
+		return nombre;
 	}
 
 	@Override

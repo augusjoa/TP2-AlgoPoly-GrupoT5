@@ -11,14 +11,19 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import modelo.AlgoPoly;
+import modelo.interfaces.Visitable;
 
 public class VistaTablero extends GridPane {
 
 	Juego juego;
 	int cantidadDeCasilleros = 6;
+	AlgoPoly partida;
 	
 	public VistaTablero(Juego juego){
 		this.juego = juego;
+		partida=juego.partida();
+		
 		this.setAlignment(Pos.CENTER);
 
 		this.setGridLinesVisible(true);
@@ -66,13 +71,18 @@ public class VistaTablero extends GridPane {
         }
 	}
 	
-	private void agregarBoton(int col,int fil){
+	private void agregarBoton(int columna,int fila){
 		Button boton = new Button();
 		boton.setMaxWidth(Long.MAX_VALUE);
 		boton.setMaxHeight(Long.MAX_VALUE);
-		this.add(boton, col, fil);
+		boton.setText(getNombreDelBoton(columna,fila));
+		this.add(boton, columna, fila);
 	}
 	
+	private String getNombreDelBoton(int columna,int fila){
+		Visitable casilla =partida.tablero().getCasillero(0);
+		return casilla.getNombre();
+	}
 
 	
 }
