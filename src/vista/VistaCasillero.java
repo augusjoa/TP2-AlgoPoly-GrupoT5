@@ -6,6 +6,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.Tablero;
 import modelo.interfaces.Visitable;
+import vista.eventos.SeleccionDeCasillaOnAction;
 
 public class VistaCasillero {
 
@@ -18,6 +19,7 @@ public class VistaCasillero {
 		this.tablero=tablero;
 		this.casillero=tablero.getCasillero(posEnLista);
 		this.botonCasillero = new Button();
+		this.botonCasillero.setOnAction(new SeleccionDeCasillaOnAction(tablero.getCasillero(posEnLista)));
 		botonCasillero.setMaxWidth(Long.MAX_VALUE);
 		botonCasillero.setMaxHeight(Long.MAX_VALUE);
 		botonCasillero.setText(getNombreDelBoton());

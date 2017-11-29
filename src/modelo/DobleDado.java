@@ -8,12 +8,14 @@ public class DobleDado {
 	Random rand = new Random();
 	
 	public int tirarDados() {
+		
 		primerDado = 1 + rand.nextInt(6);
+		rand.setSeed(System.nanoTime());
 		segundoDado = 1 + rand.nextInt(6);
 		return primerDado + segundoDado;
 	}
 	
-	public boolean DadosSonIguales() {
+	public boolean dadosSonIguales() {
 		return this.primerDado == this.segundoDado;
 	}
 	

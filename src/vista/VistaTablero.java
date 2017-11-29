@@ -22,6 +22,7 @@ import javafx.scene.text.Text;
 import modelo.AlgoPoly;
 import modelo.Tablero;
 import modelo.interfaces.Visitable;
+import vista.eventos.SeleccionDeCasillaOnAction;
 
 public class VistaTablero extends GridPane {
 
@@ -90,7 +91,6 @@ public class VistaTablero extends GridPane {
             }
         }
 	}
-	
 	
 	
 	private void agregarJugadores(AlgoPoly partida){

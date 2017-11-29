@@ -16,11 +16,11 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 		this.unAlgoPoly = unAlgoPoly;
 		this.sectorDado = sectorDado;
 		this.btnMoverse = btnMoverse;
+
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		System.out.println(unAlgoPoly.getJugadorActual());
 		unAlgoPoly.avanzarTurno();
 		sectorDado.getBotonTirarDado().setDisable(false);
 		sectorDado.getTextoDados().setText("");

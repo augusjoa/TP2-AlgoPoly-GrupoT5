@@ -27,17 +27,18 @@ public class PanelJugador extends HBox{
 		btnMoverse.setDisable(true);
 		btnMoverse.setOnAction(new MoverseOnAction(partida,juego));
 		
-		
-		Button btnTirarDados = new Button("Tirar Dados");
-		btnTirarDados.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
-		SectorDado sectorDado = new SectorDado(btnTirarDados, textoDados);
-		btnTirarDados.setOnAction(new TirarDadosOnAction(partida, sectorDado, btnMoverse));
-		
 		Separator unSeparador = new Separator(Orientation.VERTICAL);
 		unSeparador.setStyle("-fx-background-color: black;");
 		
 		Button btnPasarTurno = new Button("Pasar Turno");
 		btnPasarTurno.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		btnPasarTurno.setDisable(true);
+		
+		Button btnTirarDados = new Button("Tirar Dados");
+		btnTirarDados.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		SectorDado sectorDado = new SectorDado(btnTirarDados, textoDados);
+		btnTirarDados.setOnAction(new TirarDadosOnAction(partida, sectorDado, btnMoverse, btnPasarTurno));
+
 		btnPasarTurno.setOnAction(new PasarTurnoOnAction(partida, sectorDado, btnMoverse));
 		
 		this.setSpacing(10);
