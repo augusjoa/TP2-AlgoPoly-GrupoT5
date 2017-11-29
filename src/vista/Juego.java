@@ -16,7 +16,7 @@ public class Juego extends BorderPane{
 		partida = new AlgoPoly();
 		partida.iniciarPartida();
 		
-		vistaSuperior = new VistaSuperior(stage, this);
+		vistaSuperior = new VistaSuperior(stage, this, partida);
 		vistaTablero = new VistaTablero(this);
 		vistaLateralDerecha = new VistaLateralDerecha(this, partida);
 		

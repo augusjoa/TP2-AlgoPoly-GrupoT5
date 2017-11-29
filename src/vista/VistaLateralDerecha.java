@@ -14,6 +14,7 @@ public class VistaLateralDerecha extends VBox {
 	public VistaLateralDerecha(Juego juego, AlgoPoly unaPartida){
 		Button btnTirarDados = new Button("Tirar Dados");
 		this.setSpacing(10);
+		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		this.getChildren().add(btnTirarDados);
 		
