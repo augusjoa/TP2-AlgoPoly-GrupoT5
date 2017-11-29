@@ -22,11 +22,15 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		unAlgoPoly.getJugadorActual().tirarDados();
-		//if(unAlgoPoly.getJugadorActual().
-		unSectorDados.getBotonTirarDado().setDisable(true);
-		unBoton.setDisable(false);
-		unSectorDados.getTextoDados().setText(""+unAlgoPoly.getJugadorActual().getNumeroDelDado());
-		System.out.println(unAlgoPoly.getJugadorActual().getNumeroDelDado());
+		if(unAlgoPoly.getJugadorActual().tiradaInvalida()) {
+			System.out.println("tirada doble");
+		}else {
+			unSectorDados.getBotonTirarDado().setDisable(true);
+			unBoton.setDisable(false);
+			unSectorDados.getTextoDados().setText(""+unAlgoPoly.getJugadorActual().getNumeroDelDado());
+			System.out.println(unAlgoPoly.getJugadorActual().getNumeroDelDado());
+		}
+		
 	}
 	
 
