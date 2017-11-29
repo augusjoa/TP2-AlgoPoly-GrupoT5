@@ -18,7 +18,7 @@ public class Juego extends BorderPane{
 		
 		vistaSuperior = new VistaSuperior(stage, this);
 		vistaTablero = new VistaTablero(this);
-		vistaLateralDerecha = new VistaLateralDerecha(this, unaPartida);
+		vistaLateralDerecha = new VistaLateralDerecha(this, partida);
 		
 		setSuperior();
 		setCentro();
