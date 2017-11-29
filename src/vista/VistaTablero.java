@@ -11,6 +11,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import modelo.AlgoPoly;
@@ -24,7 +27,7 @@ public class VistaTablero extends GridPane {
 	AlgoPoly partida;
 	
 	public VistaTablero(Juego juego){
-		this.juego = juego;
+
 		partida=juego.partida();
 		cantidadDeCasilleros=partida.tablero().cantidadDeCasillas();
 		
@@ -75,6 +78,8 @@ public class VistaTablero extends GridPane {
             	}         	
             }
         }
+	  	
+	  	agregarJugadores();
 	}
 	
 	private void agregarBoton(int columna,int fila,int contadorDeLista){
@@ -90,6 +95,27 @@ public class VistaTablero extends GridPane {
 	private String getNombreDelBoton(int contador){
 		Visitable casilla = partida.tablero().getCasillero(vector[contador]);
 		return casilla.getNombre();
+	}
+	
+	private void agregarJugadores(){
+		Circle jugador = new Circle(10);
+		jugador.setFill(Color.GREEN);
+		jugador.setTranslateX(125);
+		jugador.setTranslateY(25);
+		
+		this.add(jugador, 5, 5);
+		
+		Circle jugador2 = new Circle(10);
+		jugador2.setFill(Color.BLUE);
+		jugador2.setTranslateX(100);
+		jugador2.setTranslateY(25);
+		this.add(jugador2, 5, 5);
+		
+		Circle jugador3 = new Circle(10);
+		jugador3.setFill(Color.BLACK);
+		jugador3.setTranslateX(75);
+		jugador3.setTranslateY(25);
+		this.add(jugador3, 5, 5);
 	}
 	
 
