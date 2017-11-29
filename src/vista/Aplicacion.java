@@ -32,6 +32,7 @@ public class Aplicacion extends Application {
         Scene escenaPrincipal = new Scene(menuPrincipal, 800,600);
         
         stage.setScene(escenaPrincipal);
+        stage.centerOnScreen();
         stage.show();
 
 	}
