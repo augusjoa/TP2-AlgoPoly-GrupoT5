@@ -23,6 +23,7 @@ public class VistaLateralDerecha extends VBox {
 		panelInfo.setStyle( "-fx-background-color: lightblue;");
 		panelInfo.getChildren().addAll(btnTirarDados, btnTirarDados2);
 		this.getChildren().add(panelInfo);
+		this.setSpacing(5);
 		panelInfo.requestLayout();
 		
 		
