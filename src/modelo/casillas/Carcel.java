@@ -41,9 +41,9 @@ public class Carcel implements Visitable{
 		nombre.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		nombre.setWrapText(true);
 		
-		Label info = new Label("El jugador que caiga aquí quedará encarcelado durante tres turnos."
-				+ " El jugador podrá salir de la carcel en el turno dos o tres si paga una fianza de: "
-				+ Integer.toString(valorDeLaFianza.getValor())+ " o quedará libre"
+		Label info = new Label("El jugador que caiga aquí, perderá el turno y quedará encarcelado por tres turnos más."
+				+ " Si paga una fianza de: "
+				+ Integer.toString(valorDeLaFianza.getValor())+ " quedará libre en el siguiente turno"
 						+ " pudiendo moverse al pasar los tres turnos.");
 		info.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
 		info.setWrapText(true);

@@ -57,7 +57,7 @@ public class Quini6 implements Visitable {
 		Label nombre = new Label("Nombre: " + this.nombre);
 		nombre.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 				
-		Label descripcion = new Label("Descripción:\n Al caer, el Jugador gana un premio. Al caer por segunda vez, otro. No hay mas premios al caer 3 o más veces.");
+		Label descripcion = new Label("Descripción:\n Al caer, el Jugador gana un premio. Si se llega por segunda vez, otro. No hay mas premios al caer 3 o más veces.");
 		descripcion.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		descripcion.setWrapText(true);
 		

@@ -95,8 +95,6 @@ public class VistaTablero extends GridPane {
 			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
 			VistaJugador vistaJugador = new VistaJugador(partida,partida.getTurnoDeJugador(i-1));
 			this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
-			
-			System.out.println(partida.getTurnoDeJugador(i-1));
 		}		
 	}
 	
@@ -110,8 +108,6 @@ public class VistaTablero extends GridPane {
 		}
 		Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
 		int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
-		System.out.print(" update: "+partida.getJugadorActual().getNumeroDelJugador());
-		System.out.print(" pos donde caeria: "+posicionJugador);
 		VistaJugador vistaJugador = new VistaJugador(partida,partida.getJugadorActual().getNumeroDelJugador());
 		this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
 	
