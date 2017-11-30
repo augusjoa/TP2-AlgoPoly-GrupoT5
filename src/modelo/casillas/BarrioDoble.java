@@ -143,28 +143,23 @@ public class BarrioDoble extends Barrio {
 		Label precioCasaTxt = new Label("Precio construir casa: " + precioCasa.getValor());
 		precioCasaTxt.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
 		
-		Label precioHotelTxt = new Label("Precio terreno: " + precioHotel.getValor());
+		Label precioHotelTxt = new Label("Precio construir Hotel: " + precioHotel.getValor());
 		precioHotelTxt.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
 		
-		
-		//Table table = new Table();
+
 		Label alquiler[];
 		alquiler = new Label[4];
 		String txtAlquileres[] = new String[] {
 			"Alquiler: ",
 			"Alquiler con una casa: ",
 			"Alquiler con dos casas: ",
-			"Alquiler con Hotel: ",
+			"Alquiler con Hotel: "
 		};
 		for(int i = 0; i< alquiler.length; i++) {
 			alquiler[i] = new Label(txtAlquileres[i]+ alquileres.get(i).getValor());
 			alquiler[i].setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 			alquiler[i].setDisable(!(i == getCantidadDeEdificios()));
 		}
-		
-
-		
-		
 		
 		panelInfo.getChildren().addAll(nombre, duenio, precioTerreno, precioCasaTxt, precioHotelTxt,new Separator(Orientation.HORIZONTAL), alquiler[0],alquiler[1],alquiler[2],alquiler[3]);
 		return panelInfo;
