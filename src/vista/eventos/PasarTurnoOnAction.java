@@ -32,7 +32,6 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		partida.avanzarTurno();
-		partida.getJugadorActual().iniciarTurno();
 		if(partida.getJugadorActual().puedeMoverse()) {
 			sectorDado.getBotonTirarDado().setDisable(false);
 			btnPasarTurno.setDisable(true);
