@@ -1,33 +1,20 @@
 package vista;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Vector;
+
 
 import javafx.beans.binding.DoubleBinding;
-import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import modelo.AlgoPoly;
 import modelo.Tablero;
 import modelo.interfaces.Visitable;
-import sun.applet.Main;
-import vista.eventos.SeleccionDeCasillaOnAction;
+
 
 public class VistaTablero extends GridPane {
 
@@ -105,7 +92,7 @@ public class VistaTablero extends GridPane {
 	
 	private void agregarJugadores(AlgoPoly partida){
 		
-		for(int i=1; i<=partida.cantidadDeJugadores;i++){
+		for(int i=1; i<=AlgoPoly.cantidadDeJugadores;i++){
 			vistaJugador = new VistaJugador[i];
 			Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
 			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
@@ -113,14 +100,13 @@ public class VistaTablero extends GridPane {
 			this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
 			
 			System.out.println(partida.getTurnoDeJugador(i-1));
-			
 		}		
 	}
 	
 	public void update(){
 		
 		for(Node node: this.getChildren()){
-			if (node instanceof ImageView){
+			if (node instanceof ImageView ){
 				this.getChildren().remove(node);
 				break;
 			}

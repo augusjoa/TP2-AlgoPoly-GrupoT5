@@ -3,8 +3,6 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
 
 import modelo.excepciones.HayGanador;
 
@@ -34,14 +32,7 @@ public class AlgoPoly {
 		
 	}
 	
-//	public Jugador jugadorInicialRandom(){
-//		Random random = new Random();
-//		int numRandom = random.nextInt(3);
-//		
-//		if(numRandom==0) return jugador1;
-//		else if(numRandom==1) return jugador2;
-//		return jugador3;
-//	}
+
 	public boolean jugadorPerdio(){
 		return jugadorActual.perdio();
 	}

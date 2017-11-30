@@ -9,9 +9,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import modelo.AlgoPoly;
-import vista.eventos.MoverseOnAction;
 import vista.eventos.PasarTurnoOnAction;
 import vista.eventos.TirarDadosOnAction;
 
@@ -23,40 +21,64 @@ public class PanelJugador extends HBox{
 		Label textoDados = new Label("");
 		textoDados.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
 		
-
-		int n =partida.getJugadorActual().getNumeroDelJugador();
-		Label numeroJugador = new Label("Turno del Jugador: " + Integer.toString(n));
-		numeroJugador.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
-		numeroJugador.setAlignment(Pos.TOP_RIGHT);
+		Label turnoDelJugador = crearLabelTurnoDelJugador(partida);
 		
-
-		//Button btnMoverse= new Button("Moverse");
-		//btnMoverse.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
-		//btnMoverse.setDisable(true);
-		//btnMoverse.setOnAction(new MoverseOnAction(partida,juego));
+		Label dineroDelJugador = crearDineroDelJugador(partida);
 		
-		Separator unSeparador = new Separator(Orientation.VERTICAL);
-		unSeparador.setStyle("-fx-background-color: black;");
+		Separator primerSeparador = crearSeparador();
 		
-		Button btnPasarTurno = new Button("Pasar Turno");
-		btnPasarTurno.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
-		btnPasarTurno.setDisable(true);
+		Separator segundoSeparador = crearSeparador();
+		
+		Button botonPasarTurno = crearBotonPasarTurno();
 		
 		Button btnTirarDados = new Button("Tirar Dados");
 		btnTirarDados.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		
 		SectorDado sectorDado = new SectorDado(btnTirarDados, textoDados);
-		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, btnPasarTurno));
-
-
-		btnPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, btnPasarTurno, numeroJugador));
+		
+		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, botonPasarTurno ));
+		botonPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, botonPasarTurno , turnoDelJugador, dineroDelJugador));
 		
 		this.setSpacing(10);
 		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		
-		this.getChildren().addAll(sectorDado, unSeparador, btnPasarTurno, numeroJugador);
+		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador);
 
 		
+	}
+
+	private Separator crearSeparador() {
+		Separator unSeparador = new Separator(Orientation.VERTICAL);
+		unSeparador.setStyle("-fx-background-color: black;");
+		return unSeparador;
+	}
+
+	private Button crearBotonPasarTurno() {
+		Button btnPasarTurno = new Button("Pasar Turno");
+		btnPasarTurno.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		btnPasarTurno.setDisable(true);
+		btnPasarTurno.setAlignment(Pos.BOTTOM_CENTER);
+		return btnPasarTurno;
+	}
+
+	private Label crearDineroDelJugador(AlgoPoly partida) {
+		int dinero = partida.getJugadorActual().getDinero().getValor();
+		Label dineroJugador = new Label("Dinero: " + Integer.toString(dinero));
+		dineroJugador.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
+		dineroJugador.setAlignment(Pos.TOP_LEFT);
+		
+		return dineroJugador;
+	}
+
+	private Label crearLabelTurnoDelJugador(AlgoPoly partida) {
+		
+		int n =partida.getJugadorActual().getNumeroDelJugador();
+		Label turnoDelJugador = new Label("Turno del Jugador: " + Integer.toString(n));
+		turnoDelJugador.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
+		turnoDelJugador.setAlignment(Pos.TOP_RIGHT);
+		
+		return turnoDelJugador;
 	}
 	
 

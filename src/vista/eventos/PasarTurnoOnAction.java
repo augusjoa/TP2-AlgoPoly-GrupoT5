@@ -13,16 +13,17 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 	AlgoPoly partida;
 	Juego juego;
 	SectorDado sectorDado;
-	Button btnMoverse;
-	Label numeroJugador;
 	Button btnPasarTurno;
+	Label numeroJugador;
+	Label dineroDelJugador;
 	
-	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno,  Label numeroJugador) {
+	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno,  Label numeroJugador, Label dineroDelJugador) {
 		this.juego= juego;
 		this.partida = juego.partida();
 		this.sectorDado = sectorDado;
 		this.numeroJugador = numeroJugador;
 		this.btnPasarTurno = btnPasarTurno;
+		this.dineroDelJugador = dineroDelJugador;
 		this.juego=juego;
 	}
 
@@ -39,15 +40,23 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 			System.out.println("no puede moverse y updeteo la imagen");
 		}
 		actualizarLabelTurno();
-		sectorDado.getTextoDados().setText("");
-		
+		actualizarLabelDinero();
+		actualizarLabelDados();
 	}
 	
 	private void actualizarLabelTurno(){
 		int n= partida.getJugadorActual().getNumeroDelJugador();
 		System.out.println("prox jug: "+n);
 		numeroJugador.setText("Turno del Jugador: "+ Integer.toString(n));
-
+	}
+	
+	private void actualizarLabelDinero(){
+		int dinero = partida.getJugadorActual().getDinero().getValor();
+		dineroDelJugador.setText("Dinero: " + Integer.toString(dinero));
+	}
+	
+	private void actualizarLabelDados(){
+		sectorDado.getTextoDados().setText("");
 	}
 
 }
