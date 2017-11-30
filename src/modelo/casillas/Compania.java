@@ -1,5 +1,6 @@
 package modelo.casillas;
 
+import javafx.scene.layout.VBox;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.interfaces.Adquirible;

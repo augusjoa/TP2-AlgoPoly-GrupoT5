@@ -1,14 +1,10 @@
 package modelo.casillas;
 
 import java.util.Hashtable;
-
-import com.sun.javafx.scene.control.skin.LabelSkin;
-
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.interfaces.Visitable;
