@@ -28,6 +28,6 @@ public class AvanceDinamico implements Visitable{
 	@Override
 	public void esVisitadoPorJugador(Jugador unJugador) {
 		int cantidadDePasos = getCantidadDePasos(unJugador, unJugador.getNumeroDelDado());
-		unJugador.moverse(cantidadDePasos);
+		if(cantidadDePasos != 0) unJugador.moverse(cantidadDePasos);
 	}
 }

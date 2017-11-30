@@ -27,6 +27,8 @@ public class Juego extends BorderPane{
 	
 	public void update(){
 		vistaTablero.update();
+		//vistaSuperior.update();
+		//vistaLateralDerecha.update();
 	}
 	
 	private void setSuperior(){

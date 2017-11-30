@@ -5,11 +5,11 @@ import modelo.interfaces.Visitable;
 
 public interface EstadoJugador {
 	
-	public void moverse(Jugador jugador, int cantidad, Visitable unVisitable);
-	abstract public void actualizarEstado(Jugador jugador);
+	abstract public void moverse(Jugador jugador, int cantidad, Visitable unVisitable);
 	abstract public void pagarFianza(Jugador jugador, Carcel unaCarcel);
-
-	
+	abstract public boolean puedeMoverse();
+	abstract public int getTurnosRestantes();
+	abstract public void restarTurnos(Jugador jugador);
 	
 	
 

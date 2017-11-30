@@ -1,20 +1,21 @@
 package modelo.casillas;
 
-/*import org.junit.Test;
+import org.junit.Test;
 
 import modelo.casillas.Carcel;
 import modelo.excepciones.DineroInsuficiente;
+import modelo.excepciones.JugadorNoPuedePagarFianza;
+import modelo.AlgoPoly;
 import modelo.Dinero;
 import modelo.Jugador;
 
-import org.junit.Assert;*/
+import org.junit.Assert;
 
 public class CarcelTest {
 	
-	/*//@Test
+	@Test
 	public void testJugadorRetenidoNoPuedeMoverse(){
 		Jugador jugador = new Jugador();
-		
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
@@ -22,58 +23,68 @@ public class CarcelTest {
 		Assert.assertEquals(false, jugador.puedeMoverse());
 	}
 	
+	@Test
+	public void testJugadorDebenPasarCuatroTurnos(){
+		Jugador jugador = new Jugador();
+		Carcel carcel = new Carcel();
+		
+		carcel.esVisitadoPorJugador(jugador);
+		
+		Assert.assertEquals(4, jugador.getTurnosRestantes());
+	}
 	
-	//@Test
+	
+	@Test
 	public void testJugadorRetenidoPorCuatroTurnosPuedeMoverse(){
 		Jugador jugador = new Jugador();
 		
-		//AlgoPoly algoPoly = new AlgoPoly()
 		
 		Carcel carcel = new Carcel();
 		
-		//algoPoly.addEscuchadorTurnos(carcel);
+		
 		
 		carcel.esVisitadoPorJugador(jugador);
-
-		//algoPoly.pasarTurno()
-		//algoPoly.pasarTurno()
-		//algoPoly.pasarTurno()
-		//algoPoly.pasarTurno()
+		
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
 		
 		Assert.assertEquals(true, jugador.puedeMoverse());
 		
 	}
 	
-	//@Test
+	@Test
 	public void testJugadorRetenidoPorDosTurnosYPagaFianza(){
 		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
-		carcel.esVisitadoPorJugador(jugador);
-		carcel.pagarFianza(jugador);
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
+		jugador.pagarFianza(carcel);
 		
 		Assert.assertEquals(true, jugador.puedeMoverse());
 		
 	}
 	
-	//@Test
+	@Test
 	public void testJugadorRetenidoPorTresTurnosYPagaFianza(){
 		Jugador jugador = new Jugador();
 		
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
-		carcel.esVisitadoPorJugador(jugador);
-		carcel.esVisitadoPorJugador(jugador);
-		carcel.pagarFianza(jugador);
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
 		
+		jugador.pagarFianza(carcel);
 		Assert.assertEquals(true, jugador.puedeMoverse());
-		
 	}
 	
-	@Test(expected=DineroInsuficiente.class)
+	@Test(expected = DineroInsuficiente.class)
 	public void testJugadorRetenidoPorDosTurnosConFondosInsuficientesNoPuedePagarFianza(){
 		Jugador jugador = new Jugador();
 		Dinero unDinero = new Dinero(60000);
@@ -81,28 +92,42 @@ public class CarcelTest {
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
-		carcel.esVisitadoPorJugador(jugador);
-		carcel.pagarFianza(jugador);
-		
-		//Assert.assertEquals(false, jugador.puedeMoverse());
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
+		jugador.pagarFianza(carcel);
 	}
-	
-	//@Test
+	@Test(expected = DineroInsuficiente.class)
 	public void testJugadorRetenidoPorTresTurnosConFondosInsuficientesNoPuedeMoverse(){
 		Dinero unDinero = new Dinero(60000);
 		Jugador jugador = new Jugador();
 		jugador.sustraerDinero(unDinero);
-				
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
-		carcel.esVisitadoPorJugador(jugador);
-		carcel.esVisitadoPorJugador(jugador);
-		carcel.pagarFianza(jugador);
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
+		jugador.iniciarTurno();
+		jugador.pagarFianza(carcel);
+	}
+	
+	@Test(expected = JugadorNoPuedePagarFianza.class)
+	public void testJugadorCaeEnCarcelNoPuedePagarFianza() {
+		Jugador jugador = new Jugador();
+		Carcel carcel = new Carcel();
 		
-		Assert.assertEquals(false, jugador.puedeMoverse());
+		carcel.esVisitadoPorJugador(jugador);
+		jugador.pagarFianza(carcel);
+	}
+	
+	@Test(expected = JugadorNoPuedePagarFianza.class)
+	public void testJugadorCaeEnCarcelPasaUnTurnoNoPuedePagarFianza() {
+		Jugador jugador = new Jugador();
+		Carcel carcel = new Carcel();
 		
-	}*/
+		carcel.esVisitadoPorJugador(jugador);
+		jugador.iniciarTurno();
+		jugador.pagarFianza(carcel);
+	}
 }
 	
 	

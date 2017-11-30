@@ -17,6 +17,7 @@ public class SectorDado extends VBox {
 		
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(10);
+		this.setPrefWidth(150);
 	}
 	
 	public Button getBotonTirarDado(){

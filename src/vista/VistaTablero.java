@@ -1,5 +1,7 @@
 package vista;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Vector;
 
 import javafx.beans.binding.DoubleBinding;
@@ -24,6 +26,7 @@ import javafx.scene.text.Text;
 import modelo.AlgoPoly;
 import modelo.Tablero;
 import modelo.interfaces.Visitable;
+import sun.applet.Main;
 import vista.eventos.SeleccionDeCasillaOnAction;
 
 public class VistaTablero extends GridPane {
@@ -70,7 +73,12 @@ public class VistaTablero extends GridPane {
 		panel.prefHeightProperty().bind( multipliedHeight );
 		panel.prefWidthProperty().bind( multipliedWidth );
 
-		final ImageView imageView =	new ImageView( "http://1.bp.blogspot.com/-Wjc79oqi1y0/VHitLAU44BI/AAAAAAAAG80/0UZ9n2JmvEo/s1600/Logo%2BMonopoly.png" );
+		//final ImageView imageView =	new ImageView( "http://1.bp.blogspot.com/-Wjc79oqi1y0/VHitLAU44BI/AAAAAAAAG80/0UZ9n2JmvEo/s1600/Logo%2BMonopoly.png" );
+		
+		final Image imgCentro = new Image(getClass().getResource("img/algopoly.png").toExternalForm());
+		final ImageView imageView =	new ImageView();
+		
+		imageView.setImage(imgCentro);
 		imageView.setPreserveRatio( true );
 		imageView.fitWidthProperty().bind( panel.widthProperty().divide( 1 ) );
 		panel.setStyle( "-fx-background-color: red;" );
@@ -93,7 +101,7 @@ public class VistaTablero extends GridPane {
             }
         }
 	}
-	
+
 	
 	private void agregarJugadores(AlgoPoly partida){
 		

@@ -16,14 +16,24 @@ public class Libre implements EstadoJugador {
 	}
 
 	@Override
-	public void actualizarEstado(Jugador jugador) {
-	}
-
-	@Override
 	public void pagarFianza(Jugador jugador, Carcel unaCarcel) throws NoEstaEncarcelado {
 		throw new NoEstaEncarcelado();
 	}
 
+	@Override
+	public boolean puedeMoverse() {
+		return true;
+	}
+
+	@Override
+	public int getTurnosRestantes() {
+		return 0;
+	}
+
+	@Override
+	public void restarTurnos(Jugador jugador) {		
+	}
+	
 	
 
 }

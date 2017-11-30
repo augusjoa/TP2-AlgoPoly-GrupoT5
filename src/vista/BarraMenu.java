@@ -33,7 +33,7 @@ public class BarraMenu extends MenuBar{
         MenuItem opcionReglas = new MenuItem("Reglas de Juego");
         opcionReglas.setOnAction(new MostrarReglasOnAction());
        
-        MenuItem opcionAcercaDe = new MenuItem("Acerda de");
+        MenuItem opcionAcercaDe = new MenuItem("Acerca de");
         
         MenuItem opcionNuevoJuego = new MenuItem("Juego Nuevo");
         opcionNuevoJuego.setOnAction(new ConfirmarNuevoJuegoOnAction(stage));
