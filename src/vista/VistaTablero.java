@@ -122,6 +122,7 @@ public class VistaTablero extends GridPane {
 		//int numDeOrden = partida.getJugadorActual().getNumeroDelJugador();
 		System.out.println("update: "+partida.getJugadorActual().getNumeroDelJugador());
 		System.out.println("pos donde caeria: "+posicionJugador);
+		System.out.println("");
 		VistaJugador vistaJugador = new VistaJugador(partida,partida.getJugadorActual().getNumeroDelJugador());
 		this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
 	
