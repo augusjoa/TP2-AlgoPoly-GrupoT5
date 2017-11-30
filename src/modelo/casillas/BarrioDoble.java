@@ -2,8 +2,12 @@ package modelo.casillas;
 
 import java.util.Hashtable;
 
+import javafx.geometry.Orientation;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.excepciones.BarrioNoLleno;
@@ -121,9 +125,48 @@ public class BarrioDoble extends Barrio {
 	public VBox loadPanelInfo(VBox panelInfo) {
 		
 		Label nombre = new Label("Nombre: " + this.nombre);
+		nombre.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		
+		Label duenio = new Label("");
+		if(jugadorDuenio == null) {
+			duenio.setText("Dueño: Sin Dueño");
+		}else {
+			duenio.setText("Dueño: Jugador " +jugadorDuenio.getNumeroDelJugador());
+		}
+		
+		duenio.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		duenio.setWrapText(true);
+		
+		Label precioTerreno = new Label("Precio terreno: " + valorDelBarrio.getValor());
+		precioTerreno.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
+		
+		Label precioCasaTxt = new Label("Precio construir casa: " + precioCasa.getValor());
+		precioCasaTxt.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
+		
+		Label precioHotelTxt = new Label("Precio terreno: " + precioHotel.getValor());
+		precioHotelTxt.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
 		
 		
-		panelInfo.getChildren().add(nombre);
+		//Table table = new Table();
+		Label alquiler[];
+		alquiler = new Label[4];
+		String txtAlquileres[] = new String[] {
+			"Alquiler: ",
+			"Alquiler con una casa: ",
+			"Alquiler con dos casas: ",
+			"Alquiler con Hotel: ",
+		};
+		for(int i = 0; i< alquiler.length; i++) {
+			alquiler[i] = new Label(txtAlquileres[i]+ alquileres.get(i).getValor());
+			alquiler[i].setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+			alquiler[i].setDisable(!(i == getCantidadDeEdificios()));
+		}
+		
+
+		
+		
+		
+		panelInfo.getChildren().addAll(nombre, duenio, precioTerreno, precioCasaTxt, precioHotelTxt,new Separator(Orientation.HORIZONTAL), alquiler[0],alquiler[1],alquiler[2],alquiler[3]);
 		return panelInfo;
 	}
 }

@@ -35,7 +35,7 @@ public class PanelJugador extends HBox{
 		Separator segundoSeparador = crearSeparador();
 		
 		Button botonPasarTurno = crearBotonPasarTurno();
-		
+	
 		Button btnTirarDados = new Button("Tirar Dados");
 		btnTirarDados.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
