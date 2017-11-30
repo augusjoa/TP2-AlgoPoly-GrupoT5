@@ -138,13 +138,13 @@ public class BarrioDoble extends Barrio {
 		duenio.setWrapText(true);
 		
 		Label precioTerreno = new Label("Precio terreno: " + valorDelBarrio.getValor());
-		precioTerreno.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
+		precioTerreno.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
 		Label precioCasaTxt = new Label("Precio construir casa: " + precioCasa.getValor());
-		precioCasaTxt.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
+		precioCasaTxt.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
 		Label precioHotelTxt = new Label("Precio construir Hotel: " + precioHotel.getValor());
-		precioHotelTxt.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
+		precioHotelTxt.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
 
 		Label alquiler[];
