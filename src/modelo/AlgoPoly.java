@@ -57,8 +57,10 @@ public class AlgoPoly {
 	public void avanzarTurno() throws HayGanador{
 		if(hayGanador()) throw new HayGanador(ganador());
 		
+		
 		jugadorActual = siguienteJugador();
 		jugadorActual.iniciarTurno();
+		//
 		//jugadorActual.pasarTurno() pone en false los "movimientos";
 		if(jugadorPerdio())	borrarJugador();
 		
