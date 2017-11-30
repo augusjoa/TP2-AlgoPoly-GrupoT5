@@ -11,8 +11,10 @@ public class Quini6 implements Visitable {
 	private Dinero primerPremio = new Dinero(50000);
 	private Dinero segundoPremio = new Dinero(30000);
 	private String nombre = "Quini 6";
+	private Jugador jugador;
 	
-	private void obtenerPremio(Jugador jugador){
+	private void obtenerPremio(Jugador unJugador){
+		this.jugador= unJugador;
 		if(!this.jugadores.containsKey(jugador)){
 			jugador.agregarDinero(primerPremio);
 			jugadores.put(jugador, 1);
@@ -21,6 +23,19 @@ public class Quini6 implements Visitable {
 			jugador.agregarDinero(segundoPremio);
 			jugadores.replace(jugador, 2);
 		}
+		else if(jugadores.get(jugador)==2){
+			jugadores.replace(jugador, 3);
+		}
+	}
+	
+	public int getValorPremio(){
+		if(jugadores.get(jugador)==1){
+			return primerPremio.getValor();
+		}
+		else if(jugadores.get(jugador)==2){
+			return segundoPremio.getValor();
+		}
+		else return 0;
 	}
 	
 	@Override

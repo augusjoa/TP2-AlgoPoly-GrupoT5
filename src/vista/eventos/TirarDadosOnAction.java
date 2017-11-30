@@ -49,8 +49,6 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 			new MoverseOnAction(unAlgoPoly, unJuego).handle(null);
 			System.out.print(", y llegó a: " + unAlgoPoly.getJugadorActual().getCasillaActual().getNombre() + "\n");
 		}
-
-
 	}
 	
 

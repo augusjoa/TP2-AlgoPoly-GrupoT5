@@ -31,6 +31,7 @@ public class Dinero {
 		valor = valor - (valor * porcentajeDelImpuesto) / 100;
 	}
 	
+	
 	@Override
 	public boolean equals(Object unDinero) {
 		if(unDinero == null || unDinero.getClass() != this.getClass()) return false;

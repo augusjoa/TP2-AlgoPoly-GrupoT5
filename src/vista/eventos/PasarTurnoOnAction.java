@@ -39,24 +39,8 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 			juego.update();
 			System.out.println("no puede moverse y updeteo la imagen");
 		}
-		actualizarLabelTurno();
-		actualizarLabelDinero();
-		actualizarLabelDados();
+		juego.updateVista();
 	}
 	
-	private void actualizarLabelTurno(){
-		int n= partida.getJugadorActual().getNumeroDelJugador();
-		System.out.println("prox jug: "+n);
-		numeroJugador.setText("Turno del Jugador: "+ Integer.toString(n));
-	}
-	
-	private void actualizarLabelDinero(){
-		int dinero = partida.getJugadorActual().getDinero().getValor();
-		dineroDelJugador.setText("Dinero: " + Integer.toString(dinero));
-	}
-	
-	private void actualizarLabelDados(){
-		sectorDado.getTextoDados().setText("");
-	}
 
 }

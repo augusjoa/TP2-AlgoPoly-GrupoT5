@@ -8,10 +8,15 @@ public class ImpuestoAlLujo implements Visitable {
 
 	private int porcentajeDelImpuesto= 10;
 	private String nombre="Impuesto al Lujo";
+	private Dinero dineroDelJugador;
 	
 	public void aplicarImpuesto(Jugador jugador){
-		Dinero dineroDelJugador= jugador.getDinero();
+		this.dineroDelJugador= jugador.getDinero();
 		dineroDelJugador.aplicarImpuesto(porcentajeDelImpuesto);
+	}
+	
+	public int getPorcentajeDelImpuesto(){
+		return porcentajeDelImpuesto;
 	}
 	
 	@Override

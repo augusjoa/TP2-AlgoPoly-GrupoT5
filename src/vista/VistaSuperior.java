@@ -20,4 +20,12 @@ public class VistaSuperior extends VBox {
 	public BarraMenu getBarraMenu(){
 		return barraMenu;
 	}
+	
+	public void update(){
+		unPanelJugador.update();
+	}
+	
+	public void updateDinero(){
+		unPanelJugador.updateDineroJugador();
+	}
 }

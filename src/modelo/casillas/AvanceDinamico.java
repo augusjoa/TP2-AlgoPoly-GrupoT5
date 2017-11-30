@@ -7,9 +7,10 @@ import modelo.interfaces.Visitable;
 public class AvanceDinamico implements Visitable{
 
 	private String nombre = "Avance";
+	private int casillasAMover;
 	
 	public int getCantidadDePasos(Jugador unJugador, int tiradaDeDados) {
-		int casillasAMover = 0;
+		casillasAMover = 0;
 		if (tiradaDeDados < 7) {
 			casillasAMover = (tiradaDeDados - 2);
 		}
@@ -17,6 +18,10 @@ public class AvanceDinamico implements Visitable{
 			casillasAMover = ( unJugador.getDinero().getValor() % tiradaDeDados);
 		}		
 		else casillasAMover = (tiradaDeDados - unJugador.getCantidadDePropiedades());
+		return casillasAMover;
+	}
+	
+	public int getCantidadDePasos(){
 		return casillasAMover;
 	}
 	

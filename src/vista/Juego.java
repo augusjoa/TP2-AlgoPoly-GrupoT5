@@ -5,7 +5,6 @@ import javafx.stage.Stage;
 import modelo.AlgoPoly;
 
 public class Juego extends BorderPane{
-	static final int pixelCasilla=60;
 	private VistaTablero vistaTablero;
 	private VistaSuperior vistaSuperior;
 	private VistaLateralDerecha vistaLateralDerecha;
@@ -31,6 +30,14 @@ public class Juego extends BorderPane{
 		//vistaLateralDerecha.update();
 	}
 	
+	public void updateVista(){
+		vistaSuperior.update();
+	}
+	
+	public void updateDinero(){
+		vistaSuperior.updateDinero();
+	}
+	
 	private void setSuperior(){
 		this.setTop(vistaSuperior);
 	}
@@ -41,10 +48,6 @@ public class Juego extends BorderPane{
 	
 	private void setCentro(){
 		this.setCenter(vistaTablero);
-	}
-	
-	public int getPixelCasilla(){
-		return pixelCasilla;
 	}
 	
 	public AlgoPoly partida(){
