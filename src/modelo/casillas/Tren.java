@@ -1,11 +1,10 @@
 package modelo.casillas;
 
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import modelo.Dinero;
-import modelo.Jugador;
-import modelo.interfaces.Adquirible;
-import modelo.interfaces.Visitable;
 
-public class Tren extends Compania{
+public class Tren extends Compania {
 
 	private String nombre= "Tren";
 	
@@ -20,5 +19,13 @@ public class Tren extends Compania{
 		return nombre;
 	}
 	
-
+	@Override
+	public VBox loadPanelInfo(VBox panelInfo) {
+		
+		Label nombre = new Label("Nombre: " + this.nombre);
+		
+		
+		panelInfo.getChildren().add(nombre);
+		return panelInfo;
+	}
 }

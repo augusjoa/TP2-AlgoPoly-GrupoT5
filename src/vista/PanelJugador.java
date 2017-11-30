@@ -44,9 +44,8 @@ public class PanelJugador extends HBox{
 		botonPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, botonPasarTurno , turnoDelJugador, dineroDelJugador));
 		
 		this.setSpacing(10);
-		this.setStyle( "-fx-background-color: lightgrey;");
+//		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
-		
 		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador);
 
 		
