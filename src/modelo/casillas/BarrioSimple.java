@@ -2,6 +2,8 @@ package modelo.casillas;
 
 import java.util.Hashtable;
 
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.excepciones.BarrioLleno;
@@ -53,4 +55,13 @@ public class BarrioSimple extends Barrio {
 		jugadorDuenio.getDinero().agregarDinero(alquiler);
 	}	
 
+	@Override
+	public VBox loadPanelInfo(VBox panelInfo) {
+		
+		Label nombre = new Label("Nombre: " + this.nombre);
+		
+		
+		panelInfo.getChildren().add(nombre);
+		return panelInfo;
+	}
 }

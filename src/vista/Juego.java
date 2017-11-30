@@ -1,6 +1,7 @@
 package vista;
 
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 
@@ -20,8 +21,10 @@ public class Juego extends BorderPane{
 		vistaLateralDerecha = new VistaLateralDerecha(this, partida);
 		
 		setSuperior();
-		setCentro();
 		setDerecha();
+		setCentro();
+		
+		
 	}
 	
 	public void update(){
@@ -56,5 +59,9 @@ public class Juego extends BorderPane{
 	
 	public BarraMenu getBarraMenu(){
 		return vistaSuperior.getBarraMenu();
+	}
+
+	public VBox getPanelInfo() {
+		return vistaLateralDerecha.getPanelInfo();
 	}
 }

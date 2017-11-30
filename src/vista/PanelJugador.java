@@ -53,10 +53,11 @@ public class PanelJugador extends HBox{
 		
 		
 		this.setSpacing(10);
-		this.setStyle( "-fx-background-color: lightgrey;");
+//		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		
 		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador, botonPagarFianza);
+
 
 		
 	}

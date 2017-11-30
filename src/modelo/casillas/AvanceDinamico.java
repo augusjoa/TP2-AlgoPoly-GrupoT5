@@ -1,7 +1,10 @@
 package modelo.casillas;
 
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import modelo.Jugador;
 import modelo.interfaces.Visitable;
+
 
 
 public class AvanceDinamico implements Visitable{
@@ -34,5 +37,15 @@ public class AvanceDinamico implements Visitable{
 	public void esVisitadoPorJugador(Jugador unJugador) {
 		int cantidadDePasos = getCantidadDePasos(unJugador, unJugador.getNumeroDelDado());
 		if(cantidadDePasos != 0) unJugador.moverse(cantidadDePasos);
+	}
+
+	@Override
+	public VBox loadPanelInfo(VBox panelInfo) {
+		
+		Label nombre = new Label("Nombre: " + this.nombre);
+		
+		
+		panelInfo.getChildren().add(nombre);
+		return panelInfo;
 	}
 }
