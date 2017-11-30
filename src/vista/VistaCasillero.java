@@ -25,6 +25,7 @@ public class VistaCasillero {
 		botonCasillero.setText(getNombreDelBoton());
 		botonCasillero.setAlignment(Pos.TOP_CENTER);
 		botonCasillero.setFont(Font.font("Consolas", FontWeight.BOLD, 15));
+		botonCasillero.wrapTextProperty().setValue(true);
 	}
 	
 	public Button getBotonCasillero(){

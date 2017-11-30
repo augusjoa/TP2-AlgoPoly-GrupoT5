@@ -59,8 +59,6 @@ public class VistaTablero extends GridPane {
 		panel.minWidthProperty().bind( multipliedWidth );
 		panel.prefHeightProperty().bind( multipliedHeight );
 		panel.prefWidthProperty().bind( multipliedWidth );
-
-		//final ImageView imageView =	new ImageView( "http://1.bp.blogspot.com/-Wjc79oqi1y0/VHitLAU44BI/AAAAAAAAG80/0UZ9n2JmvEo/s1600/Logo%2BMonopoly.png" );
 		
 		final Image imgCentro = new Image(getClass().getResource("img/algopoly.png").toExternalForm());
 		final ImageView imageView =	new ImageView();

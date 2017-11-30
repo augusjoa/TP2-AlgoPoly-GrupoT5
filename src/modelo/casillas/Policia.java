@@ -5,7 +5,7 @@ import modelo.interfaces.Visitable;
 
 public class Policia implements Visitable{
 
-	private String nombre= "Policia";
+	private String nombre= "Policia (envia a carcel)";
 	
 	@Override
 	public void esVisitadoPorJugador(Jugador unJugador) {

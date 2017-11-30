@@ -19,7 +19,7 @@ public class Aplicacion extends Application {
 		stage.setTitle("AlgoPoly");
 		stage.setResizable(false);
 		stage.setOnCloseRequest(new SalirEventoWindow());
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("img/iconGrande.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon.png")));
         
         
         Juego vistaJuego = new Juego(stage);
