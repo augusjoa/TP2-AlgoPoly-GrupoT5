@@ -9,7 +9,7 @@ import modelo.interfaces.Visitable;
 
 public class AvanceDinamico implements Visitable{
 
-	private String nombre = "Avance";
+	private String nombre = "Avance Dinámico";
 	private int casillasAMover;
 	
 	public int getCantidadDePasos(Jugador unJugador, int tiradaDeDados) {
@@ -43,6 +43,7 @@ public class AvanceDinamico implements Visitable{
 	public VBox loadPanelInfo(VBox panelInfo) {
 		
 		Label nombre = new Label("Nombre: " + this.nombre);
+		
 		
 		
 		panelInfo.getChildren().add(nombre);

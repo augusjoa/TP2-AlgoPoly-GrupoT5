@@ -2,6 +2,8 @@ package modelo.casillas;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import modelo.Jugador;
 import modelo.interfaces.Visitable;
 
@@ -22,9 +24,12 @@ public class Salida implements Visitable{
 	public VBox loadPanelInfo(VBox panelInfo) {
 		
 		Label nombre = new Label("Nombre: " + this.nombre);
+		nombre.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
+		Label descripcion = new Label("Descripción: \n Difrute la estadía gratuita!");
+		descripcion.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
-		panelInfo.getChildren().add(nombre);
+		panelInfo.getChildren().addAll(nombre, descripcion);
 		return panelInfo;
 	}
 }

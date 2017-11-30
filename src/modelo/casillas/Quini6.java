@@ -2,8 +2,13 @@ package modelo.casillas;
 
 import java.util.Hashtable;
 
+import com.sun.javafx.scene.control.skin.LabelSkin;
+
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import modelo.Dinero;
 import modelo.Jugador;
 import modelo.interfaces.Visitable;
@@ -54,9 +59,19 @@ public class Quini6 implements Visitable {
 	public VBox loadPanelInfo(VBox panelInfo) {
 		
 		Label nombre = new Label("Nombre: " + this.nombre);
+		nombre.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+				
+		Label descripcion = new Label("Descripción:  ");
+		descripcion.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
+		Label premio1 = new Label("\tPrimer Premio: " + primerPremio.getValor());
+		premio1.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		
-		panelInfo.getChildren().add(nombre);
+		Label premio2 = new Label("\tPrimer Premio: " + segundoPremio.getValor() + "un texto super largo para probar si lo de cambio e lineas anda, no se ni que estoy escribiendo aca");
+		premio2.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		premio2.wrapTextProperty().set(true);
+		
+		panelInfo.getChildren().addAll(nombre, descripcion, premio1, premio2);
 		return panelInfo;
 	}
 }
