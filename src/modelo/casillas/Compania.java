@@ -15,6 +15,7 @@ public abstract class Compania implements Adquirible,Visitable {
 	
 	
 	public boolean tieneDuenioDoble(){
+		if(duenio == null) return false;
 		return  duenio.esDuenio(this)  && duenio.esDuenio(otraCompania);
 	}
 	

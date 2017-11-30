@@ -10,22 +10,26 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 
 	AlgoPoly unAlgoPoly;
 	SectorDado sectorDado;
-	Button btnMoverse;
+	Button btnPasarTurno;
 	
-	public PasarTurnoOnAction(AlgoPoly unAlgoPoly, SectorDado sectorDado, Button btnMoverse) {
+	public PasarTurnoOnAction(AlgoPoly unAlgoPoly, SectorDado sectorDado, Button btnPasarTurno) {
 		this.unAlgoPoly = unAlgoPoly;
 		this.sectorDado = sectorDado;
-		this.btnMoverse = btnMoverse;
+		this.btnPasarTurno = btnPasarTurno;
 
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
 		unAlgoPoly.avanzarTurno();
-		sectorDado.getBotonTirarDado().setDisable(false);
+		unAlgoPoly.getJugadorActual().iniciarTurno();
+		if(unAlgoPoly.getJugadorActual().puedeMoverse()) {
+			sectorDado.getBotonTirarDado().setDisable(false);
+			btnPasarTurno.setDisable(true);
+		}
+		
 		sectorDado.getTextoDados().setText("");
-		System.out.println(unAlgoPoly.getJugadorActual());
-		btnMoverse.setDisable(true);
+		
 	}
 
 }

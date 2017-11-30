@@ -11,18 +11,19 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 
 	Juego juego;
 	AlgoPoly unAlgoPoly;
-	Jugador jugadorActual;
+	//Jugador jugadorActual;
 	
 	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego) {
 		this.unAlgoPoly = unAlgoPoly;
 		this.juego = juego;
-		jugadorActual= unAlgoPoly.getJugadorActual();
+		//jugadorActual= unAlgoPoly.getJugadorActual();
 	}
 	
 	@Override
 	public void handle(ActionEvent event) {
-		int numeroDado= jugadorActual.getNumeroDelDado();
-		jugadorActual.moverse(numeroDado);
+		int numeroDado= unAlgoPoly.getJugadorActual().getNumeroDelDado();
+		unAlgoPoly.getJugadorActual().moverse(numeroDado);
+		
 		//juego.update();
 	}
 
