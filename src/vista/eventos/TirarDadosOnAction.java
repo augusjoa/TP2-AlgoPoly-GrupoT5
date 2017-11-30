@@ -33,7 +33,7 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 			btnPasarTurno.setDisable(false);
 			btnMoverse.setDisable(false);
 			unSectorDados.getTextoDados().setText(""+unAlgoPoly.getJugadorActual().getNumeroDelDado());
-			System.out.println(unAlgoPoly.getJugadorActual().getNumeroDelDado());
+		//	System.out.println(unAlgoPoly.getJugadorActual().getNumeroDelDado());
 		}
 
 

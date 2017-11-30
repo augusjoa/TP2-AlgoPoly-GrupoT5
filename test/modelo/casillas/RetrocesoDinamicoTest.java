@@ -9,7 +9,7 @@ import modelo.Jugador;
 public class RetrocesoDinamicoTest {
 	@Test
 	public void testCaerEnLaCasillaCon7Hasta10(){
-		Jugador unJugador = new Jugador();
+		Jugador unJugador = new Jugador(0);
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		
 		int numeroDelDado = 7;
@@ -24,7 +24,7 @@ public class RetrocesoDinamicoTest {
 	
 	@Test
 	public void testCaerEnLaCasillaCon11oMas(){
-		Jugador unJugador = new Jugador();
+		Jugador unJugador = new Jugador(0);
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		
 		int numeroDelDado = 11;
@@ -36,7 +36,7 @@ public class RetrocesoDinamicoTest {
 	
 	@Test 
 	public void testCaerEnLaCasillaCon6oMenos() {
-		Jugador unJugador = new Jugador();
+		Jugador unJugador = new Jugador(0);
 		RetrocesoDinamico unRetrocesoDinamico = new RetrocesoDinamico();
 		BarrioSimple unBarrio = new BarrioSimple(20000, 5000, 2000, 3000, "testBarr");
 		unJugador.comprar(unBarrio);

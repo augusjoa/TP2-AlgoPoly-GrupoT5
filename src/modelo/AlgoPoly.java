@@ -1,7 +1,9 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 import modelo.excepciones.HayGanador;
@@ -14,13 +16,20 @@ public class AlgoPoly {
 	private Jugador jugadorActual;
 	private Tablero tablero;
 	private boolean iniciada=false;
+	private ArrayList<Integer> turnoDeJugadores = new ArrayList<Integer>();
+	
 	
 	public AlgoPoly() {
 		
 		tablero = Tablero.TableroUnico();
 		
 		for(int i=0;i<cantidadDeJugadores;i++) {
-			jugadores.add(new Jugador());
+			turnoDeJugadores.add(i+1);
+		}
+		Collections.shuffle(turnoDeJugadores);
+		
+		for(int i=0;i<cantidadDeJugadores;i++) {
+			jugadores.add(new Jugador(turnoDeJugadores.get(i)));
 		}
 		
 	}
@@ -61,6 +70,10 @@ public class AlgoPoly {
 		//jugadorActual.pasarTurno() pone en false los "movimientos";
 		if(jugadorPerdio())	borrarJugador();
 		
+	}
+	
+	public int getTurnoDeJugador(int i){
+		return turnoDeJugadores.get(i);
 	}
 
 	public boolean hayGanador(){

@@ -9,6 +9,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import modelo.AlgoPoly;
 import vista.eventos.MoverseOnAction;
 import vista.eventos.PasarTurnoOnAction;
@@ -22,10 +23,15 @@ public class PanelJugador extends HBox{
 		Label textoDados = new Label("");
 		textoDados.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
 		
+		int n =partida.getJugadorActual().getNumeroDelJugador();
+		Label numeroJugador = new Label("Turno del Jugador: " + Integer.toString(n));
+		numeroJugador.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
+		numeroJugador.setAlignment(Pos.TOP_RIGHT);
+		
 		Button btnMoverse= new Button("Moverse");
 		btnMoverse.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		btnMoverse.setDisable(true);
-		btnMoverse.setOnAction(new MoverseOnAction(partida,juego));
+		btnMoverse.setOnAction(new MoverseOnAction(partida,juego,btnMoverse));
 		
 		Separator unSeparador = new Separator(Orientation.VERTICAL);
 		unSeparador.setStyle("-fx-background-color: black;");
@@ -39,13 +45,13 @@ public class PanelJugador extends HBox{
 		SectorDado sectorDado = new SectorDado(btnTirarDados, textoDados);
 		btnTirarDados.setOnAction(new TirarDadosOnAction(partida, sectorDado, btnMoverse, btnPasarTurno));
 
-		btnPasarTurno.setOnAction(new PasarTurnoOnAction(partida, sectorDado, btnMoverse));
+		btnPasarTurno.setOnAction(new PasarTurnoOnAction(partida, sectorDado, btnMoverse, numeroJugador));
 		
 		this.setSpacing(10);
 		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		
-		this.getChildren().addAll(sectorDado, unSeparador, btnPasarTurno, btnMoverse);
+		this.getChildren().addAll(sectorDado, unSeparador, btnPasarTurno, btnMoverse, numeroJugador);
 		
 	}
 	

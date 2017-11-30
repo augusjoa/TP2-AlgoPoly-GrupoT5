@@ -12,7 +12,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void testCaerEnLaCasillaCon6oMenos(){
-		Jugador unJugador = new Jugador();
+		Jugador unJugador = new Jugador(0);
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		
 		int numeroDelDado = 2;
@@ -30,7 +30,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void testCaerEnLaCasillaCon7Hasta10(){
-		Jugador unJugador = new Jugador();
+		Jugador unJugador = new Jugador(0);
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		
 		int numeroDelDado = 7;
@@ -45,7 +45,7 @@ public class AvanceDinamicoTest {
 	
 	@Test
 	public void testCaerEnLaCasillaCon11oMas() {
-		Jugador unJugador = new Jugador();
+		Jugador unJugador = new Jugador(0);
 		AvanceDinamico unAvanceDinamico = new AvanceDinamico();
 		BarrioSimple unBarrio = new BarrioSimple(20000, 5000, 2000, 3000, "testBarr");
 		unJugador.comprar(unBarrio);

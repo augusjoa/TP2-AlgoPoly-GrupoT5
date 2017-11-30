@@ -51,7 +51,7 @@ public abstract class Compania implements Adquirible,Visitable {
 	@Override
 	public void esVisitadoPorJugador(Jugador unJugador) {
 		
-		if(tieneDuenioDoble() && tieneDuenio()){
+		if(tieneDuenio() && tieneDuenioDoble()){
 			cobrarAlquiler(vecesQueCobraDoble,unJugador);
 		}
 		

@@ -18,7 +18,7 @@ import modelo.interfaces.Visitable;
 
 public class Jugador {
 	
-	
+	private int numeroDelJugador;
 	private Dinero dinero = new Dinero(100000);
 	//private boolean detenido = false;	
 	private Collection <Barrio> barriosAdquiridos = new HashSet<Barrio>();
@@ -28,6 +28,9 @@ public class Jugador {
 	protected Tablero tablero = Tablero.TableroUnico();
 	private EstadoJugador estado = new Libre();
 
+	public Jugador(int numeroDelJugador){
+		this.numeroDelJugador=numeroDelJugador;
+	}
 	
 	public Dinero getDinero() {
 		return dinero;
@@ -149,5 +152,9 @@ public class Jugador {
 	
 	public boolean tiradaInvalida() {
 		return dado.dadosSonIguales();
+	}
+	
+	public int getNumeroDelJugador(){
+		return numeroDelJugador;
 	}
 }

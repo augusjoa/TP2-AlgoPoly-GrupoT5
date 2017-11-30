@@ -3,7 +3,9 @@ package vista;
 import java.util.Vector;
 
 import javafx.beans.binding.DoubleBinding;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -99,23 +101,41 @@ public class VistaTablero extends GridPane {
 			vistaJugador = new VistaJugador[i];
 			Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
 			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
-			
-			VistaJugador vistaJugador = new VistaJugador(partida,i);
-			
+			VistaJugador vistaJugador = new VistaJugador(partida,partida.getTurnoDeJugador(i-1));
 			this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
+			
+			System.out.println(partida.getTurnoDeJugador(i-1));
+			
 		}		
 	}
 	
 	public void update(){
-//		//this.getChildren().clear();
+		
+		for(Node node: this.getChildren()){
+			if (node instanceof ImageView){
+				this.getChildren().remove(node);
+				break;
+			}
+		}
+		Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
+		int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
+		//int numDeOrden = partida.getJugadorActual().getNumeroDelJugador();
+		System.out.println("update: "+partida.getJugadorActual().getNumeroDelJugador());
+		System.out.println("pos donde caeria: "+posicionJugador);
+		VistaJugador vistaJugador = new VistaJugador(partida,partida.getJugadorActual().getNumeroDelJugador());
+		this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
+	
+	}	
+		
 //		for(int i=1; i<=partida.cantidadDeJugadores;i++){
-//			this.clearConstraints(vistaJugador[i].getImagenVista());
 //			vistaJugador = new VistaJugador[i];
 //			Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
 //			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
-//			this.add(new VistaJugador(partida,i).getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
-//		}	
-	}
+//			VistaJugador vistaJugador = new VistaJugador(partida,i);
+//			this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
+			
+	
+
 	
 //	private void agregarJugadoresPosInicial(AlgoPoly partida){
 //		

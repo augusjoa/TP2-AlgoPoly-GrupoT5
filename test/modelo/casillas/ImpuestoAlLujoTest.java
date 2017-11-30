@@ -11,7 +11,7 @@ public class ImpuestoAlLujoTest {
 
 	@Test
 	public void jugadorCaenEnImpuestoSuDineroSeReduceUn10PorcientoDelTotal(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		ImpuestoAlLujo impuestoAlLujo = new ImpuestoAlLujo();
 		
 		Dinero dineroInicial = jugador.getDinero();

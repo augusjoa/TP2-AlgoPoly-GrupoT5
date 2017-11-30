@@ -15,7 +15,7 @@ public class BarrioTest {
 		public void testElBarrioTieneDuenioAlSerCompradoPorUnJugador() {
 			BarrioFactory fabrica = new BarrioFactory();
 			Barrio unBarrio = fabrica.crearNeuquen();
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			
 			unJugador.comprar(unBarrio);
 			
@@ -26,7 +26,7 @@ public class BarrioTest {
 		public void testElBarrioNoTieneDuenioAlSerVendido() {
 			BarrioFactory fabrica = new BarrioFactory();
 			Barrio unBarrio = fabrica.crearTucuman();
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			
 			unJugador.comprar(unBarrio);
 			unJugador.vender(unBarrio);
@@ -38,7 +38,7 @@ public class BarrioTest {
 		public void testBarrioSantaFeEsCompradoPOrJugadorYagregaunaCasa() {
 			BarrioFactory fabrica = new BarrioFactory();
 			Barrio unBarrio = fabrica.crearSantaFe();
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			
 
 			unJugador.setCasillaActual(unBarrio);
@@ -54,7 +54,7 @@ public class BarrioTest {
 		public void testBarrioNeuquenEsCompradoYNoPuedeConstruirMasDeUnaCasa() {
 			BarrioFactory fabrica = new BarrioFactory();
 			Barrio unBarrio = fabrica.crearNeuquen();
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			
 			unJugador.setCasillaActual(unBarrio);
 			
@@ -70,7 +70,7 @@ public class BarrioTest {
 			BarrioDoble unBarrio2 = fabrica.crearBuenosAiresSur();
 			unBarrio.setOtraZona(unBarrio2);
 			unBarrio2.setOtraZona(unBarrio);
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			Dinero unDinero = new Dinero(100000);
 			unJugador.agregarDinero(unDinero);
 
@@ -104,7 +104,7 @@ public class BarrioTest {
 			BarrioDoble unBarrio2 = fabrica.crearBuenosAiresSur();
 			unBarrio.setOtraZona(unBarrio2);
 			unBarrio2.setOtraZona(unBarrio);
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			Dinero unDinero = new Dinero(100000);
 			unJugador.agregarDinero(unDinero);
 
@@ -121,7 +121,7 @@ public class BarrioTest {
 			BarrioDoble unBarrio2 = fabrica.crearBuenosAiresSur();
 			unBarrio.setOtraZona(unBarrio2);
 			unBarrio2.setOtraZona(unBarrio);
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			Dinero unDinero = new Dinero(100000);
 			unJugador.agregarDinero(unDinero);
 
@@ -143,8 +143,8 @@ public class BarrioTest {
 		public void testBarrioSantaFeJugadorIntentaConstruirCasaEnUnBarrioQueNoEsSuyo() {
 			BarrioFactory fabrica = new BarrioFactory();
 			Barrio unBarrio = fabrica.crearSantaFe();
-			Jugador unJugador = new Jugador();
-			Jugador unJugador2 = new Jugador();
+			Jugador unJugador = new Jugador(0);
+			Jugador unJugador2 = new Jugador(1);
 
 			unJugador.setCasillaActual(unBarrio);
 			
@@ -159,7 +159,7 @@ public class BarrioTest {
 			BarrioDoble unBarrio2 = fabrica.crearBuenosAiresSur();
 			unBarrio.setOtraZona(unBarrio2);
 			unBarrio2.setOtraZona(unBarrio);
-			Jugador unJugador = new Jugador();
+			Jugador unJugador = new Jugador(0);
 			Dinero unDinero = new Dinero(100000);
 			unJugador.agregarDinero(unDinero);
 
