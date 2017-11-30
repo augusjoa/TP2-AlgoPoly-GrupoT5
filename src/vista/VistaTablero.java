@@ -127,7 +127,6 @@ public class VistaTablero extends GridPane {
 		}
 		Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
 		int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
-		//int numDeOrden = partida.getJugadorActual().getNumeroDelJugador();
 		System.out.println("update: "+partida.getJugadorActual().getNumeroDelJugador());
 		System.out.println("pos donde caeria: "+posicionJugador);
 		System.out.println("");
@@ -136,23 +135,7 @@ public class VistaTablero extends GridPane {
 	
 	}	
 		
-//		for(int i=1; i<=partida.cantidadDeJugadores;i++){
-//			vistaJugador = new VistaJugador[i];
-//			Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
-//			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
-//			VistaJugador vistaJugador = new VistaJugador(partida,i);
-//			this.add(vistaJugador.getImagenVista(), posX[posicionJugador],posY[posicionJugador]);
-			
-	
 
-	
-//	private void agregarJugadoresPosInicial(AlgoPoly partida){
-//		
-//		Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
-//		int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
-//		int x= posX(posicionJugador)
-//		int y= posY(posicionJugador)
-//	}
 	
 
 	

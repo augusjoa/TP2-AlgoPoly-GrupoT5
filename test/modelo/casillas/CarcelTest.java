@@ -15,7 +15,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoNoPuedeMoverse(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
@@ -25,7 +25,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorDebenPasarCuatroTurnos(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
@@ -36,7 +36,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorCuatroTurnosPuedeMoverse(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		
 		
 		Carcel carcel = new Carcel();
@@ -56,7 +56,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorDosTurnosYPagaFianza(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		
 		Carcel carcel = new Carcel();
 		
@@ -71,7 +71,7 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorRetenidoPorTresTurnosYPagaFianza(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		
 		Carcel carcel = new Carcel();
 		
@@ -86,7 +86,7 @@ public class CarcelTest {
 	
 	@Test(expected = DineroInsuficiente.class)
 	public void testJugadorRetenidoPorDosTurnosConFondosInsuficientesNoPuedePagarFianza(){
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		Dinero unDinero = new Dinero(60000);
 		jugador.sustraerDinero(unDinero);
 		Carcel carcel = new Carcel();
@@ -99,7 +99,7 @@ public class CarcelTest {
 	@Test(expected = DineroInsuficiente.class)
 	public void testJugadorRetenidoPorTresTurnosConFondosInsuficientesNoPuedeMoverse(){
 		Dinero unDinero = new Dinero(60000);
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		jugador.sustraerDinero(unDinero);
 		Carcel carcel = new Carcel();
 		
@@ -112,7 +112,7 @@ public class CarcelTest {
 	
 	@Test(expected = JugadorNoPuedePagarFianza.class)
 	public void testJugadorCaeEnCarcelNoPuedePagarFianza() {
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);
@@ -121,7 +121,7 @@ public class CarcelTest {
 	
 	@Test(expected = JugadorNoPuedePagarFianza.class)
 	public void testJugadorCaeEnCarcelPasaUnTurnoNoPuedePagarFianza() {
-		Jugador jugador = new Jugador();
+		Jugador jugador = new Jugador(0);
 		Carcel carcel = new Carcel();
 		
 		carcel.esVisitadoPorJugador(jugador);

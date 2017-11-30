@@ -23,15 +23,17 @@ public class PanelJugador extends HBox{
 		Label textoDados = new Label("");
 		textoDados.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
 		
+
 		int n =partida.getJugadorActual().getNumeroDelJugador();
 		Label numeroJugador = new Label("Turno del Jugador: " + Integer.toString(n));
 		numeroJugador.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
 		numeroJugador.setAlignment(Pos.TOP_RIGHT);
 		
-		Button btnMoverse= new Button("Moverse");
-		btnMoverse.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
-		btnMoverse.setDisable(true);
-		btnMoverse.setOnAction(new MoverseOnAction(partida,juego,btnMoverse));
+
+		//Button btnMoverse= new Button("Moverse");
+		//btnMoverse.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		//btnMoverse.setDisable(true);
+		//btnMoverse.setOnAction(new MoverseOnAction(partida,juego));
 		
 		Separator unSeparador = new Separator(Orientation.VERTICAL);
 		unSeparador.setStyle("-fx-background-color: black;");
@@ -43,15 +45,17 @@ public class PanelJugador extends HBox{
 		Button btnTirarDados = new Button("Tirar Dados");
 		btnTirarDados.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		SectorDado sectorDado = new SectorDado(btnTirarDados, textoDados);
-		btnTirarDados.setOnAction(new TirarDadosOnAction(partida, sectorDado, btnMoverse, btnPasarTurno));
+		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, btnPasarTurno));
 
-		btnPasarTurno.setOnAction(new PasarTurnoOnAction(partida, sectorDado, btnMoverse, numeroJugador));
+
+		btnPasarTurno.setOnAction(new PasarTurnoOnAction(partida, sectorDado, btnPasarTurno, numeroJugador));
 		
 		this.setSpacing(10);
 		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		
-		this.getChildren().addAll(sectorDado, unSeparador, btnPasarTurno, btnMoverse, numeroJugador);
+		this.getChildren().addAll(sectorDado, unSeparador, btnPasarTurno, numeroJugador);
+
 		
 	}
 	

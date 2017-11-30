@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -24,11 +25,16 @@ public class OpcionesMenuPrincipal extends VBox{
 		this.setPadding(new Insets(20));
 		this.setSpacing(10);
 		this.setAlignment(Pos.CENTER);
-				
+		
+		
 		Image fondo = new Image(getClass().getResource("img/fondo.jpg").toExternalForm());
 		BackgroundImage bk = new BackgroundImage(fondo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(bk));
 		
+		Image titulo = new Image(getClass().getResourceAsStream("img/AlgoPoly.png"));
+		ImageView tituloImagen = new ImageView(titulo);
+		tituloImagen.setPreserveRatio( true );
+		tituloImagen.fitWidthProperty().bind( fondo.widthProperty().divide( 1.5 ) );
 		
 		Button bInstrucciones = new Button();
 		bInstrucciones.setText("Reglas de Juego");
@@ -48,6 +54,6 @@ public class OpcionesMenuPrincipal extends VBox{
 		
 		
 		
-		this.getChildren().addAll(bJugar, bInstrucciones, bSalir);
+		this.getChildren().addAll(tituloImagen,bJugar, bInstrucciones, bSalir);
 	}
 }
