@@ -16,8 +16,9 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 	Button btnPasarTurno;
 	Label numeroJugador;
 	Label dineroDelJugador;
+	Button botonPagarFianza;
 	
-	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno,  Label numeroJugador, Label dineroDelJugador) {
+	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno,  Label numeroJugador, Label dineroDelJugador, Button botonPagarFianza) {
 		this.juego= juego;
 		this.partida = juego.partida();
 		this.sectorDado = sectorDado;
@@ -25,6 +26,7 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 		this.btnPasarTurno = btnPasarTurno;
 		this.dineroDelJugador = dineroDelJugador;
 		this.juego=juego;
+		this.botonPagarFianza=botonPagarFianza;
 	}
 
 	@Override
@@ -34,10 +36,11 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 		if(partida.getJugadorActual().puedeMoverse()) {
 			sectorDado.getBotonTirarDado().setDisable(false);
 			btnPasarTurno.setDisable(true);
+			botonPagarFianza.setDisable(true);
 		}
 		else if(!partida.getJugadorActual().puedeMoverse()){
+			botonPagarFianza.setDisable(false);
 			juego.update();
-			System.out.println("no puede moverse y updeteo la imagen");
 		}
 		juego.updateVista();
 	}

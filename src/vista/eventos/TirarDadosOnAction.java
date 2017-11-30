@@ -17,12 +17,14 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 	SectorDado unSectorDados;
 	Button btnPasarTurno;
 	Juego unJuego;
+	Button botonPagarFianza;
 	
-	public TirarDadosOnAction(Juego unJuego, SectorDado textoDados, Button btnPasarTurno) {
+	public TirarDadosOnAction(Juego unJuego, SectorDado textoDados, Button btnPasarTurno, Button botonPagarFianza) {
 		this.unAlgoPoly = unJuego.partida();
 		this.unSectorDados = textoDados;
 		this.btnPasarTurno = btnPasarTurno;
 		this.unJuego = unJuego;
+		this.botonPagarFianza=botonPagarFianza;
 	}
 
 	@Override
@@ -30,6 +32,7 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 		unSectorDados.getTextoDados().setTextFill(Color.BLACK);
 		unSectorDados.getTextoDados().setFont(Font.font("Consolas", FontWeight.BOLD, 20));
 		unAlgoPoly.getJugadorActual().tirarDados();
+		
 		
 		System.out.print("Jugador: " + unAlgoPoly.getJugadorActual().getNumeroDelJugador() + "sacó un: ");
 		System.out.print(unAlgoPoly.getJugadorActual().getNumeroDelDado() + " --> ");
@@ -46,9 +49,10 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 			btnPasarTurno.setDisable(false);
 			unSectorDados.getTextoDados().setText(""+unAlgoPoly.getJugadorActual().getNumeroDelDado());
 			System.out.print("está en: " + unAlgoPoly.getJugadorActual().getCasillaActual().getNombre());
-			new MoverseOnAction(unAlgoPoly, unJuego).handle(null);
+			new MoverseOnAction(unAlgoPoly, unJuego, botonPagarFianza).handle(null);
 			System.out.print(", y llegó a: " + unAlgoPoly.getJugadorActual().getCasillaActual().getNombre() + "\n");
 		}
+		
 	}
 	
 

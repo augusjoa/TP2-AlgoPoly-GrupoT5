@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.AlgoPoly;
+import vista.eventos.PagarFianzaOnAction;
 import vista.eventos.PasarTurnoOnAction;
 import vista.eventos.TirarDadosOnAction;
 
@@ -40,14 +41,22 @@ public class PanelJugador extends HBox{
 		
 		sectorDado = new SectorDado(btnTirarDados, textoDados);
 		
-		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, botonPasarTurno ));
-		botonPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, botonPasarTurno , turnoDelJugador, dineroDelJugador));
+		
+		Button botonPagarFianza = new Button("Pagar Fianza");
+		botonPagarFianza.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
+		botonPagarFianza.setAlignment(Pos.TOP_CENTER);
+		botonPagarFianza.setDisable(true);
+		botonPagarFianza.setOnAction(new PagarFianzaOnAction(juego, sectorDado.getBotonTirarDado(),botonPagarFianza));
+		
+		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, botonPasarTurno, botonPagarFianza ));
+		botonPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, botonPasarTurno , turnoDelJugador, dineroDelJugador, botonPagarFianza));
+		
 		
 		this.setSpacing(10);
 		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		
-		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador);
+		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador, botonPagarFianza);
 
 		
 	}
@@ -79,7 +88,7 @@ public class PanelJugador extends HBox{
 		Button btnPasarTurno = new Button("Pasar Turno");
 		btnPasarTurno.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		btnPasarTurno.setDisable(true);
-		btnPasarTurno.setAlignment(Pos.BOTTOM_CENTER);
+		btnPasarTurno.setAlignment(Pos.TOP_CENTER);
 		return btnPasarTurno;
 	}
 
@@ -87,7 +96,7 @@ public class PanelJugador extends HBox{
 		int dinero = partida.getJugadorActual().getDinero().getValor();
 		Label dineroJugador = new Label("Dinero: " + Integer.toString(dinero));
 		dineroJugador.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
-		dineroJugador.setAlignment(Pos.TOP_LEFT);
+		dineroJugador.setAlignment(Pos.BASELINE_CENTER);
 		
 		return dineroJugador;
 	}
@@ -97,7 +106,7 @@ public class PanelJugador extends HBox{
 		int n =partida.getJugadorActual().getNumeroDelJugador();
 		Label turnoDelJugador = new Label("Turno del Jugador: " + Integer.toString(n));
 		turnoDelJugador.setFont(Font.font("Consolas", FontWeight.BOLD, 25));
-		turnoDelJugador.setAlignment(Pos.TOP_RIGHT);
+		turnoDelJugador.setAlignment(Pos.CENTER);
 		
 		return turnoDelJugador;
 	}

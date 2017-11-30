@@ -3,7 +3,6 @@ package modelo.estadoJugador;
 import modelo.Jugador;
 import modelo.Tablero;
 import modelo.casillas.Carcel;
-import modelo.excepciones.NoEstaEncarcelado;
 import modelo.interfaces.Visitable;
 
 public class Libre implements EstadoJugador {
@@ -16,8 +15,7 @@ public class Libre implements EstadoJugador {
 	}
 
 	@Override
-	public void pagarFianza(Jugador jugador, Carcel unaCarcel) throws NoEstaEncarcelado {
-		throw new NoEstaEncarcelado();
+	public void pagarFianza(Jugador jugador, Carcel unaCarcel){
 	}
 
 	@Override

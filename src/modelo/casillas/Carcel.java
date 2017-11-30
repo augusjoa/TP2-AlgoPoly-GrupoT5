@@ -16,6 +16,10 @@ public class Carcel implements Visitable{
 
 	}
 	
+	public int getValorDeLaFianza(){
+		return valorDeLaFianza.getValor();
+	}
+	
 	@Override
 	public String getNombre(){
 		return nombre;

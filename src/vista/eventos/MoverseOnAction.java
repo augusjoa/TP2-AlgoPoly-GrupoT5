@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
@@ -24,11 +25,12 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 
 	Juego juego;
 	AlgoPoly partida;
-
+	Button botonPagarFianza;
 	
-	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego) {
+	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego,Button botonPagarFianza) {
 		this.partida = unAlgoPoly;
 		this.juego = juego;
+		this.botonPagarFianza=botonPagarFianza;
 
 	}
 	
@@ -36,7 +38,6 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		int numeroDado= partida.getJugadorActual().getNumeroDelDado();
 		partida.getJugadorActual().moverse(numeroDado);
-		
 		
 		alertaAlCaerEnAvance();
 		alertaAlCaerEnRetroceso();
@@ -67,6 +68,7 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 		if(partida.getJugadorActual().getCasillaActual() == partida.tablero().getCarcel()){
 			String texto= "Se encuentra atrapado en la carcel, deberá pagar una fianza en los proximos turnos o esperar a ser liberado";
 			crearAlerta(casillaActual.getNombre(),texto);
+			botonPagarFianza.setDisable(false);
 		}
 	}
 	
@@ -94,7 +96,7 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	
 	private void alertaAlCaerEnRetroceso(){
 		Visitable casillaActual= partida.getJugadorActual().getCasillaActual();
-		if( casillaActual == partida.tablero().getCasillero(18)){
+		if(casillaActual == partida.tablero().getCasillero(18)){
 			String texto= "Retrocedes: "+Integer.toString(((RetrocesoDinamico) casillaActual).getCantidadDePasos());
 			crearAlerta(casillaActual.getNombre(),texto);
 		}

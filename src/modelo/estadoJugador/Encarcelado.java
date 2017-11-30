@@ -25,7 +25,10 @@ public class Encarcelado implements EstadoJugador {
 	public void pagarFianza(Jugador jugador, Carcel unaCarcel) throws JugadorNoPuedePagarFianza {
 		if(this.getTurnosRestantes() == 2 || this.getTurnosRestantes() == 1 )
 		unaCarcel.cobrarFianza(jugador);
-		else throw new JugadorNoPuedePagarFianza();
+		else{
+			System.out.println("no puede pagar fianza");
+			throw new JugadorNoPuedePagarFianza();
+		}
 	}
 
 	@Override
