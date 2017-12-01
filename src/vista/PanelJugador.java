@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.AlgoPoly;
+import vista.eventos.ComprarAdquiribleOnAction;
 import vista.eventos.PagarFianzaOnAction;
 import vista.eventos.PasarTurnoOnAction;
 import vista.eventos.TirarDadosOnAction;
@@ -48,15 +49,20 @@ public class PanelJugador extends HBox{
 		botonPagarFianza.setDisable(true);
 		botonPagarFianza.setOnAction(new PagarFianzaOnAction(juego, sectorDado.getBotonTirarDado(),botonPagarFianza));
 		
-		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, botonPasarTurno, botonPagarFianza ));
-		botonPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, botonPasarTurno , turnoDelJugador, dineroDelJugador, botonPagarFianza));
+		Button botonCompra = new Button("Comprar");
+		botonCompra.setDisable(true);
+		botonCompra.setOnAction(new ComprarAdquiribleOnAction(juego,botonCompra));
+		
+		
+		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, botonPasarTurno, botonPagarFianza,botonCompra ));
+		botonPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, botonPasarTurno , turnoDelJugador, dineroDelJugador, botonPagarFianza,botonCompra));
 		
 		
 		this.setSpacing(10);
 //		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		
-		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador, botonPagarFianza);
+		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador, botonPagarFianza,botonCompra);
 
 
 		

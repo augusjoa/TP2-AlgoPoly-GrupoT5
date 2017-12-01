@@ -18,13 +18,15 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 	Button btnPasarTurno;
 	Juego unJuego;
 	Button botonPagarFianza;
+	Button botonCompra;
 	
-	public TirarDadosOnAction(Juego unJuego, SectorDado textoDados, Button btnPasarTurno, Button botonPagarFianza) {
+	public TirarDadosOnAction(Juego unJuego, SectorDado textoDados, Button btnPasarTurno, Button botonPagarFianza, Button botonCompra) {
 		this.unAlgoPoly = unJuego.partida();
 		this.unSectorDados = textoDados;
 		this.btnPasarTurno = btnPasarTurno;
 		this.unJuego = unJuego;
 		this.botonPagarFianza=botonPagarFianza;
+		this.botonCompra=botonCompra;
 	}
 
 	@Override
@@ -49,7 +51,7 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 			btnPasarTurno.setDisable(false);
 			unSectorDados.getTextoDados().setText(""+unAlgoPoly.getJugadorActual().getNumeroDelDado());
 			System.out.print("está en: " + unAlgoPoly.getJugadorActual().getCasillaActual().getNombre());
-			new MoverseOnAction(unAlgoPoly, unJuego, botonPagarFianza).handle(null);
+			new MoverseOnAction(unAlgoPoly, unJuego, botonPagarFianza,botonCompra).handle(null);
 			System.out.print(", y llegó a: " + unAlgoPoly.getJugadorActual().getCasillaActual().getNombre() + "\n");
 		}
 		

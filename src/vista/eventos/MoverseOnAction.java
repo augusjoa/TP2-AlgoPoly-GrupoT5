@@ -17,6 +17,7 @@ import modelo.casillas.AvanceDinamico;
 import modelo.casillas.ImpuestoAlLujo;
 import modelo.casillas.Quini6;
 import modelo.casillas.RetrocesoDinamico;
+import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 import vista.Juego;
 
@@ -26,11 +27,13 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	Juego juego;
 	AlgoPoly partida;
 	Button botonPagarFianza;
+	Button botonCompra;
 	
-	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego,Button botonPagarFianza) {
+	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego,Button botonPagarFianza,Button botonCompra) {
 		this.partida = unAlgoPoly;
 		this.juego = juego;
 		this.botonPagarFianza=botonPagarFianza;
+		this.botonCompra=botonCompra;
 
 	}
 	
@@ -38,6 +41,11 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		int numeroDado= partida.getJugadorActual().getNumeroDelDado();
 		partida.getJugadorActual().moverse(numeroDado);
+		
+		Visitable casillaActual= partida.getJugadorActual().getCasillaActual();
+		if(casillaActual instanceof Adquirible){
+			botonCompra.setDisable(false);
+		}
 		
 		alertaAlCaerEnAvance();
 		alertaAlCaerEnRetroceso();

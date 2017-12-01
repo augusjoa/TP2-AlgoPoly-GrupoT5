@@ -2,7 +2,9 @@ package modelo.casillas;
 
 import modelo.Dinero;
 import modelo.Jugador;
+import modelo.excepciones.DineroInsuficiente;
 import modelo.excepciones.JugadorInvalido;
+import modelo.excepciones.TieneDuenio;
 import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 
@@ -54,11 +56,12 @@ public abstract class Barrio implements Adquirible,Visitable{
 	}
 	
 	@Override
-	public void comprar(Jugador unJugador) {
+	public void comprar(Jugador unJugador) throws TieneDuenio,DineroInsuficiente{
 		if(!tieneDuenio()){
 			unJugador.getDinero().sustraerDinero(valorDelBarrio);
 			setDuenio(unJugador);
 		}
+		else throw new TieneDuenio();
 	}
 	
 	@Override

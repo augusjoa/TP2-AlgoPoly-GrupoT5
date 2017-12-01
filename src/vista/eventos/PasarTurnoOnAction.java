@@ -17,8 +17,9 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 	Label numeroJugador;
 	Label dineroDelJugador;
 	Button botonPagarFianza;
+	Button botonCompra;
 	
-	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno,  Label numeroJugador, Label dineroDelJugador, Button botonPagarFianza) {
+	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno,  Label numeroJugador, Label dineroDelJugador, Button botonPagarFianza, Button botonCompra) {
 		this.juego= juego;
 		this.partida = juego.partida();
 		this.sectorDado = sectorDado;
@@ -27,6 +28,7 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 		this.dineroDelJugador = dineroDelJugador;
 		this.juego=juego;
 		this.botonPagarFianza=botonPagarFianza;
+		this.botonCompra=botonCompra;
 	}
 
 	@Override
@@ -35,12 +37,13 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 		if(partida.getJugadorActual().puedeMoverse()) {
 			sectorDado.getBotonTirarDado().setDisable(false);
 			btnPasarTurno.setDisable(true);
-			botonPagarFianza.setDisable(true);
+			botonPagarFianza.setDisable(true);			
 		}
 		else if(!partida.getJugadorActual().puedeMoverse()){
 			botonPagarFianza.setDisable(false);
 			juego.update();
 		}
+		botonCompra.setDisable(true);
 		juego.updateVista();
 	}
 	

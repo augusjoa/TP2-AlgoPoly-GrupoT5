@@ -8,6 +8,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.Dinero;
 import modelo.Jugador;
+import modelo.excepciones.DineroInsuficiente;
+import modelo.excepciones.TieneDuenio;
 import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 
@@ -69,12 +71,12 @@ public abstract class Compania implements Adquirible,Visitable {
 	}
 	
 	@Override
-	public void comprar(Jugador unJugador){
+	public void comprar(Jugador unJugador) throws TieneDuenio,DineroInsuficiente{
 		if(!tieneDuenio()){
 			unJugador.sustraerDinero(costoDeLaCompania);
 			setDuenio(unJugador);
 		}
-		//catch jugador perdio?
+		else throw new TieneDuenio();
 	}
 	
 	@Override
@@ -102,7 +104,7 @@ public abstract class Compania implements Adquirible,Visitable {
 			lduenio.setText("Duenio: Sin Duenio");
 		}
 		else{
-			lduenio.setText("Duenio: "+Integer.toString(this.getDuenio().getNumeroDelDado()));
+			lduenio.setText("Duenio: "+Integer.toString(this.getDuenio().getNumeroDelJugador()));
 		}
 		lduenio.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		lduenio.setWrapText(true);
