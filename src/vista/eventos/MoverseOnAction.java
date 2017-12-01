@@ -48,8 +48,10 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 		habilitarCompraCasillero();
 		habilitarVentaCasillero();
 		
-		alertaAlCaerEnAvance();
-		alertaAlCaerEnRetroceso();
+		// No funcionan
+		//alertaAlCaerEnAvance();
+		//alertaAlCaerEnRetroceso();
+		
 		alertaAlCaerEnCarcel();
 		alertaAlCaerEnQuini6();
 		alertaAlCaerEnImpuesto();
