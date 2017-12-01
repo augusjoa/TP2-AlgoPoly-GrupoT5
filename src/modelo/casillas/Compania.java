@@ -81,11 +81,14 @@ public abstract class Compania implements Adquirible,Visitable {
 	
 	@Override
 	public void vender(Jugador unJugador){
-		if(unJugador.esDuenio(this)){
+		System.out.println("Jugador que llego: "+unJugador.getNumeroDelJugador());
+		System.out.println("jugador duenio: "+duenio.getNumeroDelJugador());
+		if(unJugador==duenio){
 			Dinero costoConRetencion = new Dinero(costoDeLaCompania);
 			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
 			unJugador.agregarDinero(costoConRetencion);
-			duenio=null;
+			this.duenio=null;
+			//System.out.println("El duenio es :"+duenio);
 		}	
 	}
 	

@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
+import modelo.Jugador;
 import modelo.casillas.AvanceDinamico;
 import modelo.casillas.ImpuestoAlLujo;
 import modelo.casillas.Quini6;
@@ -28,13 +29,14 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	AlgoPoly partida;
 	Button botonPagarFianza;
 	Button botonCompra;
+	Button botonVenta;
 	
-	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego,Button botonPagarFianza,Button botonCompra) {
+	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego,Button botonPagarFianza,Button botonCompra,Button botonVenta) {
 		this.partida = unAlgoPoly;
 		this.juego = juego;
 		this.botonPagarFianza=botonPagarFianza;
 		this.botonCompra=botonCompra;
-
+		this.botonVenta=botonVenta;
 	}
 	
 	@Override
@@ -42,10 +44,8 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 		int numeroDado= partida.getJugadorActual().getNumeroDelDado();
 		partida.getJugadorActual().moverse(numeroDado);
 		
-		Visitable casillaActual= partida.getJugadorActual().getCasillaActual();
-		if(casillaActual instanceof Adquirible){
-			botonCompra.setDisable(false);
-		}
+		habilitarCompraCasillero();
+		habilitarVentaCasillero();
 		
 		alertaAlCaerEnAvance();
 		alertaAlCaerEnRetroceso();
@@ -55,6 +55,23 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 		
 		
 		juego.update();
+	}
+	
+	public void habilitarVentaCasillero(){
+		Jugador jugadorActual= partida.getJugadorActual();
+		Visitable casillaActual = jugadorActual.getCasillaActual();
+		if(casillaActual instanceof Adquirible){
+			if(((Adquirible) casillaActual).getDuenio() ==jugadorActual){
+				botonVenta.setDisable(false);
+			}
+		}
+	}
+	
+	public void habilitarCompraCasillero(){
+		Visitable casillaActual= partida.getJugadorActual().getCasillaActual();
+		if(casillaActual instanceof Adquirible){
+			botonCompra.setDisable(false);
+		}
 	}
 	
 	public void crearAlerta(String nombre,String texto){

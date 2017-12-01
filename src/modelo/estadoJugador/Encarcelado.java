@@ -2,6 +2,7 @@ package modelo.estadoJugador;
 
 import modelo.Jugador;
 import modelo.casillas.Carcel;
+import modelo.excepciones.DineroInsuficiente;
 import modelo.excepciones.JugadorNoPuedeMoverse;
 import modelo.excepciones.JugadorNoPuedePagarFianza;
 import modelo.interfaces.Visitable;
@@ -21,7 +22,7 @@ public class Encarcelado implements EstadoJugador {
 	}
 
 	@Override
-	public void pagarFianza(Jugador jugador, Carcel unaCarcel) throws JugadorNoPuedePagarFianza {
+	public void pagarFianza(Jugador jugador, Carcel unaCarcel) throws JugadorNoPuedePagarFianza,DineroInsuficiente {
 		if(this.getTurnosRestantes() == 2 || this.getTurnosRestantes() == 1 )
 		unaCarcel.cobrarFianza(jugador);
 		else{

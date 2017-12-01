@@ -15,18 +15,20 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 
 	AlgoPoly unAlgoPoly;
 	SectorDado unSectorDados;
-	Button btnPasarTurno;
+	Button botonPasarTurno;
 	Juego unJuego;
 	Button botonPagarFianza;
 	Button botonCompra;
+	Button botonVenta;
 	
-	public TirarDadosOnAction(Juego unJuego, SectorDado textoDados, Button btnPasarTurno, Button botonPagarFianza, Button botonCompra) {
+	public TirarDadosOnAction(Juego unJuego, SectorDado textoDados, Button botonPasarTurno, Button botonPagarFianza, Button botonCompra, Button botonVenta) {
+		this.unJuego = unJuego;
 		this.unAlgoPoly = unJuego.partida();
 		this.unSectorDados = textoDados;
-		this.btnPasarTurno = btnPasarTurno;
-		this.unJuego = unJuego;
+		this.botonPasarTurno = botonPasarTurno;
 		this.botonPagarFianza=botonPagarFianza;
 		this.botonCompra=botonCompra;
+		this.botonVenta=botonVenta;
 	}
 
 	@Override
@@ -35,24 +37,16 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 		unSectorDados.getTextoDados().setFont(Font.font("Consolas", FontWeight.BOLD, 20));
 		unAlgoPoly.getJugadorActual().tirarDados();
 		
-		
-		System.out.print("Jugador: " + unAlgoPoly.getJugadorActual().getNumeroDelJugador() + "sacó un: ");
-		System.out.print(unAlgoPoly.getJugadorActual().getNumeroDelDado() + " --> ");
-		
 		if(unAlgoPoly.getJugadorActual().tiradaInvalida()) {
 			unSectorDados.getTextoDados().setFont(Font.font("Consolas", FontWeight.BOLD, 15));
 			unSectorDados.getTextoDados().setText("Dados Iguales!");
 			unSectorDados.getTextoDados().setTextFill(Color.RED);
-			
-			System.out.print("No avanza\n");
 
 		}else {
 			unSectorDados.getBotonTirarDado().setDisable(true);
-			btnPasarTurno.setDisable(false);
+			botonPasarTurno.setDisable(false);
 			unSectorDados.getTextoDados().setText(""+unAlgoPoly.getJugadorActual().getNumeroDelDado());
-			System.out.print("está en: " + unAlgoPoly.getJugadorActual().getCasillaActual().getNombre());
-			new MoverseOnAction(unAlgoPoly, unJuego, botonPagarFianza,botonCompra).handle(null);
-			System.out.print(", y llegó a: " + unAlgoPoly.getJugadorActual().getCasillaActual().getNombre() + "\n");
+			new MoverseOnAction(unAlgoPoly, unJuego, botonPagarFianza,botonCompra,botonVenta).handle(null);
 		}
 		
 	}

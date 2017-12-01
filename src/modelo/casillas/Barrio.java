@@ -66,7 +66,7 @@ public abstract class Barrio implements Adquirible,Visitable{
 	
 	@Override
 	public void vender(Jugador unJugador) {
-		if(unJugador.esDuenio(this)){
+		if(unJugador==jugadorDuenio){
 			Dinero costoConRetencion = valorDelBarrio;
 			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
 			unJugador.agregarDinero(costoConRetencion);

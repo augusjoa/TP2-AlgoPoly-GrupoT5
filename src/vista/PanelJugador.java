@@ -14,6 +14,7 @@ import vista.eventos.ComprarAdquiribleOnAction;
 import vista.eventos.PagarFianzaOnAction;
 import vista.eventos.PasarTurnoOnAction;
 import vista.eventos.TirarDadosOnAction;
+import vista.eventos.VenderAdquiribleOnAction;
 
 public class PanelJugador extends HBox{
 
@@ -53,8 +54,11 @@ public class PanelJugador extends HBox{
 		botonCompra.setDisable(true);
 		botonCompra.setOnAction(new ComprarAdquiribleOnAction(juego,botonCompra));
 		
+		Button botonVenta = new Button("Vender");
+		botonVenta.setDisable(true);
+		botonVenta.setOnAction( new VenderAdquiribleOnAction(juego,botonVenta));
 		
-		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, botonPasarTurno, botonPagarFianza,botonCompra ));
+		btnTirarDados.setOnAction(new TirarDadosOnAction(juego, sectorDado, botonPasarTurno, botonPagarFianza,botonCompra,botonVenta));
 		botonPasarTurno.setOnAction(new PasarTurnoOnAction(juego, sectorDado, botonPasarTurno , turnoDelJugador, dineroDelJugador, botonPagarFianza,botonCompra));
 		
 		
@@ -62,7 +66,7 @@ public class PanelJugador extends HBox{
 //		this.setStyle( "-fx-background-color: lightgrey;");
 		this.setPadding(new Insets(15));
 		
-		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador, botonPagarFianza,botonCompra);
+		this.getChildren().addAll(sectorDado, primerSeparador, botonPasarTurno,turnoDelJugador, segundoSeparador, dineroDelJugador, botonPagarFianza,botonCompra,botonVenta);
 
 
 		

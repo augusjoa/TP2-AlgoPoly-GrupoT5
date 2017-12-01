@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.casillas.Carcel;
 import modelo.casillas.Quini6;
+import modelo.excepciones.DineroInsuficiente;
 import modelo.excepciones.JugadorNoPuedePagarFianza;
 import modelo.interfaces.Visitable;
 import vista.Juego;
@@ -52,17 +53,25 @@ public class PagarFianzaOnAction implements EventHandler<ActionEvent> {
 					botonPagarFianza.setDisable(true);
 		
 				} catch(JugadorNoPuedePagarFianza excp){
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle(casillaActual.getNombre());
-					alert.setHeaderText("");
-					alert.setContentText("Todavia no puede pagar la finaza.");
-					Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-					stage.setOnCloseRequest(e->e.consume());
-					stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
-					stage.showAndWait();
+					crearAlertaInformation(casillaActual.getNombre(),"Espere, todavia no puede pagar la finaza.");
 				}
-			}			
+				catch(DineroInsuficiente excDin){
+					crearAlertaInformation(casillaActual.getNombre(),"No puede pagar la fianza, dinero insuficiente");
+				}
+			}
 		}
 	}
+		
+		public void crearAlertaInformation(String titulo,String texto){
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle(titulo);
+			alert.setHeaderText("");
+			alert.setContentText(texto);
+			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			stage.setOnCloseRequest(e->e.consume());
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
+			stage.showAndWait();
+		}
+	
 
 }
