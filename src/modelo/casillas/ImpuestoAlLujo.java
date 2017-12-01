@@ -39,7 +39,7 @@ public class ImpuestoAlLujo implements Visitable {
 		nombre.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		nombre.setWrapText(true);
 		
-		Label info = new Label("El jugador que caiga aquí se le reducirá un :"+Integer.toString(porcentajeDelImpuesto)+" % de su dinero.");
+		Label info = new Label("Al jugador que caiga aquí se le resta un "+Integer.toString(porcentajeDelImpuesto)+" % de su dinero.");
 		info.setFont(Font.font("Consolas", FontWeight.NORMAL, 14));
 		info.setWrapText(true);
 				

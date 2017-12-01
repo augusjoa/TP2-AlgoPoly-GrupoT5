@@ -18,7 +18,6 @@ public class Encarcelado implements EstadoJugador {
 	@Override
 	public void moverse(Jugador jugador, int cantidad, Visitable unVisitable) throws JugadorNoPuedeMoverse {
 		//throw new JugadorNoPuedeMoverse();
-		System.out.print(" <-- Está detenido");
 	}
 
 	@Override
@@ -26,7 +25,6 @@ public class Encarcelado implements EstadoJugador {
 		if(this.getTurnosRestantes() == 2 || this.getTurnosRestantes() == 1 )
 		unaCarcel.cobrarFianza(jugador);
 		else{
-			System.out.println("no puede pagar fianza");
 			throw new JugadorNoPuedePagarFianza();
 		}
 	}
