@@ -55,7 +55,6 @@ public class BarrioDoble extends Barrio {
 	}
 	
 	private int getCantidadDeHoteles() {
-		// TODO Auto-generated method stub
 		return cantidadDeHoteles;
 	}
 

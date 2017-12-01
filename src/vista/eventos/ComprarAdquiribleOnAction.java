@@ -43,7 +43,7 @@ public class ComprarAdquiribleOnAction implements EventHandler<ActionEvent>{
 			try{
 				((Adquirible)casillaActual).comprar(partida.getJugadorActual());
 				botonCompra.setDisable(true);
-				juego.updateDinero();
+				juego.updateVistaSuperior();
 			}
 			catch(TieneDuenio exp){
 				crearAlertaInformation(casillaActual.getNombre(),"El terreno ya tiene duenio");

@@ -6,29 +6,28 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import modelo.AlgoPoly;
 import vista.Juego;
+import vista.PanelJugador;
 import vista.SectorDado;
 
 public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 
-	AlgoPoly partida;
-	Juego juego;
-	SectorDado sectorDado;
-	Button btnPasarTurno;
-	Label numeroJugador;
-	Label dineroDelJugador;
-	Button botonPagarFianza;
-	Button botonCompra;
+	private Button botonCompra;
+	private AlgoPoly partida;
+	private Juego juego;
+	private SectorDado sectorDado;
+	private Button btnPasarTurno;
+	private Button botonPagarFianza;
+	private PanelJugador panelJugador;
 	
-	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno,  Label numeroJugador, Label dineroDelJugador, Button botonPagarFianza, Button botonCompra) {
+	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno, PanelJugador panelJugador) {
 		this.juego= juego;
 		this.partida = juego.partida();
 		this.sectorDado = sectorDado;
-		this.numeroJugador = numeroJugador;
 		this.btnPasarTurno = btnPasarTurno;
-		this.dineroDelJugador = dineroDelJugador;
 		this.juego=juego;
-		this.botonPagarFianza=botonPagarFianza;
-		this.botonCompra=botonCompra;
+		this.botonCompra = panelJugador.getBotonCompra();
+		this.panelJugador = panelJugador;
+		this.botonPagarFianza=panelJugador.getBotonPagarFianza();
 	}
 
 	@Override
@@ -37,15 +36,13 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 		if(partida.getJugadorActual().puedeMoverse()) {
 			sectorDado.getBotonTirarDado().setDisable(false);
 			btnPasarTurno.setDisable(true);
-			botonPagarFianza.setDisable(true);			
-		}
-		else if(!partida.getJugadorActual().puedeMoverse()){
+			botonPagarFianza.setDisable(true);
+		}else{
 			botonPagarFianza.setDisable(false);
 			juego.update();
 		}
 		botonCompra.setDisable(true);
-		juego.updateVista();
+		juego.updateVistaSuperior();
 	}
 	
-
 }

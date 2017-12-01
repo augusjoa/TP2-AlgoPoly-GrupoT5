@@ -33,13 +33,13 @@ public class Juego extends BorderPane{
 		//vistaLateralDerecha.update();
 	}
 	
-	public void updateVista(){
+	public void updateVistaSuperior(){
 		vistaSuperior.update();
 	}
 	
-	public void updateDinero(){
-		vistaSuperior.updateDinero();
-	}
+	//public void updateDinero(){
+	//	vistaSuperior.updateDinero();
+	//}
 	
 	private void setSuperior(){
 		this.setTop(vistaSuperior);

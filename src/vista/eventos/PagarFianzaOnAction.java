@@ -22,13 +22,11 @@ public class PagarFianzaOnAction implements EventHandler<ActionEvent> {
 
 	Juego juego;
 	AlgoPoly partida;
-	Button botonDado;
 	Button botonPagarFianza;
 	
-	public PagarFianzaOnAction(Juego juego,Button botonDado, Button botonPagarFianza){
+	public PagarFianzaOnAction(Juego juego, Button botonPagarFianza){
 		this.juego=juego;
 		this.partida=juego.partida();
-		this.botonDado=botonDado;
 		this.botonPagarFianza=botonPagarFianza;
 	}
 	
@@ -49,7 +47,8 @@ public class PagarFianzaOnAction implements EventHandler<ActionEvent> {
 			if (result.get() == ButtonType.OK){
 				try{
 					partida.getJugadorActual().pagarFianza((Carcel) casillaActual);
-					juego.updateDinero();
+					//juego.updateDinero();
+		    		juego.updateVistaSuperior();
 					botonPagarFianza.setDisable(true);
 		
 				} catch(JugadorNoPuedePagarFianza excp){
