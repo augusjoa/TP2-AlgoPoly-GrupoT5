@@ -58,7 +58,7 @@ public abstract class Barrio implements Adquirible,Visitable{
 	@Override
 	public void comprar(Jugador unJugador) throws TieneDuenio,DineroInsuficiente{
 		if(!tieneDuenio()){
-			unJugador.getDinero().sustraerDinero(valorDelBarrio);
+			unJugador.sustraerDinero(valorDelBarrio);
 			setDuenio(unJugador);
 		}
 		else throw new TieneDuenio();

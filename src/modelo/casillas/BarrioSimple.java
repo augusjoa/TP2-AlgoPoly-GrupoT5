@@ -36,7 +36,7 @@ public class BarrioSimple extends Barrio {
 	public void agregarCasa(Jugador unJugador) {
 		verificarJugador(unJugador);
 		verificarLimiteDeCasas();
-		jugadorDuenio.getDinero().sustraerDinero(precioCasa);
+		jugadorDuenio.sustraerDinero(precioCasa);
 		valorDelBarrio.agregarDinero(precioCasa);
 		cantidadDeCasas ++;
 	}
@@ -55,8 +55,8 @@ public class BarrioSimple extends Barrio {
 	@Override
 	public void cobrarAlquilerA(Jugador unJugador) {
 		Dinero alquiler = alquileres.get(cantidadDeCasas);
-		unJugador.getDinero().sustraerDinero(alquiler);
-		jugadorDuenio.getDinero().agregarDinero(alquiler);
+		unJugador.sustraerDinero(alquiler);
+		jugadorDuenio.agregarDinero(alquiler);
 	}	
 
 	@Override
