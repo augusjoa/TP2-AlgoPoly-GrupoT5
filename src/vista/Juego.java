@@ -29,17 +29,11 @@ public class Juego extends BorderPane{
 	
 	public void update(){
 		vistaTablero.update();
-		//vistaSuperior.update();
-		//vistaLateralDerecha.update();
 	}
 	
 	public void updateVistaSuperior(){
 		vistaSuperior.update();
 	}
-	
-	//public void updateDinero(){
-	//	vistaSuperior.updateDinero();
-	//}
 	
 	private void setSuperior(){
 		this.setTop(vistaSuperior);

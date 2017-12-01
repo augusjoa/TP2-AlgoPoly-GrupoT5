@@ -1,8 +1,6 @@
 package modelo.casillas;
 
 import org.junit.Test;
-
-import modelo.casillas.Carcel;
 import modelo.casillas.Policia;
 import modelo.Jugador;
 

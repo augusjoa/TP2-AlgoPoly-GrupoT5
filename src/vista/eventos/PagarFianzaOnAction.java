@@ -12,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.casillas.Carcel;
-import modelo.casillas.Quini6;
 import modelo.excepciones.DineroInsuficiente;
 import modelo.excepciones.JugadorNoPuedePagarFianza;
 import modelo.interfaces.Visitable;

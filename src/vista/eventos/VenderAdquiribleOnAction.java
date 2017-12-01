@@ -38,11 +38,10 @@ public class VenderAdquiribleOnAction implements EventHandler<ActionEvent> {
 		stagePagar.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
 		Optional<ButtonType> result = alertaCompra.showAndWait();
 		if (result.get() == ButtonType.OK){
-			//partida.getJugadorActual().vender((Adquirible)casillaActual));
 			((Adquirible)casillaActual).vender(partida.getJugadorActual());
 			System.out.println("vendio");
 			botonVenta.setDisable(true);
-			juego.updateDinero();
+			juego.updateVistaSuperior();
 		}
 	}
 

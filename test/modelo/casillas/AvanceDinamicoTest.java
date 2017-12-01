@@ -2,11 +2,9 @@ package modelo.casillas;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import modelo.casillas.AvanceDinamico;
-import modelo.DobleDado;
 import modelo.Jugador;
-import modelo.Tablero;
+
 
 public class AvanceDinamicoTest {
 	

@@ -5,7 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import vista.eventos.ComprarAdquiribleOnAction;
 import vista.eventos.PagarFianzaOnAction;
+import vista.eventos.VenderAdquiribleOnAction;
 
 public class SectorEconom extends VBox{
 	
@@ -13,7 +15,6 @@ public class SectorEconom extends VBox{
 	private Button botonVender;
 	private Button botonComprar;
 	private Juego juego;
-	private PanelJugador panelJugador;
 	
 	public SectorEconom(Juego juego) {
 		this.juego = juego;
@@ -32,7 +33,7 @@ public class SectorEconom extends VBox{
 		botonComprar.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		botonComprar.setAlignment(Pos.TOP_CENTER);
 		botonComprar.setDisable(true);
-		//botonComprar.setOnAction(new ComprarOnAction(juego, sectorDado.getBotonTirarDado(),botonPagarFianza));
+		botonComprar.setOnAction(new ComprarAdquiribleOnAction(juego,botonPagarFianza));
 		return botonComprar;
 	}
 	
@@ -41,7 +42,7 @@ public class SectorEconom extends VBox{
 		botonVender.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		botonVender.setAlignment(Pos.TOP_CENTER);
 		botonVender.setDisable(true);
-		//botonVender.setOnAction(new PagarFianzaOnAction(juego, sectorDado.getBotonTirarDado(),botonPagarFianza));
+		botonVender.setOnAction(new VenderAdquiribleOnAction(juego, botonVender));
 		return botonVender;
 	}
 	
@@ -62,5 +63,8 @@ public class SectorEconom extends VBox{
 		return botonComprar;
 	}
 	
+	public Button getBotonVenta(){
+		return botonVender;
+	}
 
 }

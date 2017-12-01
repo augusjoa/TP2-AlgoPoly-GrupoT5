@@ -5,7 +5,6 @@ import org.junit.Test;
 import modelo.casillas.Carcel;
 import modelo.excepciones.DineroInsuficiente;
 import modelo.excepciones.JugadorNoPuedePagarFianza;
-import modelo.AlgoPoly;
 import modelo.Dinero;
 import modelo.Jugador;
 

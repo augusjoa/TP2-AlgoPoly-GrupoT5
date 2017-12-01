@@ -3,7 +3,6 @@ package vista.eventos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import modelo.AlgoPoly;
 import vista.Juego;
 import vista.PanelJugador;
@@ -17,7 +16,6 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 	private SectorDado sectorDado;
 	private Button btnPasarTurno;
 	private Button botonPagarFianza;
-	private PanelJugador panelJugador;
 	
 	public PasarTurnoOnAction(Juego juego, SectorDado sectorDado, Button btnPasarTurno, PanelJugador panelJugador) {
 		this.juego= juego;
@@ -26,7 +24,6 @@ public class PasarTurnoOnAction implements EventHandler<ActionEvent> {
 		this.btnPasarTurno = btnPasarTurno;
 		this.juego=juego;
 		this.botonCompra = panelJugador.getBotonCompra();
-		this.panelJugador = panelJugador;
 		this.botonPagarFianza=panelJugador.getBotonPagarFianza();
 	}
 

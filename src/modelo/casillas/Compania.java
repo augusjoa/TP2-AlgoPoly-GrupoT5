@@ -74,6 +74,7 @@ public abstract class Compania implements Adquirible,Visitable {
 	public void comprar(Jugador unJugador) throws TieneDuenio,DineroInsuficiente{
 		if(!tieneDuenio()){
 			unJugador.sustraerDinero(costoDeLaCompania);
+			unJugador.comprar(this);
 			setDuenio(unJugador);
 		}
 		else throw new TieneDuenio();
@@ -87,8 +88,8 @@ public abstract class Compania implements Adquirible,Visitable {
 			Dinero costoConRetencion = new Dinero(costoDeLaCompania);
 			costoConRetencion.aplicarImpuesto(porcentajeRetencionDeVenta);
 			unJugador.agregarDinero(costoConRetencion);
+			unJugador.vender(this);
 			this.duenio=null;
-			//System.out.println("El duenio es :"+duenio);
 		}	
 	}
 	

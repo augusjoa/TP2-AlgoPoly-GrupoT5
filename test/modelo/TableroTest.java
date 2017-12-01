@@ -2,8 +2,6 @@ package modelo;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import modelo.casillas.*;
 import modelo.interfaces.Visitable;
 
 public class TableroTest {

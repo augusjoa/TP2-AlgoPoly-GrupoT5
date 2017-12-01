@@ -10,15 +10,10 @@ import vista.eventos.SeleccionDeCasillaOnAction;
 
 public class VistaCasillero {
 
-	private Tablero tablero;
 	private Visitable casillero;
 	private Button botonCasillero;	
-	private Juego juego;
 	
 	public VistaCasillero(Tablero tablero,int posEnLista, Juego juego){
-		
-		this.juego = juego;
-		this.tablero=tablero;
 		this.casillero=tablero.getCasillero(posEnLista);
 		this.botonCasillero = new Button();
 		this.botonCasillero.setOnAction(new SeleccionDeCasillaOnAction(tablero.getCasillero(posEnLista), juego));

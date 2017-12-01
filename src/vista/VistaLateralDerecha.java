@@ -4,7 +4,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import modelo.AlgoPoly;
@@ -22,12 +21,6 @@ public class VistaLateralDerecha extends VBox {
 		Label indicaTurnoInicial = new Label("Es el turno de: Jugador "+ unaPartida.getJugadorActual().getNumeroDelJugador());
 		indicaTurnoInicial.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		indicaTurnoInicial.setAlignment(Pos.BASELINE_CENTER);
-		Color algo[];
-		algo = new Color[] {
-			Color.BLACK,
-			Color.GREEN,
-			Color.BLUE
-		};
 		
 		panelInfo = new VBox();
 		panelInfo.setPrefWidth(300);

@@ -28,8 +28,4 @@ public class VistaSuperior extends VBox {
 		unPanelJugador.update();
 	}
 	
-	//public void updateDinero(){
-		//unPanelJugador.updateDineroJugador();
-		//unPanelJugador.update();
-	//}
 }

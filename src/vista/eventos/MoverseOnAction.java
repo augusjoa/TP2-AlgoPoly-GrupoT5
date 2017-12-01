@@ -21,6 +21,7 @@ import modelo.casillas.RetrocesoDinamico;
 import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 import vista.Juego;
+import vista.PanelJugador;
 
 
 public class MoverseOnAction implements EventHandler<ActionEvent> {
@@ -30,13 +31,13 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	Button botonPagarFianza;
 	Button botonCompra;
 	Button botonVenta;
-	
-	public MoverseOnAction(AlgoPoly unAlgoPoly,Juego juego,Button botonPagarFianza,Button botonCompra,Button botonVenta) {
-		this.partida = unAlgoPoly;
+
+	public MoverseOnAction(Juego juego, AlgoPoly unAlgoPoly,PanelJugador panelJugador) {
 		this.juego = juego;
-		this.botonPagarFianza=botonPagarFianza;
-		this.botonCompra=botonCompra;
-		this.botonVenta=botonVenta;
+		this.partida = unAlgoPoly;
+		this.botonPagarFianza= panelJugador.getBotonPagarFianza();
+		this.botonCompra = panelJugador.getBotonCompra();
+		this.botonVenta = panelJugador.getBotonVenta();
 	}
 	
 	@Override
@@ -84,7 +85,7 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
     	stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){
-    		juego.updateDinero();
+    		juego.updateVistaSuperior();
     	}
 	}
 
@@ -93,7 +94,6 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 		if(partida.getJugadorActual().getCasillaActual() == partida.tablero().getCarcel()){
 			String texto= "Se encuentra atrapado en la carcel, deberá pagar una fianza en los proximos turnos o esperar a ser liberado";
 			crearAlerta(casillaActual.getNombre(),texto);
-			botonPagarFianza.setDisable(false);
 		}
 	}
 	
@@ -113,7 +113,8 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	    	stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
 	    	Optional<ButtonType> result = alert.showAndWait();
 	    	if (result.get() == ButtonType.OK || result.get() == ButtonType.CLOSE){
-	    		juego.updateDinero();
+	    		//
+	    		juego.updateVistaSuperior();
 	    	}
 		}
 	}

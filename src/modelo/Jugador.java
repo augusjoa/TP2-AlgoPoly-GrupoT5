@@ -10,7 +10,6 @@ import modelo.casillas.Compania;
 import modelo.estadoJugador.Encarcelado;
 import modelo.estadoJugador.EstadoJugador;
 import modelo.estadoJugador.Libre;
-import modelo.interfaces.Adquirible;
 import modelo.interfaces.Visitable;
 
 
@@ -19,7 +18,6 @@ public class Jugador {
 	
 	private int numeroDelJugador;
 	private Dinero dinero = new Dinero(100000);
-	//private boolean detenido = false;	
 	private Collection <Barrio> barriosAdquiridos = new HashSet<Barrio>();
 	private Collection <Compania> companiasAdquiridas = new HashSet<Compania>();
 	private DobleDado dado = new DobleDado();
@@ -54,22 +52,18 @@ public class Jugador {
 	}
 
 	public void comprar(Barrio unBarrio) {
-		unBarrio.comprar(this);
 		barriosAdquiridos.add(unBarrio);		
 	}
 	
 	public void comprar(Compania unaCompania) {	
-		unaCompania.comprar(this);
 		companiasAdquiridas.add(unaCompania);		
 	}
 
 	public void vender(Barrio unBarrio) {
-		unBarrio.vender(this);
 		barriosAdquiridos.remove(unBarrio);
 	}
 	
 	public void vender(Compania unaCompania) {
-		unaCompania.vender(this);
 		companiasAdquiridas.remove(unaCompania);
 	}
 	
@@ -88,14 +82,6 @@ public class Jugador {
 		return dado.getDobleDado();
 	}
 
-/*	public void jugadorDetenido() {
-		detenido = true;
-	}
-	
-	/public void jugadorLiberado() {
-		detenido = false;
-	}
-*/
 	public boolean puedeMoverse() {
 		return this.estado.puedeMoverse();
 	}
