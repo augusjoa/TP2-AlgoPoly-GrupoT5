@@ -104,7 +104,7 @@ public abstract class Compania implements Adquirible,Visitable {
 			lduenio.setText("Duenio: Sin Duenio");
 		}
 		else{
-			lduenio.setText("Duenio: "+Integer.toString(this.getDuenio().getNumeroDelJugador()));
+			lduenio.setText("Duenio: Jugador "+Integer.toString(this.getDuenio().getNumeroDelJugador()));
 		}
 		lduenio.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
 		lduenio.setWrapText(true);

@@ -129,9 +129,9 @@ public class BarrioDoble extends Barrio {
 		
 		Label duenio = new Label("");
 		if(jugadorDuenio == null) {
-			duenio.setText("Dueño: Sin Dueño");
+			duenio.setText("Duenio: Sin Duenio");
 		}else {
-			duenio.setText("Dueño: Jugador " +jugadorDuenio.getNumeroDelJugador());
+			duenio.setText("Duenio: Jugador " +jugadorDuenio.getNumeroDelJugador());
 		}
 		
 		duenio.setFont(Font.font("Consolas", FontWeight.BOLD, 14));
