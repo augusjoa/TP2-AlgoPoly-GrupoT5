@@ -26,7 +26,6 @@ public class VistaTablero extends GridPane {
 	int posEnLista[]={0,19,18,17,16,15,1,14,2,13,3,12,4,11,5,6,7,8,9,10};
 	int posX[]={5,4,3,2,1,0,0,0,0,0,0,1,2,3,4,5,5,5,5,5};
 	int posY[]={5,5,5,5,5,5,4,3,2,1,0,0,0,0,0,0,1,2,3,4};
-	VistaJugador[] vistaJugador;
 	
 	public VistaTablero(Juego juego){
 		this.juego = juego;
@@ -90,7 +89,6 @@ public class VistaTablero extends GridPane {
 	private void agregarJugadores(AlgoPoly partida){
 		
 		for(int i=1; i<=AlgoPoly.cantidadDeJugadores;i++){
-			vistaJugador = new VistaJugador[i];
 			Visitable casillaActualDelJugador = partida.getJugadorActual().getCasillaActual();
 			int posicionJugador = tablero.getPosDeCasilla(casillaActualDelJugador);
 			VistaJugador vistaJugador = new VistaJugador(partida,partida.getTurnoDeJugador(i-1));
