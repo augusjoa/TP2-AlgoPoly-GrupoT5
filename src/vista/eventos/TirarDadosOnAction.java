@@ -42,18 +42,19 @@ public class TirarDadosOnAction implements EventHandler<ActionEvent> {
 		textoDados.setTextFill(Color.BLACK);
 		textoDados.setFont(Font.font("Consolas", FontWeight.BOLD, 20));
 		unAlgoPoly.getJugadorActual().tirarDados();
-
 	
 		if(unAlgoPoly.getJugadorActual().tiradaInvalida()) {
 			textoDados.setFont(Font.font("Consolas", FontWeight.BOLD, 15));
 			textoDados.setText("Dados Iguales!");
 			textoDados.setTextFill(Color.RED);
-		}else {
+		}
+		else {
 			botonTirarDados.setDisable(true);
 			btnPasarTurno.setDisable(false);
 			textoDados.setText(""+unAlgoPoly.getJugadorActual().getNumeroDelDado());
 			new MoverseOnAction(unJuego, unAlgoPoly, panelJugador).handle(null);
 		}
+		
 		
 	}
 	

@@ -59,8 +59,7 @@ public class AlgoPoly {
 		
 		jugadorActual = siguienteJugador();
 		jugadorActual.iniciarTurno();
-		//
-		//jugadorActual.pasarTurno() pone en false los "movimientos";
+		
 		if(jugadorPerdio())	borrarJugador();
 		
 	}
