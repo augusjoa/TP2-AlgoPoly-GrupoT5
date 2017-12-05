@@ -12,5 +12,6 @@ public interface Adquirible {
 	public abstract void setDuenio(Jugador unJugador);
 	public abstract void comprar(Jugador unJugador);
 	public abstract void vender(Jugador unJugador);
+	public abstract boolean tieneDuenio();
 	
 }

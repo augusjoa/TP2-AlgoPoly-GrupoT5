@@ -24,6 +24,7 @@ public abstract class Barrio implements Adquirible,Visitable{
 		if(jugadorDuenio != unJugador) throw new JugadorInvalido();
 	}
 	
+	@Override
 	public boolean tieneDuenio(){
 		return jugadorDuenio != null;
 	}

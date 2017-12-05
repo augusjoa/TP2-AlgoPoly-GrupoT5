@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import modelo.AlgoPoly;
 import modelo.Jugador;
 import modelo.casillas.AvanceDinamico;
+import modelo.casillas.Barrio;
+import modelo.casillas.Compania;
 import modelo.casillas.ImpuestoAlLujo;
 import modelo.casillas.Quini6;
 import modelo.casillas.RetrocesoDinamico;
@@ -52,6 +54,7 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 		//alertaAlCaerEnAvance();
 		//alertaAlCaerEnRetroceso();
 		
+		alertaCobrarAlquiler();
 		alertaAlCaerEnCarcel();
 		alertaAlCaerEnQuini6();
 		alertaAlCaerEnImpuesto();
@@ -90,10 +93,29 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
     		juego.updateVistaSuperior();
     	}
 	}
+	
+	private void alertaCobrarAlquiler(){
+		Jugador jugadorActual = partida.getJugadorActual();
+		Visitable casillaActual = jugadorActual.getCasillaActual();
+		if((casillaActual instanceof Compania || casillaActual instanceof Barrio) && ((Adquirible) casillaActual).tieneDuenio() && ((Adquirible) casillaActual).getDuenio()!=jugadorActual){
+			String texto="Has caido en una propiedad con duenio, deberas pagar el monto adecuado";
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle(casillaActual.getNombre());
+	    	alert.setHeaderText("");
+	    	alert.setContentText(texto);
+	    	Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+	    	stage.setOnCloseRequest(e->e.consume());
+	    	stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
+	    	Optional<ButtonType> result = alert.showAndWait();
+	    	if (result.get() == ButtonType.OK || result.get() == ButtonType.CLOSE){
+	    		juego.updateVistaSuperior();
+	    	}
+		}
+	}
 
 	private void alertaAlCaerEnCarcel() {
 		Visitable casillaActual= partida.getJugadorActual().getCasillaActual();
-		if(partida.getJugadorActual().getCasillaActual() == partida.tablero().getCarcel()){
+		if(casillaActual == partida.tablero().getCarcel()){
 			String texto= "Se encuentra atrapado en la carcel, deberá pagar una fianza en los proximos turnos o esperar a ser liberado";
 			crearAlerta(casillaActual.getNombre(),texto);
 		}
@@ -115,7 +137,6 @@ public class MoverseOnAction implements EventHandler<ActionEvent> {
 	    	stage.getIcons().add(new Image(getClass().getResourceAsStream("../img/icon.png")));
 	    	Optional<ButtonType> result = alert.showAndWait();
 	    	if (result.get() == ButtonType.OK || result.get() == ButtonType.CLOSE){
-	    		//
 	    		juego.updateVistaSuperior();
 	    	}
 		}
