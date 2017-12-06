@@ -55,7 +55,7 @@ public class Jugador {
 		barriosAdquiridos.add(unBarrio);		
 	}
 	
-	public void comprar(Compania unaCompania) {	
+	public void comprar(Compania unaCompania) {
 		companiasAdquiridas.add(unaCompania);		
 	}
 

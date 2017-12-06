@@ -14,8 +14,8 @@ public class EdesurTest {
 		Compania aysa = new Aysa();
 		Compania edesur = new Edesur();
 		
-		jugador.comprar(aysa);
-		jugador.comprar(edesur);
+		aysa.comprar(jugador);
+		edesur.comprar(jugador);
 		
 		edesur.setOtraCompania(aysa);
 		
@@ -26,7 +26,7 @@ public class EdesurTest {
 	public void unJugadorQueNoEsDuenioCaeEnEdesur(){
 		Jugador jugadorDuenio = new Jugador(0);
 		Compania edesur = new Edesur();
-		jugadorDuenio.comprar(edesur);
+		edesur.comprar(jugadorDuenio);
 		
 		Jugador jugador = new Jugador(1);
 		Dinero dineroInicial = new Dinero(jugador.getDinero());
@@ -44,9 +44,8 @@ public class EdesurTest {
 		Compania aysa = new Aysa();
 		Compania edesur = new Edesur();
 		edesur.setOtraCompania(aysa);		
-		
-		jugadorDuenio.comprar(aysa);
-		jugadorDuenio.comprar(edesur);
+		aysa.comprar(jugadorDuenio);
+		edesur.comprar(jugadorDuenio);
 		
 		Jugador jugador = new Jugador(1);
 		Dinero dineroInicial = new Dinero(jugador.getDinero());

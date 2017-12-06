@@ -14,9 +14,8 @@ public class AysaTest {
 		Jugador jugador = new Jugador(0);
 		Compania aysa = new Aysa();
 		Compania edesur = new Edesur();
-		
-		jugador.comprar(aysa);
-		jugador.comprar(edesur);
+		aysa.comprar(jugador);
+		edesur.comprar(jugador);
 		
 		aysa.setOtraCompania(edesur);
 		
@@ -28,8 +27,7 @@ public class AysaTest {
 		
 		Jugador jugadorDuenio = new Jugador(0);
 		Compania aysa = new Aysa();
-		jugadorDuenio.comprar(aysa);
-		
+		aysa.comprar(jugadorDuenio);		
 		Jugador jugador = new Jugador(1);
 		Dinero dineroInicial = new Dinero(jugador.getDinero());
 		jugador.tirarDados();
@@ -47,8 +45,8 @@ public class AysaTest {
 		Compania edesur = new Edesur();
 		aysa.setOtraCompania(edesur);		
 		
-		jugadorDuenio.comprar(aysa);
-		jugadorDuenio.comprar(edesur);
+		aysa.comprar(jugadorDuenio);
+		edesur.comprar(jugadorDuenio);
 		
 		Jugador jugador = new Jugador(1);
 		Dinero dineroInicial = new Dinero(jugador.getDinero());

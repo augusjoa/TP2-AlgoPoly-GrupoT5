@@ -18,11 +18,10 @@ public class BarrioSimple extends Barrio {
 	private Dinero precioCasa;
     private Hashtable<Integer, Dinero> alquileres = new Hashtable<Integer, Dinero>();
 
-
 	public BarrioSimple(int precioDelBarrio, int unprecioCasa, int alquilersincasa, int alquilerconcasa, String unNombre) {
 		
 		valorDelBarrio = new Dinero(precioDelBarrio);
-		nombre=unNombre;
+		nombre = unNombre;
 		precioCasa = new Dinero(unprecioCasa);
 		alquileres.put(0, new Dinero (alquilersincasa));
 		alquileres.put(1, new Dinero (alquilerconcasa));

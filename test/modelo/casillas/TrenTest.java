@@ -15,8 +15,8 @@ public class TrenTest {
 		Compania subte = new Subte();
 		Compania tren = new Tren();
 		
-		jugador.comprar(subte);
-		jugador.comprar(tren);
+		subte.comprar(jugador);
+		tren.comprar(jugador);
 		
 		subte.setOtraCompania(tren);
 		
@@ -27,7 +27,7 @@ public class TrenTest {
 	public void unJugadorQueNoEsDuenioCaeEnTren(){
 		Jugador jugadorDuenio = new Jugador(0);
 		Compania tren = new Tren();
-		jugadorDuenio.comprar(tren);
+		tren.comprar(jugadorDuenio);
 		
 		Jugador jugadorNoDuenio = new Jugador(1);
 		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
@@ -46,8 +46,8 @@ public class TrenTest {
 		Compania tren = new Tren();
 		tren.setOtraCompania(subte);
 		
-		jugadorDuenio.comprar(subte);
-		jugadorDuenio.comprar(tren);
+		subte.comprar(jugadorDuenio);
+		tren.comprar(jugadorDuenio);
 		
 		Jugador jugadorNoDuenio = new Jugador(1);
 		Dinero dineroInicial = new Dinero(jugadorNoDuenio.getDinero());
